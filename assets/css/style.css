@@ -171,7 +171,7 @@ a {
     background-color: var(--primary-color);
     margin: 0;
     padding: 0;
-    height: calc(100vh - 124px);
+    height: calc(100vh - 80px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -180,7 +180,7 @@ a {
 .slider {
     /* width: 800px; */
     width: 100vw;
-    height: calc(100vh - 124px);
+    height: calc(100vh - 80px);
     overflow: hidden;
 }
 
@@ -202,7 +202,7 @@ a {
 .slide img {
     /* width: 800px; */
     width: 100vw;
-    height: calc(100vh - 124px);
+    height: calc(100vh - 80px);
     object-fit: cover;
     object-position: center;
 }
