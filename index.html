@@ -123,8 +123,54 @@
                 </div>
             </div>
         </div>
-        <div class="hero"></div>
-        <!-- </header> -->
+        <div class="content_2">
+            <div class="slider">
+                <div class="slides">
+                    <!-- Tao cac nut bam -->
+                    <input type="radio" name="radio-btn" id="radio1" />
+                    <input type="radio" name="radio-btn" id="radio2" />
+                    <input type="radio" name="radio-btn" id="radio3" />
+                    <input type="radio" name="radio-btn" id="radio4" />
+                    <!-- Tai len cac anh -->
+                    <div class="slide first">
+                        <img src="./assets/img/background_1.jpg" alt="" />
+                    </div>
+                    <div class="slide">
+                        <img src="./assets/img/background_2.jpg" alt="" />
+                    </div>
+                    <div class="slide">
+                        <img src="./assets/img/background_3.jpg" alt="" />
+                    </div>
+                    <div class="slide">
+                        <img src="./assets/img/background_4.jpg" alt="" />
+                    </div>
+                    <!-- Tu dong chuyen slide -->
+                    <div class="navigation_auto">
+                        <div class="auto_btn1"></div>
+                        <div class="auto_btn2"></div>
+                        <div class="auto_btn3"></div>
+                        <div class="auto_btn4"></div>
+                    </div>
+                    <!-- Thu cong -->
+                    <div class="navigation_manual">
+                        <label for="radio1" class="manual_btn"></label>
+                        <label for="radio2" class="manual_btn"></label>
+                        <label for="radio3" class="manual_btn"></label>
+                        <label for="radio4" class="manual_btn"></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            var counter = 1;
+            setInterval(function () {
+                document.getElementById("radio" + counter).checked = true;
+                counter++;
+                if (counter > 4) {
+                    counter = 1;
+                }
+            }, 5000);
+        </script>
         <div class="service">
             <div class="sub_content">
                 <ul class="list">
