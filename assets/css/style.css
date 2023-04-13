@@ -163,7 +163,7 @@ a {
 }
 /* slide show */
 .content_2 {
-    background-color: red;
+    background-color: var(--primary-color);
     margin: 0;
     padding: 0;
     height: calc(100vh - 124px);
