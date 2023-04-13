@@ -68,6 +68,7 @@ a {
 .navbar .logo img {
     width: 150px;
     height: 84px;
+    border-radius: 10px;
 }
 
 .navbar .logo:hover {
