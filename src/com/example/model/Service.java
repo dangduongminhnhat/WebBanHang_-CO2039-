@@ -4,7 +4,7 @@ import com.example.model.user.*;
 import java.util.*;
 
 public abstract class Service {
-    protected static ArrayList<ProductForSale> products;//list of all products in store
+    public static ArrayList<ProductForSale> products;//list of all products in store
     protected static ArrayList<ProductForSale> providers;//list of all providers in market
     protected static ArrayList<ProductForSale> newProducts;//list of new products
     protected static ArrayList<ProductForSale> saleOffProducts;//list of saleOffProducts
