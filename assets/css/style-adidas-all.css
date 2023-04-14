@@ -1,5 +1,6 @@
 .selection {
-    background-color: #f1f1f1;
+    height: 100vh;
+    background-color: var(--grey-color);
 }
 
 .selection .home-filter {

@@ -9,13 +9,14 @@ html {
     --color-shoes: #5b5b5b;
     --color-star: #edb867;
     --text-color: #4f5361;
+    --grey-color: #f1f1f1;
+    --red-color: rgba(228, 30, 63, 1);
 }
 
 body {
     font-size: 1.6rem;
-    font-family: "Montserrat", "POPPINS", Roboto, "Helvetica Neue", Arial,
-        "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji",
-        "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: "Montserrat", "POPPINS", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 @keyframes fadeIn {
@@ -67,7 +68,7 @@ a {
 }
 
 .select-input_label {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
 }
 
 .select-input_icon {
@@ -85,17 +86,17 @@ a {
     right: 0;
     top: 34px;
     border-radius: 2px;
+    border: 1px;
     background-color: #fff;
-    padding: 8px 16px;
-    display: none;
 }
 
 .select-input_link {
-    font-size: 1.2rem;
-    color: var(--text-color);
+    width: 100%;
+    font-size: 1.6rem;
     text-decoration: none;
     display: block;
-    padding: 4px 0;
+    padding: 10px 12px;
+    border-top: 1px solid red;
 }
 .select-input_link:hover {
     background-color: var(--primary-color);
