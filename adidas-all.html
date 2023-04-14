@@ -1,10 +1,266 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <link rel="stylesheet" href="./assets/css/reset.css" />
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+        <!-- Favicon -->
+        <link rel="apple-touch-icon" sizes="57x57" href="./assets/favicon/apple-icon-57x57.png" />
+        <link rel="apple-touch-icon" sizes="60x60" href="./assets/favicon/apple-icon-60x60.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="./assets/favicon/apple-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="./assets/favicon/apple-icon-76x76.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="./assets/favicon/apple-icon-114x114.png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="./assets/favicon/apple-icon-120x120.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="./assets/favicon/apple-icon-144x144.png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="./assets/favicon/apple-icon-152x152.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-icon-180x180.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="./assets/favicon/android-icon-192x192.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="96x96" href="./assets/favicon/favicon-96x96.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png" />
+        <link rel="manifest" href="./assets/favicon/manifest.json" />
+        <meta name="msapplication-TileColor" content="#ffffff" />
+        <meta name="msapplication-TileImage" content="./assets/favicon/ms-icon-144x144.png" />
+        <meta name="theme-color" content="#ffffff" />
+        <!-- Awesome -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="./assets/css/base.css" />
+        <link rel="stylesheet" href="./assets/css/style.css" />
+        <link rel="stylesheet" href="./assets/css/style-adidas-all.css" />
+
+        <title>Thợ Code Bán Giày</title>
     </head>
-    <body></body>
+    <body>
+        <div class="content_1">
+            <div class="sub_content">
+                <div class="navbar">
+                    <!-- Logo -->
+                    <a href="index.html" class="logo">
+                        <img src="./assets/img/logo.png" alt="Thợ Code Bán Giày" />
+                        <!-- <div class="brand">Thợ Code Bán Giày</div> -->
+                    </a>
+                    <!-- Navigation -->
+                    <ul class="list">
+                        <li>
+                            <a href="#!"><i>THƯƠNG HIỆU</i></a>
+                            <ul class="sub-list">
+                                <li>
+                                    <a href="#!">Nike</a>
+                                </li>
+                                <li>
+                                    <a href="adidas-all.html">Adidas</a>
+                                </li>
+                                <li>
+                                    <a href="#!">Vans</a>
+                                </li>
+                                <li>
+                                    <a href="#!">Biti's</a>
+                                </li>
+                                <li>
+                                    <a href="#!">Converse</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#!"><i>PHÂN LOẠI</i></a>
+                            <ul class="sub-list">
+                                <li>
+                                    <a href="#!">Giày nam</a>
+                                </li>
+                                <li>
+                                    <a href="#!">Giày nữ</a>
+                                </li>
+                                <li>
+                                    <a href="#!">Giày đi chơi</a>
+                                </li>
+                                <li>
+                                    <a href="#!">Giày tennis</a>
+                                </li>
+                                <li>
+                                    <a href="#!">Giày cầu lông</a>
+                                </li>
+                                <li>
+                                    <a href="#!">Giày bóng rổ</a>
+                                </li>
+                                <li>
+                                    <a href="#!">Giày chạy bộ - Tập gym</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#!"><i>KHUYẾN MÃI</i></a>
+                            <ul class="sub-list">
+                                <li>
+                                    <a href="#!">KHUYẾN MÃI 10%</a>
+                                </li>
+                                <li>
+                                    <a href="#!">KHUYẾN MÃI 30%</a>
+                                </li>
+                                <li>
+                                    <a href="#!">KHUYẾN MÃI 50%</a>
+                                </li>
+                                <li>
+                                    <a href="#!">KHUYẾN MÃI 70%</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#!"><i>SẢN PHẨM MỚI</i></a>
+                        </li>
+                        <li>
+                            <a href="#!"><i>HỖ TRỢ</i></a>
+                        </li>
+                    </ul>
+                    <!-- Searchbar -->
+                    <div class="header_search">
+                        <input type="text" class="header_search-input" placeholder="Tìm kiếm sản phẩm" />
+                        <button class="header_search-btn">
+                            <i class="header_search-btn-icon fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+                    <!-- Action -->
+                    <div class="action">
+                        <a href="#!" class="action-btn">
+                            <i class="fa-regular fa-user"></i>
+                        </a>
+                        <div class="header_cart">
+                            <div class="header_cart-wrap">
+                                <a href="#!" class="action-btn cart">
+                                    <i class="header_cart-icon fa-solid fa-cart-plus"></i>
+                                    <span class="header_cart-notice">3</span>
+                                </a>
+                                <!--No cart: header_cart-list--no-cart -->
+                                <div class="header_cart-list">
+                                    <img src="./assets/img/no_cart.jpg" alt="" class="header_cart-no-cart-img" />
+                                    <div class="header_cart-list-no-cart-msg">Chưa Có Sản Phẩm</div>
+
+                                    <!-- Cart Cart Cart -->
+                                    <h4 class="header_cart-heading">Sản Phẩm Đã Thêm</h4>
+                                    <ul class="header_cart-list-item">
+                                        <!-- Cart item -->
+                                        <li>
+                                            <a href="#!" class="header_cart-anchor header_cart-item">
+                                                <div class="img-wrap">
+                                                    <img
+                                                        src="./assets/img/air force 1.jpg"
+                                                        alt="air force 1"
+                                                        class="header_cart-img" />
+                                                </div>
+                                                <div class="header_cart-item-info">
+                                                    <div class="header_cart-item-head">
+                                                        <div class="header_cart-item-name">AIR FORCE 1</div>
+                                                        <div class="header_cart-item-head">
+                                                            <span class="header_cart-item-price">3.200.000đ</span>
+                                                            <span class="header_cart-item-multiply">x</span>
+                                                            <span class="header_cart-item-qnt">2</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="header_cart-item-body">
+                                                        <span class="header_cart-item-description">
+                                                            Size Giày: 41
+                                                        </span>
+                                                        <span class="header_cart-item-remove">Xóa</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#!" class="header_cart-anchor header_cart-item">
+                                                <div class="img-wrap">
+                                                    <img
+                                                        src="./assets/img/adidas ultra 4dfwd.jpg"
+                                                        alt="adidas ultra 4dfwd"
+                                                        class="header_cart-img" />
+                                                </div>
+                                                <div class="header_cart-item-info">
+                                                    <div class="header_cart-item-head">
+                                                        <div class="header_cart-item-name">ADIDAS ULTRA 4DFWD</div>
+                                                        <div class="header_cart-item-head">
+                                                            <span class="header_cart-item-price">5.800.000đ</span>
+                                                            <span class="header_cart-item-multiply">x</span>
+                                                            <span class="header_cart-item-qnt">2</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="header_cart-item-body">
+                                                        <span class="header_cart-item-description">
+                                                            Size Giày: 43
+                                                        </span>
+                                                        <span class="header_cart-item-remove">Xóa</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#!" class="header_cart-anchor header_cart-item">
+                                                <div class="img-wrap">
+                                                    <img
+                                                        src="./assets/img/nike air max excee.jpeg"
+                                                        alt="nike air max"
+                                                        class="header_cart-img" />
+                                                </div>
+                                                <div class="header_cart-item-info">
+                                                    <div class="header_cart-item-head">
+                                                        <div class="header_cart-item-name">NIKE AIR MAX EXCEE</div>
+                                                        <div class="header_cart-item-head">
+                                                            <span class="header_cart-item-price">2.900.000đ</span>
+                                                            <span class="header_cart-item-multiply">x</span>
+                                                            <span class="header_cart-item-qnt">2</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="header_cart-item-body">
+                                                        <span class="header_cart-item-description">
+                                                            Size Giày: 39
+                                                        </span>
+                                                        <span class="header_cart-item-remove">Xóa</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <a href="#!" class="header_cart-view-cart action-btn"> Xem Giỏ Hàng </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="selection">
+            <div class="sub_content">
+                <div class="home-filter">
+                    <div class="select-input">
+                        <span class="select-input_label"> Giá </span>
+                        <i class="select-input_icon fa-solid fa-chevron-down"></i>
+                        <ul class="select-input_list">
+                            <li class="select-input_item">
+                                <a href="#!" class="select-input_link">Giá: Thấp đến cao</a>
+                            </li>
+                            <li class="select-input_item">
+                                <a href="#!" class="select-input_link">Giá: Cao đến thấp</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="home-filter_page">
+                        <span class="home-filter_page-num"> <span class="home-filter_page-current">1</span>/3 </span>
+
+                        <div class="home-filter_page-control">
+                            <a href="" class="home-filter_page-btn">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </a>
+                            <a href="" class="home-filter_page-btn">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>

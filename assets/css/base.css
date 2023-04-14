@@ -1,0 +1,102 @@
+/* General */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    --primary-color: #fed700;
+    --color-shoes: #5b5b5b;
+    --color-star: #edb867;
+    --text-color: #4f5361;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: "Montserrat", "POPPINS", Roboto, "Helvetica Neue", Arial,
+        "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji",
+        "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+.sub_content {
+    min-width: 1100px;
+    max-width: calc(100% - 100px);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.action-btn {
+    display: inline-block;
+    min-width: 50px;
+    background: #fff;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 2.2rem;
+    text-align: center;
+    padding: 14px 10px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+/* Selection */
+
+.select-input {
+    position: relative;
+    min-width: 200px;
+    height: 34px;
+    padding: 0 12px;
+    border-radius: 2px;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.select-input_label {
+    font-size: 1.4rem;
+}
+
+.select-input_icon {
+    font-size: 1.4rem;
+    color: rgb(131, 131, 131);
+    position: relative;
+    top: 1px;
+}
+.select-input:hover .select-input_list {
+    display: block;
+}
+.select-input_list {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 34px;
+    border-radius: 2px;
+    background-color: #fff;
+    padding: 8px 16px;
+    display: none;
+}
+
+.select-input_link {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    text-decoration: none;
+    display: block;
+    padding: 4px 0;
+}
+.select-input_link:hover {
+    background-color: var(--primary-color);
+}
