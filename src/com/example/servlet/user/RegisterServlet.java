@@ -21,7 +21,7 @@ public class RegisterServlet extends HttpServlet {
             view.forward(request, response);
         }
         else if(isValidPassword(password) == false) {
-            request.setAttribute("message", "Mật khẩu phải có tối thiểu 8 ký tự");
+            request.setAttribute("message", "Mật khẩu phải có tối thiểu 4 ký tự");
             RequestDispatcher view = request.getRequestDispatcher("register.jsp");
             view.forward(request, response);    
         }
@@ -31,8 +31,14 @@ public class RegisterServlet extends HttpServlet {
                 RequestDispatcher view = request.getRequestDispatcher("register.jsp");
                 view.forward(request, response);
             }
+            else if(ClientService.isExistedUserId(userId) == true) {
+                request.setAttribute("message", "Id tài khoản đã được sử dụng");
+                RequestDispatcher view = request.getRequestDispatcher("register.jsp");
+                view.forward(request, response);
+            }
             else {
                 User user = ClientService.register(fullName, phoneNums, userId, password);
+                user.setActiveLoginState();
                 request.setAttribute("user", user);
                 RequestDispatcher view = request.getRequestDispatcher("index.jsp");
                 view.forward(request, response);
@@ -41,7 +47,7 @@ public class RegisterServlet extends HttpServlet {
     }   
 
     private boolean isValidPassword(String password) {
-        if(password.length() < 8) return false;
+        if(password.length() < 4) return false;
         return true;
     }    
 }

@@ -4,35 +4,65 @@ import java.io.*;
 import java.util.*;
 
 public class User {
+    public User() {}
     public User(String fullName, String phoneNums, String userId, String password) {
         this.fullName = fullName;
         this.phoneNums = phoneNums;
         this.userId = userId;
         this.password = password;
+        bankAcc = new BankAccount();
+        buyingHistory = new BuyingHistory();
+        cartState = new CartState();
+        orderState = new OrderState();
     }
-    class BankAccount {
+    public class BankAccount {
+        public BankAccount() {
+            this.balance = 50000000;
+        }
+        public BankAccount(int balance) {
+            this.balance = balance;
+        }
         private int balance;
         public int getBalance() {return balance;}
         public boolean pay(int money) {
-            return balance - money > 0;
+            if(balance - money > 0) {
+                balance -= money;
+                return true;
+            }
+            return false;
         }
         public void deposit(int money) {
             balance += money;
         }
     }
     public class CartState {
+        public CartState() {
+            products = new ArrayList<ProductForSale>();
+            quantityEachProduct = new ArrayList<Integer>();
+            totalCost = 0;
+        }
         /*Product number 1 have quantity is value at index of quantityEachProduct*/
         public ArrayList<ProductForSale> products;
         public ArrayList<Integer> quantityEachProduct;
         public int totalCost;
+        public int totalQuantity;
     }
     public class BuyingHistory {
         /*Product number 1 have quantity is value at index of quantityEachProduct*/
+        public BuyingHistory() {
+            products = new ArrayList<ProductForSale>();
+            quantityEachProduct = new ArrayList<Integer>();
+            totalCost = 0;
+        }
         public ArrayList<ProductForSale> products;
         public ArrayList<Integer> quantityEachProduct;
         public int totalCost;
     }
     public class OrderState {
+        public OrderState() {
+            products = new ArrayList<ProductForSale>();
+            quantityEachProduct = new ArrayList<Integer>();
+        }
         /*Product number 1 have quantity is value at index of quantityEachProduct*/
         public ArrayList<ProductForSale> products;
         public ArrayList<Integer> quantityEachProduct;
@@ -58,24 +88,45 @@ public class User {
     public String getPhoneNums() {return phoneNums;}
     public String getUserId() {return userId;}
     public String getPassword() {return password;}
+    public BankAccount getBankAcc() {return bankAcc;}
     public boolean getLogInState() {return logInState;}
-    public void addToCart(ProductForSale product, int quantity) {
-        /*update products and quantity of each product in cartState*/
+    public void updateCart(ProductForSale product, int quantity, double saleoff) {
+        for(int i = 0; i < cartState.products.size(); i++) {
+            if(cartState.products.get(i).getName().equals(product.getName())) {
+                if(quantity == 0) {
+                    cartState.totalCost -= saleoff * product.getUnitPrice() * cartState.quantityEachProduct.get(i);
+                    cartState.totalQuantity -= cartState.quantityEachProduct.get(i);
+                    cartState.products.remove(i);
+                    cartState.quantityEachProduct.remove(i);
+                    return;
+                }
+                cartState.totalCost -= saleoff * product.getUnitPrice() * (cartState.quantityEachProduct.get(i) - quantity);
+                cartState.totalQuantity -= (cartState.quantityEachProduct.get(i) - quantity);
+                cartState.quantityEachProduct.set(i, quantity);
+                return ;
+            }
+        }
+    }
+    public void addToCart(ProductForSale product, int quantity, double saleoff) {
+        for(int i = 0; i < cartState.products.size(); i++) {
+            if(cartState.products.get(i).getName().equals(product.getName())) {
+                cartState.totalCost += saleoff * product.getUnitPrice() * quantity;
+                cartState.totalQuantity += quantity;
+                cartState.quantityEachProduct.set(i, quantity + cartState.quantityEachProduct.get(i));
+                return ;
+            }
+        }
         cartState.products.add(product);
         cartState.quantityEachProduct.add(quantity);
-        cartState.totalCost += product.getUnitPrice() * quantity;
-    }
-    public void removeFromCart(ProductForSale product, int quantity) {
-        /*update products and quantity of each product in cartState*/
-        cartState.products.remove(product);
-        cartState.quantityEachProduct.remove(quantity);
-        cartState.totalCost -= product.getUnitPrice() * quantity;
+        cartState.totalCost += saleoff * product.getUnitPrice() * quantity;
+        cartState.totalQuantity += quantity;
     }
     public void clearCart() {
         //clear all products and quantity of each product in cartState
         cartState.products.clear();
         cartState.quantityEachProduct.clear();
         cartState.totalCost = 0;
+        cartState.totalQuantity = 0;
     }
     public void updateOrderState() {
         /*Update orderState based on cartState*/

@@ -4,6 +4,7 @@ import com.example.model.user.*;
 import java.util.*;
 public class ManagerService extends Service {
     public static ArrayList<User> users;
+    public static int noOfUsers;
     public static ArrayList<Provider> providers;
     public static Accounting accounting;
     public ArrayList<Provider> getListProviders() {return providers;}
@@ -14,7 +15,8 @@ public class ManagerService extends Service {
                                                                 product.getDescription(),
                                                                 product.getName(),
                                                                 product.getCategory(),
-                                                                quantity);
+                                                                quantity,
+                                                                product.getInitPrice());
             providers.add(provider);
             products.add(productForSale);
             newProducts.add(productForSale);
