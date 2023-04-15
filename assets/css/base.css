@@ -11,6 +11,7 @@ html {
     --text-color: #4f5361;
     --grey-color: #f1f1f1;
     --red-color: rgba(228, 30, 63, 1);
+    --grey-border: rgba(0, 0, 0, 0.1);
 }
 
 body {
@@ -81,6 +82,7 @@ a {
     display: block;
 }
 .select-input_list {
+    display: none;
     position: absolute;
     left: 0;
     right: 0;
@@ -88,15 +90,18 @@ a {
     border-radius: 2px;
     border: 1px;
     background-color: #fff;
+    box-shadow: 2px 2px 5px;
+    animation: fadeIn ease-in 0.2s;
 }
 
 .select-input_link {
+    display: block;
     width: 100%;
     font-size: 1.6rem;
     text-decoration: none;
-    display: block;
     padding: 10px 12px;
     border-top: 1px solid red;
+    border-bottom: 0.5px solid var(--grey-border);
 }
 .select-input_link:hover {
     background-color: var(--primary-color);

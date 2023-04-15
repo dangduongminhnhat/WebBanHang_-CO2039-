@@ -21,6 +21,40 @@
     margin-right: 22px;
 }
 .selection .home-filter_page-current {
-    color: red;
+    color: var(--red-color);
 }
-/* 20:55 */
+
+/* ---------------- Tao nut trai phai -------------- */
+
+.selection .home-filter_page-control {
+    border-radius: 2px;
+    overflow: hidden;
+    display: flex;
+    width: 72px;
+    height: 36px;
+}
+
+.selection .home-filter_page-btn {
+    flex: 1;
+    background-color: white;
+    display: flex;
+    align-items: center;
+}
+
+.selection .home-filter_page-btn-disabled {
+    cursor: default;
+    background-color: #f9f9f9;
+}
+
+.selection .home-filter_page-btn-disabled .home-filter_page-icon {
+    color: #ccc;
+}
+
+.selection .home-filter_page-btn:first-child {
+    border-right: 0.5px solid var(--grey-border);
+}
+
+.selection .home-filter_page-icon {
+    margin: auto;
+    color: #555;
+}
