@@ -68,17 +68,7 @@ a {
     align-items: center;
 }
 
-.select-input_label {
-    font-size: 1.6rem;
-}
-
-.select-input_icon {
-    font-size: 1.4rem;
-    color: rgb(131, 131, 131);
-    position: relative;
-    top: 1px;
-}
-.select-input:hover .select-input_list {
+#input_bar:focus ~ .select-input_list {
     display: block;
 }
 .select-input_list {
@@ -100,9 +90,18 @@ a {
     font-size: 1.6rem;
     text-decoration: none;
     padding: 10px 12px;
-    border-top: 1px solid red;
     border-bottom: 0.5px solid var(--grey-border);
 }
 .select-input_link:hover {
     background-color: var(--primary-color);
+}
+
+/* ------------------ Input ------------- */
+.search-input_bar {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: 1.6rem;
+    color: #4f5361;
 }
