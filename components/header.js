@@ -8,8 +8,8 @@ class Header extends HTMLElement {
     <div class="sub_content">
         <div class="navbar">
             <!-- Logo -->
-            <a href="index.html" class="logo">
-                <img src="./assets/img/logo.png" alt="Thợ Code Bán Giày" />
+            <a href="/index.html" class="logo">
+                <img src="/assets/img/logo.png" alt="Thợ Code Bán Giày" />
             </a>
             <!-- Navigation -->
             <ul class="list">

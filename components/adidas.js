@@ -1,11 +1,11 @@
-class Superstar extends HTMLElement {
+class superstar extends HTMLElement {
     constructor() {
         super();
     }
     connectedCallback() {
         this.innerHTML = `
         <span class="status">New</span>
-        <a href="#!">
+        <a href="./detailshoes-adidas/superstar.html">
             <img src="./assets/img/superstar.jpeg" alt="SUPERSTAR" class="img" />
             <div class="name">SUPERSTAR</div>
         </a>
@@ -21,7 +21,7 @@ class Superstar extends HTMLElement {
     }
 }
 
-customElements.define("superstar-component", Superstar);
+customElements.define("superstar-component", superstar);
 
 class Ultraboost_4_0_Dna extends HTMLElement {
     constructor() {
