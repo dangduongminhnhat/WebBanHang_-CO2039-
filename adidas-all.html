@@ -34,6 +34,7 @@
         <link rel="stylesheet" href="./assets/css/base.css" />
         <link rel="stylesheet" href="./assets/css/style.css" />
         <link rel="stylesheet" href="./assets/css/navbar.css" />
+        <link rel="stylesheet" href="./assets/css/footer.css" />
         <link rel="stylesheet" href="./assets/css/style-adidas-all.css" />
 
         <title>Thợ Code Bán Giày</title>
@@ -58,13 +59,7 @@
                                     <a href="adidas-all.html">Adidas</a>
                                 </li>
                                 <li>
-                                    <a href="#!">Vans</a>
-                                </li>
-                                <li>
                                     <a href="#!">Biti's</a>
-                                </li>
-                                <li>
-                                    <a href="#!">Converse</a>
                                 </li>
                             </ul>
                         </li>
@@ -72,25 +67,10 @@
                             <a href="#!"><i>PHÂN LOẠI</i></a>
                             <ul class="sub-list">
                                 <li>
-                                    <a href="#!">Giày nam</a>
+                                    <a href="#!">Giày Đi Với Crush</a>
                                 </li>
                                 <li>
-                                    <a href="#!">Giày nữ</a>
-                                </li>
-                                <li>
-                                    <a href="#!">Giày đi chơi</a>
-                                </li>
-                                <li>
-                                    <a href="#!">Giày tennis</a>
-                                </li>
-                                <li>
-                                    <a href="#!">Giày cầu lông</a>
-                                </li>
-                                <li>
-                                    <a href="#!">Giày bóng rổ</a>
-                                </li>
-                                <li>
-                                    <a href="#!">Giày chạy bộ - Tập gym</a>
+                                    <a href="#!">Giày Thể Thao</a>
                                 </li>
                             </ul>
                         </li>
@@ -105,9 +85,6 @@
                                 </li>
                                 <li>
                                     <a href="#!">KHUYẾN MÃI 50%</a>
-                                </li>
-                                <li>
-                                    <a href="#!">KHUYẾN MÃI 70%</a>
                                 </li>
                             </ul>
                         </li>
@@ -239,7 +216,8 @@
         </div>
         <div class="selection">
             <div class="sub_content">
-                <div class="home-filter">
+                <div class="filter">
+                    <!-- Tạo thanh tìm kiếm -->
                     <div class="select-input">
                         <input type="text" id="input_bar" class="search-input_bar" placeholder="Chọn Size Giày" />
                         <ul class="select-input_list">
@@ -252,23 +230,170 @@
                             <li class="select-input_item">
                                 <a href="#!" class="select-input_link">40</a>
                             </li>
+                            <li class="select-input_item">
+                                <a href="#!" class="select-input_link">40.5</a>
+                            </li>
+                            <li class="select-input_item">
+                                <a href="#!" class="select-input_link">41</a>
+                            </li>
+                            <li class="select-input_item">
+                                <a href="#!" class="select-input_link">41.5</a>
+                            </li>
+                            <li class="select-input_item">
+                                <a href="#!" class="select-input_link">42</a>
+                            </li>
+                            <li class="select-input_item">
+                                <a href="#!" class="select-input_link">42.5</a>
+                            </li>
+                            <li class="select-input_item">
+                                <a href="#!" class="select-input_link">43</a>
+                            </li>
+                            <li class="select-input_item">
+                                <a href="#!" class="select-input_link">44</a>
+                            </li>
                         </ul>
                     </div>
-                    <div class="home-filter_page">
-                        <span class="home-filter_page-num"> <span class="home-filter_page-current">1</span>/3 </span>
 
-                        <div class="home-filter_page-control">
-                            <!-- Disabled: home-filter_page-btn-disabled -->
-                            <a href="#!" class="home-filter_page-btn home-filter_page-btn-disabled">
-                                <i class="home-filter_page-icon fa-solid fa-chevron-left"></i>
+                    <div class="select-input">
+                        <input type="text" id="input_bar" class="search-input_bar" placeholder="Khoảng Giá" />
+                        <ul class="select-input_list">
+                            <li class="select-input_item">
+                                <a href="#!" class="select-input_link">Dưới 3 Triệu</a>
+                            </li>
+                            <li class="select-input_item">
+                                <a href="#!" class="select-input_link">Từ 3 Đến 5 Triệu</a>
+                            </li>
+                            <li class="select-input_item">
+                                <a href="#!" class="select-input_link">Từ 5 Đến 10 Triệu</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="select-input">
+                        <input type="text" id="input_bar" class="search-input_bar" placeholder="Thương Hiệu" />
+                        <ul class="select-input_list">
+                            <li class="select-input_item">
+                                <a href="#!" class="select-input_link">Nike</a>
+                            </li>
+                            <li class="select-input_item">
+                                <a href="#!" class="select-input_link">Adidas</a>
+                            </li>
+                            <li class="select-input_item">
+                                <a href="#!" class="select-input_link">Biti's</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="select-input">
+                        <input type="text" id="input_bar" class="search-input_bar" placeholder="Phân Loại" />
+                        <ul class="select-input_list">
+                            <li class="select-input_item">
+                                <a href="#!" class="select-input_link">Giày Đi Với Crush</a>
+                            </li>
+                            <li class="select-input_item">
+                                <a href="#!" class="select-input_link">Giày Thể Thao</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="select-input">
+                        <input type="text" id="input_bar" class="search-input_bar" placeholder="Sắp Xếp Theo" />
+                        <ul class="select-input_list">
+                            <li class="select-input_item">
+                                <a href="#!" class="select-input_link">Giá Thấp Đến Cao</a>
+                            </li>
+                            <li class="select-input_item">
+                                <a href="#!" class="select-input_link">Giá Cao Đến Thấp</a>
+                            </li>
+                            <li class="select-input_item">
+                                <a href="#!" class="select-input_link">Giảm Giá Nhiều Nhất</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="select-input select-input_last">
+                        <a href="#!">
+                            Tìm Kiếm Ngay
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </a>
+                    </div>
+
+                    <div class="filter_page">
+                        <span class="filter_page-num"> <span class="filter_page-current">1</span>/3 </span>
+
+                        <div class="filter_page-control">
+                            <!-- Disabled: filter_page-btn-disabled -->
+                            <a href="#!" class="filter_page-btn filter_page-btn-disabled">
+                                <i class="filter_page-icon fa-solid fa-chevron-left"></i>
                             </a>
-                            <a href="#!" class="home-filter_page-btn">
-                                <i class="home-filter_page-icon fa-solid fa-chevron-right"></i>
+                            <a href="#!" class="filter_page-btn">
+                                <i class="filter_page-icon fa-solid fa-chevron-right"></i>
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <footer class="footer">
+            <div class="sub_content">
+                <div class="left">
+                    <ul class="list">
+                        <li class="list_item">
+                            <a href="#!">THÔNG TIN VỀ CÔNG TY</a>
+                        </li>
+                        <li class="list_item"><a href="#!">Giới thiệu</a></li>
+                        <li class="list_item">
+                            <a href="#!">Cơ hội nghề nghiệp</a>
+                        </li>
+                        <li class="list_item"><a href="#!">Tin tức</a></li>
+                    </ul>
+                    <ul class="list">
+                        <li class="list_item">
+                            <a href="#!">HỖ TRỢ KHÁCH HÀNG</a>
+                        </li>
+                        <li class="list_item">
+                            <a href="#!">Chăm sóc khách hàng</a>
+                        </li>
+                        <li class="list_item"><a href="#!">Thanh toán</a></li>
+                        <li class="list_item">
+                            <a href="#!">Hướng dẫn mua hàng</a>
+                        </li>
+                    </ul>
+                    <ul class="list">
+                        <li class="list_item"><a href="#!">CHÍNH SÁCH</a></li>
+                        <li class="list_item">
+                            <a href="#!">Chế độ bảo hành</a>
+                        </li>
+                        <li class="list_item">
+                            <a href="#!">Chính sách đổi hàng</a>
+                        </li>
+                        <li class="list_item">
+                            <a href="#!">Bảo mật thông tin</a>
+                        </li>
+                        <li class="list_item">
+                            <a href="#!">Chính sách giao nhận</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="right">
+                    <ul class="list">
+                        <li class="list_item">
+                            <a href="#!"><i class="fa-brands fa-twitter"></i></a>
+                        </li>
+                        <li class="list_item">
+                            <a href="#!"><i class="fa-brands fa-facebook"></i></a>
+                        </li>
+                        <li class="list_item">
+                            <a href="#!"><i class="fa-brands fa-youtube"></i></a>
+                        </li>
+                        <li class="list_item">
+                            <a href="#!"><i class="fa-brands fa-square-instagram"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+        <script src="./main.js"></script>
     </body>
 </html>
