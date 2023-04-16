@@ -70,6 +70,7 @@ a {
 
 #input_bar:focus ~ .select-input_list {
     display: block;
+    z-index: 1;
 }
 .select-input_list {
     display: none;

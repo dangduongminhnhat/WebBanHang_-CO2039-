@@ -3,7 +3,7 @@ class X extends HTMLElement {
       super();
     }
     connectedCallback() {
-        this.innerHTML = `X`;
+        this.innerHTML = ``;
     }
 }
 

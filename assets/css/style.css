@@ -176,15 +176,16 @@
     margin-top: 40px;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .product .product_list .list_item {
     position: relative;
     width: 19%;
     height: 400px;
-    /* background-color: aqua; */
     border: 1px solid #fff;
     transition: border 0.4s;
+    margin-bottom: 26px;
 }
 
 .product .product_list .list_item:hover {
@@ -221,6 +222,7 @@
     font-weight: 700;
     line-height: 1.4em;
     color: var(--color-shoes);
+    text-transform: uppercase;
 }
 
 .product .list_item .star {
