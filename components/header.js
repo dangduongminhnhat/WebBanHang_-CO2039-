@@ -78,7 +78,7 @@ class Header extends HTMLElement {
                                     <div class="header_cart-anchor header_cart-item">
                                         <div class="img-wrap">
                                             <img
-                                                src="./assets/img/air force 1.jpg"
+                                                src="/assets/img/air force 1.jpg"
                                                 alt="air force 1"
                                                 class="header_cart-img" />
                                         </div>
@@ -105,7 +105,7 @@ class Header extends HTMLElement {
                                     <div class="header_cart-anchor header_cart-item">
                                         <div class="img-wrap">
                                             <img
-                                                src="./assets/img/adidas ultra 4dfwd.jpg"
+                                                src="/assets/img/adidas ultra 4dfwd.jpg"
                                                 alt="adidas ultra 4dfwd"
                                                 class="header_cart-img" />
                                         </div>
@@ -133,7 +133,7 @@ class Header extends HTMLElement {
                                     <div class="header_cart-anchor header_cart-item">
                                         <div class="img-wrap">
                                             <img
-                                                src="./assets/img/nike air max excee.jpeg"
+                                                src="/assets/img/nike air max excee.jpeg"
                                                 alt="nike air max"
                                                 class="header_cart-img" />
                                         </div>

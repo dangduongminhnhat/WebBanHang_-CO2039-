@@ -106,20 +106,6 @@ class Select_Input extends HTMLElement {
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </a>
                     </div>
-
-                    <div class="filter_page">
-                        <span class="filter_page-num"> <span class="filter_page-current">1</span>/3 </span>
-
-                        <div class="filter_page-control">
-                            <!-- Disabled: filter_page-btn-disabled -->
-                            <a href="#!" class="filter_page-btn filter_page-btn-disabled">
-                                <i class="filter_page-icon fa-solid fa-chevron-left"></i>
-                            </a>
-                            <a href="#!" class="filter_page-btn">
-                                <i class="filter_page-icon fa-solid fa-chevron-right"></i>
-                            </a>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>`;
