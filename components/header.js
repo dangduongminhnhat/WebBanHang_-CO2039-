@@ -1,11 +1,10 @@
 class Header extends HTMLElement {
     constructor() {
-      super();
+        super();
     }
 
-
-connectedCallback() {
-    this.innerHTML = `<div class="content_1">
+    connectedCallback() {
+        this.innerHTML = `<div class="content_1">
     <div class="sub_content">
         <div class="navbar">
             <!-- Logo -->
@@ -23,10 +22,6 @@ connectedCallback() {
                         <li>
                             <a href="adidas-all.html">Adidas</a>
                         </li>
-                        <li>
-                            <a href="#!">Biti's</a>
-                        </li>
-                        
                     </ul>
                 </li>
                 <li>
@@ -44,17 +39,6 @@ connectedCallback() {
                 </li>
                 <li>
                     <a href="#!"><i>KHUYẾN MÃI</i></a>
-                    <ul class="sub-list">
-                        <li>
-                            <a href="#!">KHUYẾN MÃI 10%</a>
-                        </li>
-                        <li>
-                            <a href="#!">KHUYẾN MÃI 30%</a>
-                        </li>
-                        <li>
-                            <a href="#!">KHUYẾN MÃI 50%</a>
-                        </li>
-                    </ul>
                 </li>
                 <li>
                     <a href="#!"><i>SẢN PHẨM MỚI</i></a>
@@ -182,7 +166,7 @@ connectedCallback() {
         </div>
     </div>
 </div>`;
-}
+    }
 }
 
-customElements.define('header-component', Header);
+customElements.define("header-component", Header);
