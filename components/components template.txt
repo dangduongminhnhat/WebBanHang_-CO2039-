@@ -1,0 +1,10 @@
+class X extends HTMLElement {
+    constructor() {
+      super();
+    }
+    connectedCallback() {
+        this.innerHTML = `X`;
+    }
+}
+
+customElements.define('X-component', X);
