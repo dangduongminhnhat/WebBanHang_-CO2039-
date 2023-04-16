@@ -1,9 +1,14 @@
 class Footer extends HTMLElement {
     constructor() {
-      super();
+        super();
     }
     connectedCallback() {
-        this.innerHTML = `<footer class="footer">
+        this.innerHTML = `<div>
+            <a href="https://www.facebook.com/ttvnex/"
+                ><i class="icon_messenger fa-brands fa-facebook-messenger"></i
+            ></a>
+        </div>
+        <footer class="footer">
         <div class="sub_content">
             <div class="left">
                 <ul class="list">
@@ -65,4 +70,4 @@ class Footer extends HTMLElement {
     }
 }
 
-customElements.define('footer-component', Footer);
+customElements.define("footer-component", Footer);

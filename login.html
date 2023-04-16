@@ -1,0 +1,42 @@
+<!-- <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/assets/font/stylesheet.css" />
+        <link rel="stylesheet" href="/assets/css/reset.css" />
+        <link rel="stylesheet" href="/assets/css/style-login-register.css" />
+        <title>Đăng Nhập</title>
+    </head>
+    <body>
+        <body>
+            <!-- <%String cart = request.getParameter("cart");%> -->
+            <div class="content">
+                <div class="sub_content">
+                    <div class="logo_img">
+                        <img src="./assets/img/logo.png" alt="Thợ Code Bán Giày" />
+                    </div>
+                    <h1>Đăng Nhập</h1>
+                    <form class="info" method="post" action="Login">
+                        <!-- <%if(cart != null)%> <input type="hidden" name = "cart" value = "true"> -->
+                        <label for="query">Id tài khoản</label>
+                        <input type="text" id="query" name="userId" /><br />
+
+                        <label for="query">Mật khẩu</label>
+                        <input type="text" id="query" name="password" /><br />
+
+                        <input type="reset" value="Nhập lại" />
+                        <input type="submit" value="Đăng nhập" />
+                    </form>
+                    <p>
+                        Chưa có tài khoản, <a href="register.jsp"><i>Đăng ký tại đây</i></a>
+                    </p>
+                    <!-- <p>${message}</p> -->
+                    <button onclick="window.location.href = 'index.jsp'">Trở về</button>
+                </div>
+            </div>
+        </body>
+    </body>
+</html>

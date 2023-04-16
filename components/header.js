@@ -56,7 +56,7 @@ class Header extends HTMLElement {
             </div>
             <!-- Action -->
             <div class="action">
-                <a href="#!" class="action-btn">
+                <a href="/login.html" class="action-btn">
                     <i class="fa-regular fa-user"></i>
                 </a>
                 <div class="header_cart">
