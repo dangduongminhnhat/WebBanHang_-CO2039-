@@ -282,3 +282,15 @@
     margin-top: 10px;
     word-spacing: 6px;
 }
+
+#unordered .fa-solid {
+    display: none;
+}
+
+#unordered .heart-solid .fa-solid {
+    display: inline;
+}
+
+#unordered .heart-solid .fa-regular {
+    display: none;
+}
