@@ -43,3 +43,63 @@ h1 {
 .info {
     margin-top: 42px;
 }
+
+.frame {
+    width: 360px;
+    height: 40px;
+    margin-bottom: 12px;
+    border-radius: 44px;
+    border: 1px solid rgba(22, 24, 35, 0.06);
+    overflow: hidden;
+}
+
+.frame input {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 12px;
+    border-radius: 44px;
+    padding: 0 12px;
+    font-size: 1rem;
+    font-weight: 500;
+    background: rgba(22, 24, 35, 0.06);
+    border: none;
+    outline: none;
+}
+
+.login:hover {
+    cursor: pointer;
+}
+
+.login,
+.reg {
+    background: #fed700;
+}
+
+.register {
+    text-decoration: none;
+}
+
+/* Register */
+
+.sub_content--register {
+    height: 650px;
+}
+
+.h1--register {
+    margin-top: 18px;
+}
+
+.info-reg {
+    margin-top: 10px;
+}
+
+.desc {
+    margin-bottom: 6px;
+    margin-left: 10px;
+    font-size: 1rem;
+}
+
+.reg:hover {
+    cursor: pointer;
+}

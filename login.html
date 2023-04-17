@@ -16,25 +16,33 @@
             <div class="content">
                 <div class="sub_content">
                     <div class="logo_img">
-                        <img src="./assets/img/logo.png" alt="Thợ Code Bán Giày" />
+                        <a href="/index.html"><img src="/assets/img/logo.png" alt="Thợ Code Bán Giày" /></a>
                     </div>
                     <h1>Đăng Nhập</h1>
                     <form class="info" method="post" action="Login">
                         <!-- <%if(cart != null)%> <input type="hidden" name = "cart" value = "true"> -->
-                        <label for="query">Id tài khoản</label>
-                        <input type="text" id="query" name="userId" /><br />
 
-                        <label for="query">Mật khẩu</label>
-                        <input type="text" id="query" name="password" /><br />
+                        <div>
+                            <p class="frame">
+                                <input type="text" id="query" name="userId" placeholder="Tên Đăng Nhập" />
+                            </p>
 
-                        <input type="reset" value="Nhập lại" />
-                        <input type="submit" value="Đăng nhập" />
+                            <p class="frame">
+                                <input type="text" id="query" name="password" placeholder="Mật Khẩu" />
+                            </p>
+
+                            <!-- <input type="reset" value="Nhập lại" /> -->
+                            <p class="frame login">
+                                <input class="login" type="submit" value="Đăng nhập" />
+                            </p>
+                        </div>
                     </form>
-                    <p>
-                        Chưa có tài khoản, <a href="register.jsp"><i>Đăng ký tại đây</i></a>
+
+                    <p claas="no_account">
+                        Bạn chưa có tài khoản? <a class="register" href="register.html"><i>Đăng ký tại đây</i></a>
                     </p>
                     <!-- <p>${message}</p> -->
-                    <button onclick="window.location.href = 'index.jsp'">Trở về</button>
+                    <!-- <button onclick="window.location.href = 'index.jsp'">Trở về</button> -->
                 </div>
             </div>
         </body>

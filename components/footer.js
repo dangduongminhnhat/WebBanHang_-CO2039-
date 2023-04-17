@@ -55,7 +55,7 @@ class Footer extends HTMLElement {
                         <a href="#!"><i class="fa-brands fa-twitter"></i></a>
                     </li>
                     <li class="list_item">
-                        <a href="#!"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.facebook.com/ttvnex/"><i class="fa-brands fa-facebook"></i></a>
                     </li>
                     <li class="list_item">
                         <a href="#!"><i class="fa-brands fa-youtube"></i></a>

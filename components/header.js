@@ -17,10 +17,10 @@ class Header extends HTMLElement {
                     <a href="#!"><i>THƯƠNG HIỆU</i></a>
                     <ul class="sub-list">
                         <li>
-                            <a href="#!">Nike</a>
+                            <a href="/nike-all.html">Nike</a>
                         </li>
                         <li>
-                            <a href="adidas-all.html">Adidas</a>
+                            <a href="/adidas-all.html">Adidas</a>
                         </li>
                     </ul>
                 </li>
