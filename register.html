@@ -1,0 +1,51 @@
+<!-- <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/assets/font/stylesheet.css" />
+        <link rel="stylesheet" href="/assets/css/reset.css" />
+        <link rel="stylesheet" href="/assets/css/style-login-register.css" />
+        <title>Đăng Ký</title>
+    </head>
+    <body>
+        <div class="content">
+            <div class="sub_content sub_content--register">
+                <div class="logo_img">
+                    <a href="/index.html"><img src="/assets/img/logo.png" alt="Thợ Code Bán Giày" /></a>
+                </div>
+                <h1 class="h1--register">Đăng Ký</h1>
+                <form class="info-reg" method="post" action="Register">
+                    <div class="desc"><label for="query">Họ và Tên</label></div>
+                    <div class="frame">
+                        <input type="text" id="query" name="fullname" />
+                    </div>
+
+                    <div class="desc"><label for="query">Số điện thoại</label></div>
+                    <div class="frame">
+                        <input type="text" id="query" name="phoneNums" />
+                    </div>
+                    <div class="desc"><label for="query">Tên Đăng Nhập</label></div>
+                    <div class="frame">
+                        <input type="text" id="query" name="userId" />
+                    </div>
+                    <div class="desc"><label for="query">Mật khẩu</label></div>
+                    <div class="frame">
+                        <input type="text" id="query" name="password" />
+                    </div>
+
+                    <!-- <div class="desc"><input type="reset" value="Nhập lại" /></div> -->
+
+                    <br />
+
+                    <div class="frame reg">
+                        <input class="reg" type="submit" value="Đăng ký" />
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- <p>${message}</p> -->
+    </body>
+</html>

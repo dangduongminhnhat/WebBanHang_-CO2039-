@@ -1,0 +1,50 @@
+<!-- <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/assets/font/stylesheet.css" />
+        <link rel="stylesheet" href="/assets/css/reset.css" />
+        <link rel="stylesheet" href="/assets/css/style-login-register.css" />
+        <title>Đăng Nhập</title>
+    </head>
+    <body>
+        <body>
+            <!-- <%String cart = request.getParameter("cart");%> -->
+            <div class="content">
+                <div class="sub_content">
+                    <div class="logo_img">
+                        <a href="/index.html"><img src="/assets/img/logo.png" alt="Thợ Code Bán Giày" /></a>
+                    </div>
+                    <h1>Đăng Nhập</h1>
+                    <form class="info" method="post" action="Login">
+                        <!-- <%if(cart != null)%> <input type="hidden" name = "cart" value = "true"> -->
+
+                        <div>
+                            <p class="frame">
+                                <input type="text" id="query" name="userId" placeholder="Tên Đăng Nhập" />
+                            </p>
+
+                            <p class="frame">
+                                <input type="text" id="query" name="password" placeholder="Mật Khẩu" />
+                            </p>
+
+                            <!-- <input type="reset" value="Nhập lại" /> -->
+                            <p class="frame login">
+                                <input class="login" type="submit" value="Đăng nhập" />
+                            </p>
+                        </div>
+                    </form>
+
+                    <p claas="no_account">
+                        Bạn chưa có tài khoản? <a class="register" href="register.html"><i>Đăng ký tại đây</i></a>
+                    </p>
+                    <!-- <p>${message}</p> -->
+                    <!-- <button onclick="window.location.href = 'index.jsp'">Trở về</button> -->
+                </div>
+            </div>
+        </body>
+    </body>
+</html>
