@@ -31,133 +31,62 @@
             integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
             crossorigin="anonymous"
             referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="./assets/css/base.css" />
         <link rel="stylesheet" href="./assets/css/style.css" />
-        <link rel="stylesheet" href="./assets/css/navbar.css" />
+        <link rel="stylesheet" href="./assets/css/base.css" />
+        <link rel="stylesheet" href="./assets/css/header.css" />
         <link rel="stylesheet" href="./assets/css/footer.css" />
         <link rel="stylesheet" href="./assets/css/style-adidas-all.css" />
+        <link rel="stylesheet" href="./assets/css/select-input.css" />
         <script src="components/header.js" type="text/javascript" defer></script>
         <script src="components/footer.js" type="text/javascript" defer></script>
-        <title>Thợ Code Bán Giày</title>
+        <script src="components/adidas.js" type="text/javascript" defer></script>
+        <script src="components/nike.js" type="text/javascript" defer></script>
+        <script src="components/select-input.js" type="text/javascript" defer></script>
+
+        <title>Adidas</title>
     </head>
     <body>
         <header-component></header-component>
-        <div class="selection">
+        <select_input-component></select_input-component>
+        <div class="product">
             <div class="sub_content">
-                <div class="filter">
-                    <!-- Tạo thanh tìm kiếm -->
-                    <div class="select-input">
-                        <input type="text" id="input_bar" class="search-input_bar" placeholder="Chọn Size Giày" />
-                        <ul class="select-input_list">
-                            <li class="select-input_item">
-                                <a href="#!" class="select-input_link">38</a>
+                <div class="new_product">
+                    <div class="product_list">
+                        <ul class="list">
+                            <li class="list_item">
+                                <superstar-component></superstar-component>
                             </li>
-                            <li class="select-input_item">
-                                <a href="#!" class="select-input_link">39</a>
+                            <li class="list_item">
+                                <adidas_forum_low_cl-component></adidas_forum_low_cl-component>
                             </li>
-                            <li class="select-input_item">
-                                <a href="#!" class="select-input_link">40</a>
+                            <li class="list_item">
+                                <adidas_nmd_r1_refined-component></adidas_nmd_r1_refined-component>
                             </li>
-                            <li class="select-input_item">
-                                <a href="#!" class="select-input_link">40.5</a>
+                            <li class="list_item">
+                                <ultraboost_4_0_dna-component></ultraboost_4_0_dna-component>
                             </li>
-                            <li class="select-input_item">
-                                <a href="#!" class="select-input_link">41</a>
+                            <li class="list_item">
+                                <day_jogger_dash_green_linen-component></day_jogger_dash_green_linen-component>
                             </li>
-                            <li class="select-input_item">
-                                <a href="#!" class="select-input_link">41.5</a>
+                            <li class="list_item">
+                                <adidas_stan_smith-component></adidas_stan_smith-component>
                             </li>
-                            <li class="select-input_item">
-                                <a href="#!" class="select-input_link">42</a>
+                            <li class="list_item">
+                                <adidas_x9000l4-component></adidas_x9000l4-component>
                             </li>
-                            <li class="select-input_item">
-                                <a href="#!" class="select-input_link">42.5</a>
+                            <li class="list_item">
+                                <adidas_ultra_4dwfd-component></adidas_ultra_4dwfd-component>
                             </li>
-                            <li class="select-input_item">
-                                <a href="#!" class="select-input_link">43</a>
+                            <li class="list_item">
+                                <falcon_pink_purple-component></falcon_pink_purple-component>
                             </li>
-                            <li class="select-input_item">
-                                <a href="#!" class="select-input_link">44</a>
+                            <li class="list_item">
+                                <ultraboost_20_metallic_gold-component></ultraboost_20_metallic_gold-component>
                             </li>
-                        </ul>
-                    </div>
-
-                    <div class="select-input">
-                        <input type="text" id="input_bar" class="search-input_bar" placeholder="Khoảng Giá" />
-                        <ul class="select-input_list">
-                            <li class="select-input_item">
-                                <a href="#!" class="select-input_link">Dưới 3 Triệu</a>
-                            </li>
-                            <li class="select-input_item">
-                                <a href="#!" class="select-input_link">Từ 3 Đến 5 Triệu</a>
-                            </li>
-                            <li class="select-input_item">
-                                <a href="#!" class="select-input_link">Từ 5 Đến 10 Triệu</a>
+                            <li class="list_item">
+                                <ultraboost_21-component></ultraboost_21-component>
                             </li>
                         </ul>
-                    </div>
-
-                    <div class="select-input">
-                        <input type="text" id="input_bar" class="search-input_bar" placeholder="Thương Hiệu" />
-                        <ul class="select-input_list">
-                            <li class="select-input_item">
-                                <a href="#!" class="select-input_link">Nike</a>
-                            </li>
-                            <li class="select-input_item">
-                                <a href="#!" class="select-input_link">Adidas</a>
-                            </li>
-                            <li class="select-input_item">
-                                <a href="#!" class="select-input_link">Biti's</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="select-input">
-                        <input type="text" id="input_bar" class="search-input_bar" placeholder="Phân Loại" />
-                        <ul class="select-input_list">
-                            <li class="select-input_item">
-                                <a href="#!" class="select-input_link">Giày Đi Với Crush</a>
-                            </li>
-                            <li class="select-input_item">
-                                <a href="#!" class="select-input_link">Giày Thể Thao</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="select-input">
-                        <input type="text" id="input_bar" class="search-input_bar" placeholder="Sắp Xếp Theo" />
-                        <ul class="select-input_list">
-                            <li class="select-input_item">
-                                <a href="#!" class="select-input_link">Giá Thấp Đến Cao</a>
-                            </li>
-                            <li class="select-input_item">
-                                <a href="#!" class="select-input_link">Giá Cao Đến Thấp</a>
-                            </li>
-                            <li class="select-input_item">
-                                <a href="#!" class="select-input_link">Giảm Giá Nhiều Nhất</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="select-input select-input_last">
-                        <a href="#!">
-                            Tìm Kiếm Ngay
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </a>
-                    </div>
-
-                    <div class="filter_page">
-                        <span class="filter_page-num"> <span class="filter_page-current">1</span>/3 </span>
-
-                        <div class="filter_page-control">
-                            <!-- Disabled: filter_page-btn-disabled -->
-                            <a href="#!" class="filter_page-btn filter_page-btn-disabled">
-                                <i class="filter_page-icon fa-solid fa-chevron-left"></i>
-                            </a>
-                            <a href="#!" class="filter_page-btn">
-                                <i class="filter_page-icon fa-solid fa-chevron-right"></i>
-                            </a>
-                        </div>
                     </div>
                 </div>
             </div>

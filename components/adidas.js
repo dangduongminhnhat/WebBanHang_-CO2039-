@@ -1,11 +1,11 @@
-class Superstar extends HTMLElement {
+class superstar extends HTMLElement {
     constructor() {
         super();
     }
     connectedCallback() {
         this.innerHTML = `
         <span class="status">New</span>
-        <a href="#!">
+        <a href="./detailshoes-adidas/superstar.html">
             <img src="./assets/img/superstar.jpeg" alt="SUPERSTAR" class="img" />
             <div class="name">SUPERSTAR</div>
         </a>
@@ -21,7 +21,7 @@ class Superstar extends HTMLElement {
     }
 }
 
-customElements.define("superstar-component", Superstar);
+customElements.define("superstar-component", superstar);
 
 class Ultraboost_4_0_Dna extends HTMLElement {
     constructor() {
@@ -127,7 +127,7 @@ class Falcon_Pink_Purple extends HTMLElement {
 
 customElements.define("falcon_pink_purple-component", Falcon_Pink_Purple);
 
-class Ultraboost_20__Metallic_Gold extends HTMLElement {
+class ultraboost_20_metallic_gold extends HTMLElement {
     constructor() {
         super();
     }
@@ -152,9 +152,9 @@ class Ultraboost_20__Metallic_Gold extends HTMLElement {
     }
 }
 
-customElements.define("ultraboost_20__metallic_gold-component", Ultraboost_20__Metallic_Gold);
+customElements.define("ultraboost_20_metallic_gold-component", ultraboost_20_metallic_gold);
 
-class Ultraboost_21 extends HTMLElement {
+class ultraboost_21 extends HTMLElement {
     constructor() {
         super();
     }
@@ -179,4 +179,118 @@ class Ultraboost_21 extends HTMLElement {
     }
 }
 
-customElements.define("ultraboost_21-component", Ultraboost_21);
+customElements.define("ultraboost_21-component", ultraboost_21);
+
+class adidas_nmd_r1_refined extends HTMLElement {
+    constructor() {
+        super();
+    }
+    connectedCallback() {
+        this.innerHTML = `<!-- <span class="status status_sale">-8%</span> -->
+        <a href="#!">
+            <img src="./assets/img/adidas nmd r1 refined.jpg" alt="adidas nmd r1 refined" class="img" />
+            <div class="name">ADIDAS NMD R1 REFINED</div>
+        </a>
+        <span class="star">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+        </span>
+        <span class="price">2,800,000</span>
+        <!-- <span class="old_price">3,900,000</span> -->`;
+    }
+}
+
+customElements.define("adidas_nmd_r1_refined-component", adidas_nmd_r1_refined);
+
+class adidas_forum_low_cl extends HTMLElement {
+    constructor() {
+        super();
+    }
+    connectedCallback() {
+        this.innerHTML = `<!-- <span class="status status_sale">-8%</span> -->
+        <a href="#!">
+            <img src="./assets/img/adidas forum low cl.jpg" alt="adidas forum low cl.jpg" class="img" />
+            <div class="name">ADIDAS FORUM LOW CL</div>
+        </a>
+        <span class="star">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+        </span>
+        <span class="price">3,200,000</span>
+        <!-- <span class="old_price">3,900,000</span> -->`;
+    }
+}
+
+customElements.define("adidas_forum_low_cl-component", adidas_forum_low_cl);
+
+class ultraboost_black_white extends HTMLElement {
+    constructor() {
+        super();
+    }
+    connectedCallback() {
+        this.innerHTML = `<a href="#!">
+            <img src="./assets/img/ultraboost black white.jpg" alt="ultraboost black white.jpg" class="img" />
+            <div class="name">ULTRABOOST BLACK WHITE</div>
+        </a>
+        <span class="star">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+        </span>
+        <span class="price">4,200,000</span>`;
+    }
+}
+
+customElements.define("ultraboost_black_white-component", ultraboost_black_white);
+
+class adidas_x9000l4 extends HTMLElement {
+    constructor() {
+        super();
+    }
+    connectedCallback() {
+        this.innerHTML = `<a href="#!">
+            <img src="./assets/img/adidas x9000l4.jpg" alt="adidas x9000l4.jpg" class="img" />
+            <div class="name">adidas x9000l4</div>
+        </a>
+        <span class="star">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+        </span>
+        <span class="price">2,900,000</span>`;
+    }
+}
+
+customElements.define("adidas_x9000l4-component", adidas_x9000l4);
+
+class adidas_stan_smith extends HTMLElement {
+    constructor() {
+        super();
+    }
+    connectedCallback() {
+        this.innerHTML = `<a href="#!">
+            <img src="./assets/img/adidas stan smith.jpg" alt="adidas stan smith.jpg" class="img" />
+            <div class="name">adidas stan smith</div>
+        </a>
+        <span class="star">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+        </span>
+        <span class="price">2,200,000</span>`;
+    }
+}
+
+customElements.define("adidas_stan_smith-component", adidas_stan_smith);

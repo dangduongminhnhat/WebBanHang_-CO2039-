@@ -8,8 +8,8 @@ class Header extends HTMLElement {
     <div class="sub_content">
         <div class="navbar">
             <!-- Logo -->
-            <a href="index.html" class="logo">
-                <img src="./assets/img/logo.png" alt="Thợ Code Bán Giày" />
+            <a href="/index.html" class="logo">
+                <img src="/assets/img/logo.png" alt="Thợ Code Bán Giày" />
             </a>
             <!-- Navigation -->
             <ul class="list">
@@ -17,10 +17,10 @@ class Header extends HTMLElement {
                     <a href="#!"><i>THƯƠNG HIỆU</i></a>
                     <ul class="sub-list">
                         <li>
-                            <a href="#!">Nike</a>
+                            <a href="/nike-all.html">Nike</a>
                         </li>
                         <li>
-                            <a href="adidas-all.html">Adidas</a>
+                            <a href="/adidas-all.html">Adidas</a>
                         </li>
                     </ul>
                 </li>
@@ -56,7 +56,7 @@ class Header extends HTMLElement {
             </div>
             <!-- Action -->
             <div class="action">
-                <a href="#!" class="action-btn">
+                <a href="/login.html" class="action-btn">
                     <i class="fa-regular fa-user"></i>
                 </a>
                 <div class="header_cart">
@@ -78,7 +78,7 @@ class Header extends HTMLElement {
                                     <div class="header_cart-anchor header_cart-item">
                                         <div class="img-wrap">
                                             <img
-                                                src="./assets/img/air force 1.jpg"
+                                                src="/assets/img/air force 1.jpg"
                                                 alt="air force 1"
                                                 class="header_cart-img" />
                                         </div>
@@ -105,7 +105,7 @@ class Header extends HTMLElement {
                                     <div class="header_cart-anchor header_cart-item">
                                         <div class="img-wrap">
                                             <img
-                                                src="./assets/img/adidas ultra 4dfwd.jpg"
+                                                src="/assets/img/adidas ultra 4dfwd.jpg"
                                                 alt="adidas ultra 4dfwd"
                                                 class="header_cart-img" />
                                         </div>
@@ -133,7 +133,7 @@ class Header extends HTMLElement {
                                     <div class="header_cart-anchor header_cart-item">
                                         <div class="img-wrap">
                                             <img
-                                                src="./assets/img/nike air max excee.jpeg"
+                                                src="/assets/img/nike air max excee.jpeg"
                                                 alt="nike air max"
                                                 class="header_cart-img" />
                                         </div>
