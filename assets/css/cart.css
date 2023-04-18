@@ -88,9 +88,12 @@ body {
 }
 .name {
     font-size: 2rem;
-    color: #333;
-    text-transform: uppercase;
+    text-transform: capitalize;
     font-weight: 600;
+}
+
+.name a {
+    color: rgba(0, 0, 0, 0.75);
 }
 
 .size_item {
