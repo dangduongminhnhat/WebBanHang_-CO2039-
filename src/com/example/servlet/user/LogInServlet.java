@@ -1,12 +1,10 @@
 package com.example.servlet.user;
 import com.example.model.user.*;
 
-import java.beans.Encoder;
 import java.io.*;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import java.io.*;
 import java.net.*;
 public class LogInServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) 
@@ -26,6 +24,15 @@ public class LogInServlet extends HttpServlet {
                 ObjectMapper objectMapper = new ObjectMapper();
                 String userJson = objectMapper.writeValueAsString(user);
                 RequestDispatcher view = request.getRequestDispatcher("Cart?userJson=".concat(URLEncoder.encode(userJson, "UTF-8")));
+                view.forward(request, response);
+            }
+            else if(request.getParameter("product") != null) {
+                ObjectMapper objectMapper = new ObjectMapper();
+                String userJson = objectMapper.writeValueAsString(user);
+                String productJson = request.getParameter("productJson");
+                String path = "upd-ct?product=true&userJson=" + URLEncoder.encode(userJson, "UTF-8") + "&productJson=" + URLEncoder.encode(productJson, "UTF-8") + "&size=" + request.getParameter("size") + "&quantity=" + request.getParameter("quantity");
+                // RequestDispatcher view = request.getRequestDispatcher("upd-ct?product=true&userJson=".concat(URLEncoder.encode(userJson, "UTF-8")).concat("&productJson=".concat(URLEncoder.encode(productJson, "UTF-8"))).concat("&size=".concat(request.getParameter("size"))).concat("&quantity=".concat(request.getParameter("quantity"))));
+                RequestDispatcher view = request.getRequestDispatcher(path);
                 view.forward(request, response);
             }
             else {

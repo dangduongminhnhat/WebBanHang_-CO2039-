@@ -3,8 +3,6 @@ import com.example.model.user.*;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import java.io.*;
-import java.util.concurrent.locks.ReadWriteLock;
-import java.util.concurrent.ThreadPoolExecutor;
 public class RegisterServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) 
         throws IOException, ServletException {

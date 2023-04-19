@@ -1,12 +1,11 @@
 package com.example.servlet.user;
 import com.example.model.user.*;
-import java.io.*;
-import java.net.*;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
-
-public class LogOutServlet extends HttpServlet {
+import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.*;
+import java.net.*;
+public class GetAdidasServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) 
         throws IOException, ServletException {
         response.setContentType("text/html");
@@ -14,12 +13,10 @@ public class LogOutServlet extends HttpServlet {
         String decodedValue = URLDecoder.decode(userJson, "UTF-8");
         ObjectMapper mapper = new ObjectMapper();
         User user = (User) mapper.readValue(decodedValue, User.class);
-        user.logout();
-        user = null;
         request.setAttribute("user", user);
-        RequestDispatcher view = request.getRequestDispatcher("index.jsp");
+        RequestDispatcher view = request.getRequestDispatcher("adidas-all.jsp");
         view.forward(request, response);
-    }   
+    }     
     public void doGet(HttpServletRequest request, HttpServletResponse response) 
         throws IOException, ServletException {
         response.setContentType("text/html");
@@ -27,10 +24,8 @@ public class LogOutServlet extends HttpServlet {
         String decodedValue = URLDecoder.decode(userJson, "UTF-8");
         ObjectMapper mapper = new ObjectMapper();
         User user = (User) mapper.readValue(decodedValue, User.class);
-        user.logout();
-        user = null;
         request.setAttribute("user", user);
-        RequestDispatcher view = request.getRequestDispatcher("index.jsp");
+        RequestDispatcher view = request.getRequestDispatcher("adidas-all.jsp");
         view.forward(request, response);
-    }   
+    }  
 }
