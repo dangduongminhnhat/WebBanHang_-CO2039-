@@ -1,26 +1,60 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<html>
-	<head>
-  	<title>Đăng nhập</title>
-    <meta charset="utf-8">
+<%@ page language="java"
+import="java.net.*"
+contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="/assets/font/stylesheet.css" />
+      <link rel="stylesheet" href="/assets/css/reset.css" />
+      <link rel="stylesheet" href="/assets/css/style-login-register.css" />
+      <title>Đăng Nhập</title>
   </head>
-
   <body>
-    <%String cart = request.getParameter("cart");%>
-    <h1>Đăng nhập</h1>
-    <form method="post" action="Login">
-      <%if(cart != null)%> <input type="hidden" name = "cart" value = "true">
-    	<label for="query">Id tài khoản</label>
-    	<input type="text" id="query" name="userId"><br>
-
-      <label for="query">Mật khẩu</label>
-      <input type="text" id="query" name="password"><br>
-
-      <input type="reset" value = "Nhập lại">
-      <input type="submit" value = "Đăng nhập">
-    </form>
-    <p>Chưa có tài khoản, <a href="register.jsp"><i>Đăng ký tại đây</i></a></p>
-    <p>${message}</p>
-    <button onclick="window.location.href = 'index.jsp'">Trở về</button>
+    <body>
+      <div class="content">
+        <div class="sub_content">
+          <div class="logo_img">
+              <a href="index.jsp"><img src="./assets/img/logo.png" alt="Thợ Code Bán Giày" /></a>
+          </div>
+          <%String cart = request.getParameter("cart");
+          String product = request.getParameter("product");
+          String productJson = request.getParameter("productJson");
+          String quantity = request.getParameter("quantity");
+          String size = request.getParameter("size");%>
+          <h1>Đăng nhập</h1>
+          <form class="info" method="post" action="Login">
+            <div>
+              <%if(cart != null) {%> 
+                <input type="hidden" name = "cart" value = "true">
+              <%}%>
+              <%if(product != null) {%> 
+                <input type="hidden" name = "product" value = "true">
+                <input type="hidden" name = "productJson" value = "<%=URLEncoder.encode(productJson, "UTF-8")%>">
+                <input type="hidden" name = "quantity" value = "<%=quantity%>">
+                <input type="hidden" name = "size" value = "<%=size%>">
+              <%}%>
+              <p class="frame">
+                <input type="text" id="query" name="userId" placeholder="Tên Đăng Nhập" />
+              </p>
+              <p class="frame">
+                <input type="text" id="query" name="password" placeholder="Mật Khẩu" />
+              </p>
+              <p class="frame login">
+                  <input class="login" type="submit" value="Đăng nhập" />
+              </p>
+            </div>
+          </form>
+          <p class="no_account">
+            Bạn chưa có tài khoản? <a class="register" href="register.jsp"><i>Đăng ký tại đây</i></a>
+          </p>
+          <p>${message}</p>
+          <button onclick="window.location.href = 'index.jsp'">Trở về</button>
+        </div>
+      </div>
+    </body>
   </body>
 </html>

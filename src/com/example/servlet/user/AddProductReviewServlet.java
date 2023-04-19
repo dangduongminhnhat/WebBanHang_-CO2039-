@@ -4,20 +4,22 @@ import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.*;
+import java.net.*;
 public class AddProductReviewServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) 
         throws IOException, ServletException {
         response.setContentType("text/html");
         String userJson = request.getParameter("userJson");
+        String decodedValue = URLDecoder.decode(userJson, "UTF-8");
         ObjectMapper mapper = new ObjectMapper();
-        // Deserialize the JSON string into a User object
-        User user = mapper.readValue(userJson, User.class);
+        User user = (User) mapper.readValue(decodedValue, User.class);
         String productJson = request.getParameter("productJson");
-        // Deserialize the JSON string into a User object
-        ProductForSale product = mapper.readValue(productJson, ProductForSale.class);
-        user.addProductReview(product, Integer.parseInt(request.getParameter("noOfStars")), request.getParameter("review"));
+        decodedValue = URLDecoder.decode(productJson, "UTF-8");
+        ProductForSale product = mapper.readValue(decodedValue, ProductForSale.class);
+        user.addProductReview(product, Integer.parseInt(request.getParameter("noOfStars")), request.getParameter("review"), user);
         request.setAttribute("user", user);
-        RequestDispatcher view = request.getRequestDispatcher(".jsp");
+        request.setAttribute("product", product);
+        RequestDispatcher view = request.getRequestDispatcher("product.jsp");
         view.forward(request, response);
     }     
 }
