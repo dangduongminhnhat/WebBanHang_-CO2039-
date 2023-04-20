@@ -1,0 +1,148 @@
+body {
+    background-color: #eee;
+}
+
+.frame {
+    display: flex;
+    padding: 20px;
+}
+
+.left {
+    flex: 1;
+}
+
+.right {
+    flex: 4;
+}
+
+.title {
+    margin-top: 8px;
+    font-size: 2rem;
+    font-weight: 700;
+    align-items: center;
+    background-color: #eee;
+}
+
+.frame_radio {
+    background-color: #fff;
+    border-radius: 6px;
+    padding: 12px;
+    width: 236px;
+    margin-top: 28px;
+}
+
+.desc {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #111;
+    padding-bottom: 12px;
+}
+
+.search_action {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+}
+
+#search {
+    width: 450px;
+    height: 36px;
+    border-radius: 4px;
+    font-size: 1.6rem;
+    border: 1px solid #eee;
+    outline: none;
+    padding: 4px 12px 4px 30px;
+}
+
+.fa-magnifying-glass {
+    position: absolute;
+    color: #797979;
+    top: 10px;
+    left: 7px;
+}
+
+.add-btn {
+    width: 100%;
+    height: 100%;
+    background-color: #0090da;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+}
+
+.add_new_product {
+    padding: 4px;
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.statistical {
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    padding: 4px;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.list_item:nth-child(odd) .statistical {
+    background-color: #f9f9f9;
+}
+
+.frame_statistical > .statistical {
+    margin-top: 20px;
+}
+
+.col_1 {
+    flex: 1;
+}
+.col_2 {
+    flex: 2;
+}
+.col_3 {
+    flex: 1;
+}
+
+.col_4 {
+    flex: 1;
+}
+.col_5 {
+    flex: 1;
+}
+
+.col_name {
+    color: #313131;
+    padding: 12px;
+    font-weight: 600;
+    background-color: #dcf4fc;
+    /* background-color: red; */
+}
+
+.product {
+    padding: 60px;
+    text-align: center;
+    background-color: #f9f9f9;
+    color: #999;
+}
+.list {
+    display: none;
+}
+
+.fa-clipboard {
+    font-size: 4rem;
+    margin-bottom: 18px;
+}
+
+.col_item {
+    padding: 12px;
+    /* background-color: red; */
+}
+
+.available_product .product {
+    display: none;
+}
+
+.available_product .list {
+    display: block;
+}
