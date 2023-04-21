@@ -28,10 +28,22 @@
                             </p>
 
                             <p class="frame">
-                                <input type="text" id="query" name="password" placeholder="Mật Khẩu" />
+                                <input type="password" id="password" name="password" placeholder="Mật Khẩu" required />
                             </p>
-
-                            <!-- <input type="reset" value="Nhập lại" /> -->
+                            <p class="frame_display_password">
+                                <input id="display_password" type="checkbox" onclick="display_password_func()" />
+                                <script>
+                                    function display_password_func() {
+                                        var x = document.getElementById("password");
+                                        if (x.type === "password") {
+                                            x.type = "text";
+                                        } else {
+                                            x.type = "password";
+                                        }
+                                    }
+                                </script>
+                                <label for="display_password">Hiện Mật Khẩu</label>
+                            </p>
                             <p class="frame login">
                                 <input class="login" type="submit" value="Đăng nhập" />
                             </p>

@@ -67,13 +67,19 @@ h1 {
     outline: none;
 }
 
-.login:hover {
-    cursor: pointer;
+.frame_display_password {
+    margin-bottom: 12px;
 }
 
 .login,
 .reg {
     background: #fed700;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.login:hover,
+.reg:hover {
+    background-color: #ff8c00;
 }
 
 .register {
@@ -98,8 +104,4 @@ h1 {
     margin-bottom: 6px;
     margin-left: 10px;
     font-size: 1rem;
-}
-
-.reg:hover {
-    cursor: pointer;
 }

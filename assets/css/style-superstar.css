@@ -215,8 +215,6 @@
     border-radius: 5px;
     font-size: 1.6rem;
     font-weight: 500;
-}
-#post:hover {
     cursor: pointer;
 }
 
@@ -258,7 +256,6 @@
 #unordered {
     margin-top: 20px;
     width: 70%;
-    /* background-color: red; */
 }
 
 #unordered li {
