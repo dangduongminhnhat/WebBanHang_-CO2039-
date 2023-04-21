@@ -199,6 +199,7 @@
 }
 
 .graphic .wrap_right {
+    /* Tiền xóa nè */
     color: #0094da;
     font-size: 1.6rem;
     font-weight: 700;
@@ -206,7 +207,6 @@
 
 .graphic .fa-dollar-sign {
     border-radius: 999px;
-    color: #;
 }
 
 .wrap_2 {

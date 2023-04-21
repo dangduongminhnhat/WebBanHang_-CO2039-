@@ -110,9 +110,6 @@
     margin-right: 8px;
     margin-top: 3px;
     outline: none;
-}
-
-.navbar .header_search-btn:hover {
     cursor: pointer;
 }
 
