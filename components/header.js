@@ -8,8 +8,8 @@ class Header extends HTMLElement {
     <div class="sub_content">
         <div class="navbar">
             <!-- Logo -->
-            <a href="/index.html" class="logo">
-                <img src="/assets/img/logo.png" alt="Thợ Code Bán Giày" />
+            <a href="./index.html" class="logo">
+                <img src="./assets/img/logo.png" alt="Thợ Code Bán Giày" />
             </a>
             <!-- Navigation -->
             <ul class="list">
@@ -17,10 +17,10 @@ class Header extends HTMLElement {
                     <a href="#!"><i>THƯƠNG HIỆU</i></a>
                     <ul class="sub-list">
                         <li>
-                            <a href="/nike-all.html">Nike</a>
+                            <a href="./nike-all.html">Nike</a>
                         </li>
                         <li>
-                            <a href="/adidas-all.html">Adidas</a>
+                            <a href="./adidas-all.html">Adidas</a>
                         </li>
                     </ul>
                 </li>
@@ -56,12 +56,12 @@ class Header extends HTMLElement {
             </div>
             <!-- Action -->
             <div class="action">
-                <a href="/login.html" class="action-btn">
+                <a href="./login.html" class="action-btn">
                     <i class="fa-regular fa-user"></i>
                 </a>
                 <div class="header_cart">
                     <div class="header_cart-wrap">
-                        <a href="#!" class="action-btn cart">
+                        <a href="./cart.html" class="action-btn cart">
                             <i class="header_cart-icon fa-solid fa-cart-plus"></i>
                             <span class="header_cart-notice">3</span>
                         </a>
@@ -78,13 +78,13 @@ class Header extends HTMLElement {
                                     <div class="header_cart-anchor header_cart-item">
                                         <div class="img-wrap">
                                             <img
-                                                src="/assets/img/air force 1.jpg"
+                                                src="./assets/img/air force 1.jpg"
                                                 alt="air force 1"
                                                 class="header_cart-img" />
                                         </div>
                                         <div class="header_cart-item-info">
                                             <div class="header_cart-item-head">
-                                                <a href="#!" class="header_cart-item-name">AIR FORCE 1</a>
+                                                <a href="./cart.html" class="header_cart-item-name">AIR FORCE 1</a>
                                                 <div class="header_cart-item-head">
                                                     <span class="header_cart-item-price">3.200.000đ</span>
                                                     <span class="header_cart-item-multiply">x</span>
@@ -105,13 +105,13 @@ class Header extends HTMLElement {
                                     <div class="header_cart-anchor header_cart-item">
                                         <div class="img-wrap">
                                             <img
-                                                src="/assets/img/adidas ultra 4dfwd.jpg"
+                                                src="./assets/img/adidas ultra 4dfwd.jpg"
                                                 alt="adidas ultra 4dfwd"
                                                 class="header_cart-img" />
                                         </div>
                                         <div class="header_cart-item-info">
                                             <div class="header_cart-item-head">
-                                                <a href="#!" class="header_cart-item-name">
+                                                <a href="./cart.html" class="header_cart-item-name">
                                                     ADIDAS ULTRA 4DFWD
                                                 </a>
                                                 <div class="header_cart-item-head">
@@ -133,15 +133,15 @@ class Header extends HTMLElement {
                                     <div class="header_cart-anchor header_cart-item">
                                         <div class="img-wrap">
                                             <img
-                                                src="/assets/img/nike air max excee.jpeg"
+                                                src="./assets/img/nike air max excee.jpeg"
                                                 alt="nike air max"
                                                 class="header_cart-img" />
                                         </div>
                                         <div class="header_cart-item-info">
                                             <div class="header_cart-item-head">
-                                                <a href="#!" class="header_cart-item-name"
-                                                    >NIKE AIR MAX EXCEE</a
-                                                >
+                                                <a href="./cart.html" class="header_cart-item-name"
+                                                    >NIKE AIR MAX EXCEE
+                                                </a>                                                
                                                 <div class="header_cart-item-head">
                                                     <span class="header_cart-item-price">2.900.000đ</span>
                                                     <span class="header_cart-item-multiply">x</span>

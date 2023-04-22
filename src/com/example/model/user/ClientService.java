@@ -13,12 +13,9 @@ public class ClientService extends Service {
     }
     public static User register(String fullName, String phoneNums, String userId, String password) {
         User user = new User(fullName, phoneNums, userId, password);
-        if(ManagerService.noOfUsers == 0) {
-            ManagerService.users = new ArrayList<User>();
-        }
+        // user.setActiveLoginState();
         ManagerService.users.add(user);
         ManagerService.noOfUsers++;
-        
         return user;
     }
     public static boolean isExistedAccount(String phoneNums) {

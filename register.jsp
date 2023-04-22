@@ -1,28 +1,46 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<html>
-	<head>
-  	<title>Đăng ký</title>
-    <meta charset="utf-8">
+<html lang="en">
+  <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="/assets/font/stylesheet.css" />
+      <link rel="stylesheet" href="/assets/css/reset.css" />
+      <link rel="stylesheet" href="/assets/css/style-login-register.css" />
+      <title>Đăng Ký</title>
   </head>
 
   <body>
-    <h1>Đăng ký</h1>
-    <form method="post" action="Register">
-    	<label for="query">Họ và Tên</label>
-      <input type="text" id="query" name="fullname"><br>
+    <div class="content">
+      <div class="sub_content sub_content--register">
+        <div class="logo_img"><a href="index.jsp"><img src="./assets/img/logo.png" alt="Thợ Code Bán Giày" /></a></div>
 
-    	<label for="query">Số điện thoại</label>
-      <input type="text" id="query" name="phoneNums"><br>
+        <h1 class="h1--register">Đăng Ký</h1>
 
-    	<label for="query">Id tài khoản</label>
-      <input type="text" id="query" name="userId"><br>
-
-      <label for="query">Mật khẩu</label>
-      <input type="text" id="query" name="password"><br>
-
-      <input type="reset" value = "Nhập lại">
-      <input type="submit" value="Đăng ký">
-    </form>
+        <form class="info-reg" method="post" action="Register">
+          <div class="desc"><label for="query">Họ và Tên</label></div>
+          <div class="frame">
+              <input type="text" id="query" name="fullname" placeholder="Họ và tên"/>
+          </div>
+          <div class="desc"><label for="query">Số điện thoại</label></div>
+          <div class="frame">
+              <input type="text" id="query" name="phoneNums" placeholder="Số điện thoại"/>
+          </div>
+          <div class="desc"><label for="query">Tên Đăng Nhập</label></div>
+          <div class="frame">
+              <input type="text" id="query" name="userId" placeholder="Tên Đăng Nhập"/>
+          </div>
+          <div class="desc"><label for="query">Mật khẩu</label></div>
+          <div class="frame">
+              <input type="text" id="query" name="password" placeholder="Mật khẩu"/>
+          </div>
+          <br/>
+          <div class="frame reg">
+            <input class="reg" type="submit" value="Đăng ký" />
+          </div>
+        </form>
+      </div>
+    </div>
     <p>${message}</p>
     <button onclick="window.location.href = 'index.jsp'">Trở về</button>
   </body>

@@ -71,14 +71,50 @@
         <url-pattern>/Cart</url-pattern>
     </servlet-mapping>
 
-    <!-- <servlet>
+    <servlet>
+        <servlet-name>GetBuyingHistoryServlet</servlet-name>
+        <servlet-class>com.example.servlet.user.GetBuyingHistoryServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetBuyingHistoryServlet</servlet-name>
+        <url-pattern>/history</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>AddProductReviewServlet</servlet-name>
         <servlet-class>com.example.servlet.user.AddProductReviewServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AddProductReviewServlet</servlet-name>
-        <url-pattern>/Review</url-pattern>
-    </servlet-mapping> -->
+        <url-pattern>/a-r</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GetProductDetailsServlet</servlet-name>
+        <servlet-class>com.example.servlet.user.GetProductDetailsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetProductDetailsServlet</servlet-name>
+        <url-pattern>/product</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GetProfileServlet</servlet-name>
+        <servlet-class>com.example.servlet.user.GetProfileServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetProfileServlet</servlet-name>
+        <url-pattern>/profile</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>GetAdidasServlet</servlet-name>
+        <servlet-class>com.example.servlet.user.GetAdidasServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetAdidasServlet</servlet-name>
+        <url-pattern>/adidas</url-pattern>
+    </servlet-mapping>
 
     <!-- <servlet>
         <servlet-name>GetBestSellerServlet</servlet-name>

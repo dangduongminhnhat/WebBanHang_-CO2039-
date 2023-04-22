@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./assets/css/reset.css" />
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+        <!-- Favicon -->
+        <link rel="apple-touch-icon" sizes="57x57" href="./assets/favicon/apple-icon-57x57.png" />
+        <link rel="apple-touch-icon" sizes="60x60" href="./assets/favicon/apple-icon-60x60.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="./assets/favicon/apple-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="./assets/favicon/apple-icon-76x76.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="./assets/favicon/apple-icon-114x114.png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="./assets/favicon/apple-icon-120x120.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="./assets/favicon/apple-icon-144x144.png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="./assets/favicon/apple-icon-152x152.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-icon-180x180.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="./assets/favicon/android-icon-192x192.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="96x96" href="./assets/favicon/favicon-96x96.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png" />
+        <link rel="manifest" href="./assets/favicon/manifest.json" />
+        <meta name="msapplication-TileColor" content="#ffffff" />
+        <meta name="msapplication-TileImage" content="./assets/favicon/ms-icon-144x144.png" />
+        <meta name="theme-color" content="#ffffff" />
+        <!-- Awesome -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="./assets/css/style.css" />
+        <link rel="stylesheet" href="./assets/css/base.css" />
+        <link rel="stylesheet" href="./assets/css/header.css" />
+        <link rel="stylesheet" href="./assets/css/footer.css" />
+        <link rel="stylesheet" href="./assets/css/cart.css" />
+
+        <script src="components/header.js" type="text/javascript" defer></script>
+        <script src="components/footer.js" type="text/javascript" defer></script>
+
+        <title>Giỏ Hàng</title>
+    </head>
+    <body>
+        <header-component></header-component>
+        <!-- No cart: have-cart -->
+        <div class="cart-detail have-cart">
+            <!-- Không có sản phẩm -->
+            <div class="no-cart">
+                <img class="img-no-cart" src="./assets/img/no_cart.jpg" alt="" />
+                <span class="desc-no-cart">Không có sản phẩm nào trong giỏ hàng</span>
+                <div class="frame_buy">
+                    <a class="action-btn action-btn-custom" href="./index.html">Trang Chủ</a>
+                </div>
+            </div>
+            <!-- Có sản phẩm -->
+            <div class="cart-detail_content">
+                <div class="title">Giỏ Hàng</div>
+                <ul class="list_item">
+                    <li class="item">
+                        <div class="frame_img">
+                            <a href="#!">
+                                <img
+                                    class="img_item"
+                                    src="./assets/img/ultraboost 20 metallic gold.jpeg"
+                                    alt="ultraboost 20 metallic gold" />
+                            </a>
+                        </div>
+                        <div class="content_item">
+                            <div class="name"><a href="#!">ultraboost 20 metallic gold</a></div>
+                            <div class="size_item">
+                                <span class="size_item_content">Size Giày: 39</span>
+                            </div>
+                            <div class="count_multi">
+                                <div class="frame_count">
+                                    <button class="count-btn disabled-count"><i class="fa-solid fa-minus"></i></button>
+                                    <span class="count_content">2</span>
+                                    <button class="count-btn"><i class="fa-solid fa-plus"></i></button>
+                                </div>
+                                <span class="multi"><i class="fa-solid fa-xmark"></i></span>
+                                <span class="unit_price">2,900,000đ</span>
+                            </div>
+                            <div class="frame_price">
+                                <span class="desc_price">Thành tiền:</span>
+                                <span class="total_price-item">5,800,000đ</span>
+                            </div>
+                        </div>
+                        <div class="remove-btn">
+                            <a href="#!"><i class="fa-solid fa-circle-xmark"></i></a>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <div class="frame_img">
+                            <a href="#!">
+                                <img
+                                    class="img_item"
+                                    src="./assets/img/air force 1 shadow multicolor.jpeg"
+                                    alt="air force 1 shadow multicolor" />
+                            </a>
+                        </div>
+                        <div class="content_item">
+                            <div class="name"><a href="#!">air force 1 shadow multicolor</a></div>
+                            <div class="size_item">
+                                <span class="size_item_content">Size Giày: 42</span>
+                            </div>
+                            <div class="count_multi">
+                                <div class="frame_count">
+                                    <button class="count-btn disabled-count"><i class="fa-solid fa-minus"></i></button>
+                                    <span class="count_content">3</span>
+                                    <button class="count-btn"><i class="fa-solid fa-plus"></i></button>
+                                </div>
+                                <span class="multi"><i class="fa-solid fa-xmark"></i></span>
+                                <span class="unit_price">3,900,000đ</span>
+                            </div>
+                            <div class="frame_price">
+                                <span class="desc_price">Thành tiền:</span>
+                                <span class="total_price-item">11,700,000đ</span>
+                            </div>
+                        </div>
+                        <div class="remove-btn">
+                            <a href="#!"><i class="fa-solid fa-circle-xmark"></i></a>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <div class="frame_img">
+                            <a href="#!"
+                                ><img class="img_item" src="./assets/img/air force 1.jpg" alt="air force 1" />
+                            </a>
+                        </div>
+                        <div class="content_item">
+                            <div class="name"><a href="#!">air force 1</a></div>
+                            <div class="size_item">
+                                <span class="size_item_content">Size Giày: 41</span>
+                            </div>
+                            <div class="count_multi">
+                                <div class="frame_count">
+                                    <button class="count-btn disabled-count"><i class="fa-solid fa-minus"></i></button>
+                                    <span class="count_content">1</span>
+                                    <button class="count-btn"><i class="fa-solid fa-plus"></i></button>
+                                </div>
+                                <span class="multi"><i class="fa-solid fa-xmark"></i></span>
+                                <span class="unit_price">3,300,000đ</span>
+                            </div>
+                            <div class="frame_price">
+                                <span class="desc_price">Thành tiền:</span>
+                                <span class="total_price-item">3,300,000đ</span>
+                            </div>
+                        </div>
+                        <div class="remove-btn">
+                            <a href="#!"><i class="fa-solid fa-circle-xmark"></i></a>
+                        </div>
+                    </li>
+                </ul>
+                <div class="summary">
+                    <div class="unit_price">20,800,000đ</div>
+                    <div class="desc_price" style="color: #000">Tổng tiền:</div>
+                </div>
+                <div class="frame_buy">
+                    <a class="action-btn action-btn-custom" href="./info-delivery.html">Mua Hàng</a>
+                </div>
+            </div>
+        </div>
+        <footer-component></footer-component>
+    </body>
+</html>

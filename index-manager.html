@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./assets/css/reset.css" />
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+        <!-- Favicon -->
+        <link rel="apple-touch-icon" sizes="57x57" href="./assets/favicon/apple-icon-57x57.png" />
+        <link rel="apple-touch-icon" sizes="60x60" href="./assets/favicon/apple-icon-60x60.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="./assets/favicon/apple-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="./assets/favicon/apple-icon-76x76.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="./assets/favicon/apple-icon-114x114.png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="./assets/favicon/apple-icon-120x120.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="./assets/favicon/apple-icon-144x144.png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="./assets/favicon/apple-icon-152x152.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-icon-180x180.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="./assets/favicon/android-icon-192x192.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="96x96" href="./assets/favicon/favicon-96x96.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png" />
+        <link rel="manifest" href="./assets/favicon/manifest.json" />
+        <meta name="msapplication-TileColor" content="#ffffff" />
+        <meta name="msapplication-TileImage" content="./assets/favicon/ms-icon-144x144.png" />
+        <meta name="theme-color" content="#ffffff" />
+        <!-- Awesome -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer" />
+
+        <link rel="stylesheet" href="./assets/css/base.css" />
+        <link rel="stylesheet" href="./assets/css/header-manager.css" />
+        <link rel="stylesheet" href="./assets/css/select-custom.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+        <script src="components/header_manager.js" type="text/javascript" defer></script>
+        <script src="select-custom.js"></script>
+        <title>Quản lý</title>
+    </head>
+    <body>
+        <header_manager-component></header_manager-component>
+        <div class="content_2">
+            <div class="sub_content">
+                <div class="result">
+                    <div class="title">Kết Quả Bán Hàng Hôm Nay</div>
+                    <div class="result_frame">
+                        <div class="icon">
+                            <i class="fa-solid fa-dollar-sign"></i>
+                        </div>
+                        <div class="text">
+                            <div class="desc">0 Hóa đơn</div>
+                            <div class="count" style="color: #0094da">0</div>
+                            <div class="note">Doanh thu</div>
+                        </div>
+                        <div class="icon" style="background-color: #ff8030">
+                            <i class="fa-solid fa-arrow-rotate-left"></i>
+                        </div>
+                        <div class="text">
+                            <div class="desc">0 Phiếu</div>
+                            <div class="count" style="color: #ff8030">0</div>
+                            <div class="note">Trả Hàng</div>
+                        </div>
+                        <div class="icon" style="background-color: #f94f5e">
+                            <i class="fa-solid fa-arrow-down"></i>
+                        </div>
+                        <div class="text">
+                            <div class="desc">Đánh giá</div>
+                            <div class="count" style="color: #f94f5e">-10.98%</div>
+                            <div class="note">So với cùng kỳ tháng trước</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="graphic">
+                    <div class="wrap_1">
+                        <div class="wrap_left">
+                            <div class="title">Doanh Thu Thuần</div>
+                            <div class="custom-select" style="width: 200px">
+                                <select>
+                                    <option value="week">Tuần Này</option>
+                                    <option value="month">Tháng Này</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="wrap_right">
+                            <i class="fa-solid fa-dollar-sign"></i>
+                            325,421,000
+                        </div>
+                    </div>
+                    <div class="wrap_2">
+                        <canvas id="plot_1" style="width: 90%; max-width: 800px"></canvas>
+
+                        <script>
+                            var xValues = ["Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7", "Chủ Nhật"];
+                            var yValues = [55, 49, 44, 24, 15, 30, 60];
+                            var barColors = "#0094da";
+
+                            new Chart("plot_1", {
+                                type: "bar",
+                                data: {
+                                    labels: xValues,
+                                    datasets: [
+                                        {
+                                            backgroundColor: barColors,
+                                            data: yValues,
+                                        },
+                                    ],
+                                },
+                                options: {
+                                    legend: { display: false },
+                                    scales: {
+                                        yAxes: [
+                                            {
+                                                ticks: {
+                                                    beginAtZero: true,
+                                                },
+                                            },
+                                        ],
+                                    },
+                                },
+                            });
+                        </script>
+                    </div>
+                </div>
+                <div class="graphic">
+                    <div class="wrap_1">
+                        <div class="wrap_left">
+                            <div class="title">Top 5 Hàng Hóa Bán Chạy</div>
+                            <div class="custom-select" style="width: 200px">
+                                <select>
+                                    <option value="revenue">Tuần Này</option>
+                                    <option value="amount">Tháng Này</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="custom-select" style="width: 200px">
+                            <select>
+                                <option value="revenue">Theo Doanh Thu</option>
+                                <option value="amount">Theo Số Lượng</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="wrap_2">
+                        <canvas id="plot_2" style="width: 90%; max-width: 800px"></canvas>
+
+                        <script>
+                            var yValues = [55, 49, 44, 24, 15];
+                            var xValues = [
+                                "Superstar",
+                                "Falcon Pink Purple ",
+                                "Air Max Bliss ",
+                                "Day Jogger Dash Green Linen ",
+                                "Ultraboost 4.0 DNA ",
+                            ];
+                            var barColors = "#0094da";
+                            new Chart("plot_2", {
+                                type: "horizontalBar",
+                                data: {
+                                    labels: xValues,
+                                    datasets: [
+                                        {
+                                            backgroundColor: barColors,
+                                            data: yValues,
+                                        },
+                                    ],
+                                },
+                                options: {
+                                    legend: { display: false },
+                                    title: {
+                                        display: true,
+                                        // text: "World Wine Production 2018",
+                                    },
+                                    scales: {
+                                        xAxes: [{ ticks: { min: 10, max: 60 } }],
+                                    },
+                                },
+                            });
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="./select-custom.js"></script>
+    </body>
+</html>

@@ -5,7 +5,7 @@ class superstar extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
         <span class="status">New</span>
-        <a href="./detailshoes-adidas/superstar.html">
+        <a href="./superstar.html">
             <img src="./assets/img/superstar.jpeg" alt="SUPERSTAR" class="img" />
             <div class="name">SUPERSTAR</div>
         </a>
