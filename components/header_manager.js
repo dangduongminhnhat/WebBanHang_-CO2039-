@@ -15,10 +15,10 @@ class Header_Manager extends HTMLElement {
                         <!-- Navigation -->
                         <ul class="list">
                             <li>
-                                <a href="#!">TỔNG QUAN</a>
+                                <a href="./index-manager.html">TỔNG QUAN</a>
                             </li>
                             <li>
-                                <a href="#!">KHO HÀNG</a>
+                                <a href="./warehouse.html">KHO HÀNG</a>
                             </li>
                             <li>
                                 <a href="#!">BÁO CÁO</a>
@@ -42,17 +42,6 @@ class Header_Manager extends HTMLElement {
                                     </li>
                                     <li>
                                         <a href="#!">Nhà Cung Cấp</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#!">GIAO DIỆN</a>
-                                <ul class="sub-list">
-                                    <li>
-                                        <a href="#!">Khách Hàng</a>
-                                    </li>
-                                    <li>
-                                        <a href="#!">Quản lý</a>
                                     </li>
                                 </ul>
                             </li>

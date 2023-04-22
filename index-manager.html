@@ -34,76 +34,14 @@
 
         <link rel="stylesheet" href="./assets/css/base.css" />
         <link rel="stylesheet" href="./assets/css/header-manager.css" />
-        <!-- <link rel="stylesheet" href="./assets/css/select-custom.css" /> -->
+        <link rel="stylesheet" href="./assets/css/select-custom.css" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
         <script src="components/header_manager.js" type="text/javascript" defer></script>
         <script src="select-custom.js"></script>
         <title>Quản lý</title>
     </head>
     <body>
-        <!-- <header_manager-component></header_manager-component> -->
-        <div class="content_1">
-            <div class="sub_content">
-                <div class="navbar">
-                    <!-- Logo -->
-                    <div class="wrap-left">
-                        <a href="./index.html" class="logo">
-                            <img src="./assets/img/logo.png" alt="Thợ Code Bán Giày" />
-                        </a>
-                        <!-- Navigation -->
-                        <ul class="list">
-                            <li>
-                                <a href="#!">TỔNG QUAN</a>
-                            </li>
-                            <li>
-                                <a href="#!">KHO HÀNG</a>
-                            </li>
-                            <li>
-                                <a href="#!">BÁO CÁO</a>
-                                <ul class="sub-list">
-                                    <li>
-                                        <a href="#!">Doanh Thu Thuần</a>
-                                    </li>
-                                    <li>
-                                        <a href="#!">Lợi Nhuận</a>
-                                    </li>
-                                    <li>
-                                        <a href="#!">Hàng Hóa</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#!">ĐỐI TÁC</a>
-                                <ul class="sub-list">
-                                    <li>
-                                        <a href="#!">Khách Hàng</a>
-                                    </li>
-                                    <li>
-                                        <a href="#!">Nhà Cung Cấp</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#!">GIAO DIỆN</a>
-                                <ul class="sub-list">
-                                    <li>
-                                        <a href="#!">Khách Hàng</a>
-                                    </li>
-                                    <li>
-                                        <a href="#!">Quản lý</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="action">
-                        <a href="./login.html" class="action-btn">
-                            <i class="fa-regular fa-user"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <header_manager-component></header_manager-component>
         <div class="content_2">
             <div class="sub_content">
                 <div class="result">
@@ -141,7 +79,6 @@
                             <div class="title">Doanh Thu Thuần</div>
                             <div class="custom-select" style="width: 200px">
                                 <select>
-                                    <!-- <option value="0">Select:</option> -->
                                     <option value="week">Tuần Này</option>
                                     <option value="month">Tháng Này</option>
                                 </select>
@@ -209,7 +146,7 @@
                         <canvas id="plot_2" style="width: 90%; max-width: 800px"></canvas>
 
                         <script>
-                            var yValues = [15, 24, 44, 49, 55];
+                            var yValues = [55, 49, 44, 24, 15];
                             var xValues = [
                                 "Superstar",
                                 "Falcon Pink Purple ",

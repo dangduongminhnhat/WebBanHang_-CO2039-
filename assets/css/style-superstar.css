@@ -85,6 +85,23 @@
     color: #fb0000;
 }
 
+.product_detail .price_own {
+    font-size: 2.2rem;
+    margin-top: 20px;
+    font-weight: 600;
+    color: #222;
+}
+
+.product_detail .ui_own {
+    display: none;
+}
+.product_detail .display_ui_own .ui_user {
+    display: none;
+}
+.product_detail .display_ui_own .ui_own {
+    display: block;
+}
+
 .product_detail .select-input {
     margin-top: 24px;
     width: 120px;
@@ -215,8 +232,6 @@
     border-radius: 5px;
     font-size: 1.6rem;
     font-weight: 500;
-}
-#post:hover {
     cursor: pointer;
 }
 
@@ -258,7 +273,6 @@
 #unordered {
     margin-top: 20px;
     width: 70%;
-    /* background-color: red; */
 }
 
 #unordered li {
