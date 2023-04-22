@@ -218,7 +218,6 @@ select {
     padding: 12px;
     font-weight: 600;
     background-color: #dcf4fc;
-    /* background-color: red; */
 }
 
 .product {
@@ -249,30 +248,63 @@ select {
     display: block;
 }
 
-/* ----- Add Img ----- */
-.body .add_img {
+/* InputFile */
+
+.body .add_file {
+    display: flex;
     padding: 0 20px;
 }
 
-.body .add_img_item {
-    display: inline-block;
-    width: 100px;
-    height: 84px;
-    background-color: ;
-    margin-right: 12px;
-    border-radius: 4px;
-    border: 1.2px dashed #ccc;
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    background-color: #000;
+    overflow: hidden;
+    position: absolute;
+    z-index: 2;
 }
 
-.body .icon_img {
+.inputfile + label {
+    margin-right: 12px;
+    border-radius: 4px;
+    border: 1.2px dashed #222;
+    width: 100px;
+    height: 84px;
+    font-size: 1.25em;
+    font-weight: 700;
+    color: white;
     opacity: 0.4;
-    width: 100%;
+    background-image: url(../img/icon_img.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: none;
+    display: inline-block;
+    cursor: pointer;
+}
+
+textarea {
+    margin-left: 54px;
+    width: 528px;
     height: 100%;
-    object-fit: cover;
-    object-position: center;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    resize: none;
+    outline: none;
+}
+
+textarea::placeholder {
+    color: #000;
+    font-weight: 500;
+    font-size: 1.6rem;
 }
 
 .body .frame_submit {
+    padding: 0 20px;
     display: flex;
     flex-direction: row-reverse;
 }
