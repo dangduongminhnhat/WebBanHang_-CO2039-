@@ -59,8 +59,8 @@
                         <input type="radio" id="crush" name="classify" value="HTML" />
                         <label for="crush">Giày đi với crush</label><br />
                         <br />
-                        <input type="radio" id="fix_bug" name="classify" value="CSS" />
-                        <label for="fix_bug">Giày thể thao</label><br />
+                        <input type="radio" id="sport" name="classify" value="CSS" />
+                        <label for="sport">Giày thể thao</label><br />
                     </div>
                     <div class="frame_radio">
                         <h2 class="desc">Tồn Kho</h2>
@@ -130,7 +130,7 @@
                                             <div class="custom-select">
                                                 <select id="classify_product" name="classify_product">
                                                     <option value="crush">Giày đi với crush</option>
-                                                    <option value="fix_bug">Giày đi fix bug</option>
+                                                    <option value="sport">Giày thể thao</option>
                                                 </select>
                                             </div>
                                         </form>
@@ -171,25 +171,39 @@
                                         </form>
                                     </div>
                                 </div>
-                                <div class="add_img">
-                                    <a href="#!">
-                                        <div class="add_img_item">
-                                            <img class="icon_img" src="./assets/img/icon_img.png" alt="icon image" />
-                                        </div>
-                                    </a>
-                                    <a href="#!">
-                                        <div class="add_img_item">
-                                            <img class="icon_img" src="./assets/img/icon_img.png" alt="icon image" />
-                                        </div>
-                                    </a>
-                                    <a href="#!">
-                                        <div class="add_img_item">
-                                            <img class="icon_img" src="./assets/img/icon_img.png" alt="icon image" />
-                                        </div>
-                                    </a>
-                                    <div class="frame_submit">
-                                        <input type="submit" value="Lưu Thông Tin" />
-                                    </div>
+                                <div class="add_file">
+                                    <input type="file" name="file" id="file" class="inputfile" />
+                                    <label for="file"></label>
+                                    <input type="file" name="file" id="file" class="inputfile" />
+                                    <label for="file"></label>
+                                    <input type="file" name="file" id="file" class="inputfile" />
+                                    <label for="file"></label>
+                                    <form>
+                                        <textarea placeholder="Mô tả sản phẩm"></textarea>
+                                    </form>
+
+                                    <script>
+                                        var inputs = document.querySelectorAll(".inputfile");
+                                        Array.prototype.forEach.call(inputs, function (input) {
+                                            var label = input.nextElementSibling,
+                                                labelVal = label.innerHTML;
+
+                                            input.addEventListener("change", function (e) {
+                                                var fileName = "";
+                                                if (this.files && this.files.length > 1)
+                                                    fileName = (
+                                                        this.getAttribute("data-multiple-caption") || ""
+                                                    ).replace("{count}", this.files.length);
+                                                else fileName = e.target.value.split("\\").pop();
+
+                                                if (fileName) label.querySelector("span").innerHTML = fileName;
+                                                else label.innerHTML = labelVal;
+                                            });
+                                        });
+                                    </script>
+                                </div>
+                                <div class="frame_submit">
+                                    <input type="submit" value="Lưu Thông Tin" />
                                 </div>
                             </div>
                         </div>
