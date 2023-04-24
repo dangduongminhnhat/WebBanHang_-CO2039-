@@ -1,9 +1,8 @@
 package com.example.model.user;
 import java.util.*;
 
-import com.example.model.*;
 import com.example.model.manager.ManagerService;
-public class ClientService extends Service {
+public class ClientService {
     public static User login(String userId, String password) {
         if(ManagerService.noOfUsers == 0) return null;
         for(User user : ManagerService.users) {

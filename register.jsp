@@ -4,9 +4,9 @@
       <meta charset="UTF-8" />
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="stylesheet" href="/assets/font/stylesheet.css" />
-      <link rel="stylesheet" href="/assets/css/reset.css" />
-      <link rel="stylesheet" href="/assets/css/style-login-register.css" />
+      <link rel="stylesheet" href="./assets/font/stylesheet.css" />
+      <link rel="stylesheet" href="./assets/css/reset.css" />
+      <link rel="stylesheet" href="./assets/css/style-login-register.css" />
       <title>Đăng Ký</title>
   </head>
 
@@ -32,16 +32,30 @@
           </div>
           <div class="desc"><label for="query">Mật khẩu</label></div>
           <div class="frame">
-              <input type="text" id="query" name="password" placeholder="Mật khẩu"/>
+              <input type="password" id="password" name="password" placeholder="Mật khẩu"/>
           </div>
+          <p class="frame_display_password">
+            <input id="display_password" type="checkbox" onclick="display_password_func()" />
+            <script>
+              function display_password_func() {
+                var x = document.getElementById("password");
+                if (x.type === "password") {
+                    x.type = "text";
+                } else {
+                    x.type = "password";
+                }
+              }
+            </script>
+            <label for="display_password">Hiện Mật Khẩu</label>
+          </p>
           <br/>
           <div class="frame reg">
             <input class="reg" type="submit" value="Đăng ký" />
           </div>
         </form>
+        <p>${message}</p>
+        <button onclick="window.location.href = 'index.jsp'">Trở về</button>
       </div>
     </div>
-    <p>${message}</p>
-    <button onclick="window.location.href = 'index.jsp'">Trở về</button>
   </body>
 </html>

@@ -8,9 +8,9 @@ pageEncoding="UTF-8"%>
       <meta charset="UTF-8" />
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="stylesheet" href="/assets/font/stylesheet.css" />
-      <link rel="stylesheet" href="/assets/css/reset.css" />
-      <link rel="stylesheet" href="/assets/css/style-login-register.css" />
+      <link rel="stylesheet" href="./assets/font/stylesheet.css" />
+      <link rel="stylesheet" href="./assets/css/reset.css" />
+      <link rel="stylesheet" href="./assets/css/style-login-register.css" />
       <title>Đăng Nhập</title>
   </head>
   <body>
@@ -41,7 +41,21 @@ pageEncoding="UTF-8"%>
                 <input type="text" id="query" name="userId" placeholder="Tên Đăng Nhập" />
               </p>
               <p class="frame">
-                <input type="text" id="query" name="password" placeholder="Mật Khẩu" />
+                <input type="password" id="password" name="password" placeholder="Mật Khẩu" required />
+              </p>
+              <p class="frame_display_password">
+                <input id="display_password" type="checkbox" onclick="display_password_func()" />
+                <script>
+                  function display_password_func() {
+                    var x = document.getElementById("password");
+                    if (x.type === "password") {
+                        x.type = "text";
+                    } else {
+                        x.type = "password";
+                    }
+                  }
+                </script>
+                <label for="display_password">Hiện Mật Khẩu</label>
               </p>
               <p class="frame login">
                   <input class="login" type="submit" value="Đăng nhập" />
@@ -49,10 +63,10 @@ pageEncoding="UTF-8"%>
             </div>
           </form>
           <p class="no_account">
-            Bạn chưa có tài khoản? <a class="register" href="register.jsp"><i>Đăng ký tại đây</i></a>
+            Bạn chưa có tài khoản? <a class="register" href="register.jsp"><i>Đăng ký tại đây</i></a><br>
           </p>
-          <p>${message}</p>
-          <button onclick="window.location.href = 'index.jsp'">Trở về</button>
+          <button class="login" onclick="window.location.href = 'index.jsp'">Trở về</button>
+          ${message}
         </div>
       </div>
     </body>

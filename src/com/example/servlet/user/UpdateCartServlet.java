@@ -22,6 +22,14 @@ public class UpdateCartServlet extends HttpServlet {
         }
         decodedValue = URLDecoder.decode(productJson, "UTF-8");
         ProductForSale product = mapper.readValue(decodedValue, ProductForSale.class);
+        if(request.getParameter("order") != null) {
+            user.clearCart();
+            product = new ProductForSale(product, Integer.parseInt(request.getParameter("size")));
+            user.addToCart(product, Integer.parseInt(request.getParameter("quantity")), product.getSaleoff());
+            request.setAttribute("user", user);
+            RequestDispatcher view = request.getRequestDispatcher("info-delivery.jsp");
+            view.forward(request, response);
+        }
         if(request.getParameter("cart") == null) {
             product = new ProductForSale(product, Integer.parseInt(request.getParameter("size")));
             user.addToCart(product, Integer.parseInt(request.getParameter("quantity")), product.getSaleoff());
@@ -59,6 +67,14 @@ public class UpdateCartServlet extends HttpServlet {
         }
         decodedValue = URLDecoder.decode(productJson, "UTF-8");
         ProductForSale product = mapper.readValue(decodedValue, ProductForSale.class);
+        if(request.getParameter("order") != null) {
+            user.clearCart();
+            product = new ProductForSale(product, Integer.parseInt(request.getParameter("size")));
+            user.addToCart(product, Integer.parseInt(request.getParameter("quantity")), product.getSaleoff());
+            request.setAttribute("user", user);
+            RequestDispatcher view = request.getRequestDispatcher("info-delivery.jsp");
+            view.forward(request, response);
+        }
         if(request.getParameter("cart") == null) {
             product = new ProductForSale(product, Integer.parseInt(request.getParameter("size")));
             user.addToCart(product, Integer.parseInt(request.getParameter("quantity")), product.getSaleoff());
