@@ -318,7 +318,7 @@ pageEncoding="UTF-8"
                         <div class="desc_price" style="color: #000">Tổng tiền:</div>
                     </div>
                     <div class="frame_buy">
-                        <a class="action-btn action-btn-custom" href="pmt?userJson=<%=URLEncoder.encode(userJson, "UTF-8")%>">Mua Hàng</a>
+                        <a class="action-btn action-btn-custom" href="info-delivery.jsp?userJson=<%=URLEncoder.encode(userJson, "UTF-8")%>">Mua Hàng</a>
                     </div>
                 </div>
             </div>

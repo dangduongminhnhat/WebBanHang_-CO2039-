@@ -3,7 +3,8 @@ class Footer extends HTMLElement {
         super();
     }
     connectedCallback() {
-        this.innerHTML = `<div>
+        this.innerHTML = `
+        <div>
             <a href="https://www.facebook.com/ttvnex/">
                 <i class="icon_messenger fa-brands fa-facebook-messenger"></i>
             </a>

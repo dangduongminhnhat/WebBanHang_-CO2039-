@@ -2,8 +2,6 @@ package com.example.model.user;
 import com.example.model.manager.*;
 import java.util.*;
 
-import javax.swing.plaf.basic.BasicOptionPaneUI.ButtonAreaLayout;
-
 public class User {
     public User() {}
     public User(String fullName, String phoneNums, String userId, String password) {
@@ -18,7 +16,7 @@ public class User {
     }
     public class BankAccount {
         public BankAccount() {
-            this.balance = 50000000;
+            this.balance = 500000000;
         }
         public BankAccount(int balance) {
             this.balance = balance;
@@ -163,7 +161,13 @@ public class User {
         for(int quantity : cartState.quantityEachProduct) {
             buyingHistory.quantityEachProduct.add(quantity);
         }
-        buyingHistory.totalCost = cartState.totalCost;
+        buyingHistory.totalCost += cartState.totalCost;
+        for(int i = 0; i < ManagerService.users.size(); i++) {
+            if(ManagerService.users.get(i).getUserId().equals(this.userId)) {
+                ManagerService.users.set(i, this);
+                return ;
+            }
+        }
     }
     public boolean bankPay() {
         //update orderState, bankAccount, buyingHistory, cartState

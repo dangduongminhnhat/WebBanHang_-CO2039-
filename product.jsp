@@ -227,25 +227,25 @@ pageEncoding="UTF-8"
                     <%if(product.getName().equals("SUPERSTAR")) {%>
                     <div class="small_image">
                         <div class="small_image-link">
-                            <a href="<%=product.getSmallImg1()%>">
+                            <a href="./assets/img/superstar detail 1.jpeg">
                                 <img
-                                    src="<%=product.getSmallImg1()%>"
+                                    src="./assets/img/superstar detail 1.jpeg"
                                     alt="<%=product.getName()%>"
                                     class="small_image-img" />
                             </a>
                         </div>
                         <div class="small_image-link">
-                            <a href="<%=product.getSmallImg2()%>">
+                            <a href="./assets/img/superstar detail 2.jpeg">
                                 <img
-									src="<%=product.getSmallImg2()%>"
+									src="./assets/img/superstar detail 2.jpeg"
 									alt="<%=product.getName()%>"
 									class="small_image-img" />
                             </a>
                         </div>
                         <div class="small_image-link">
-                            <a href="<%=product.getSmallImg3()%>">
+                            <a href="./assets/img/superstar detail 3.jpeg">
                                 <img
-									src="<%=product.getSmallImg3()%>"
+									src="./assets/img/superstar detail 3.jpeg"
 									alt="<%=product.getName()%>"
 									class="small_image-img" />
                             </a>
@@ -264,181 +264,199 @@ pageEncoding="UTF-8"
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
                         </div>
+                        <div class="display_ui_own">
+                            <div class="ui_own">
+                                <div class="option-size">
+                                    <%if(product.getQuantity() <= 0) {%>
+                                    <div class="desc-size">Tạm hết hàng</div><br/>
+                                    <%} else {%>
+                                    <div class="desc-size">Còn hàng</div><br/>
+                                    <%}%>
+                                    <div class="desc-size">Đã bán: <%=product.getNoOfSolds()%></div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="price"><%=formatter.format(Math.round(product.getSaleoff() * product.getUnitPrice()))%>đ</div>
-                        <%if(user != null) {
-                            productJson = objectMapper.writeValueAsString(product);%>
-                        <script>
-                            function increaseValue() {
-                                var value = parseInt(document.getElementById('number').value, 10);
-                                value = isNaN(value) ? 1 : value;
-                                value++;
-                                document.getElementById('number').value = value;
-                                document.getElementById('outputQuantity').textContent = value;
-                                updateLink();
-                            }
-                            function decreaseValue() {
-                                var value = parseInt(document.getElementById('number').value, 10);
-                                value = isNaN(value) ? 1 : value;
-                                value < 2 ? value = 2 : '';
-                                value--;
-                                document.getElementById('number').value = value;
-                                document.getElementById('outputQuantity').textContent = value;
-                                updateLink();
-                            }
+                        <%if(product.getQuantity() > 0) {%>
+                            <%if(user != null) {
+                                productJson = objectMapper.writeValueAsString(product);%>
+                            <script>
+                                function increaseValue() {
+                                    var value = parseInt(document.getElementById('number').value, 10);
+                                    value = isNaN(value) ? 1 : value;
+                                    value > <%=product.getQuantity()%> - 1 ? value = <%=product.getQuantity()%> - 1: '';
+                                    value++;
+                                    document.getElementById('number').value = value;
+                                    document.getElementById('outputQuantity').textContent = value;
+                                    updateLink();
+                                }
+                                function decreaseValue() {
+                                    var value = parseInt(document.getElementById('number').value, 10);
+                                    value = isNaN(value) ? 1 : value;
+                                    value < 2 ? value = 2 : '';
+                                    value--;
+                                    document.getElementById('number').value = value;
+                                    document.getElementById('outputQuantity').textContent = value;
+                                    updateLink();
+                                }
 
-                            function increaseSize() {
-                                var value = parseInt(document.getElementById('size').value, 10);
-                                value = isNaN(value) ? 39 : value;
-                                value > 44 ? value = 44 : '';
-                                value++;
-                                document.getElementById('size').value = value;
-                                document.getElementById('outputSize').textContent = value;
-                                updateLink();
-                            }
-                            function decreaseSize() {
-                                var value = parseInt(document.getElementById('size').value, 10);
-                                value = isNaN(value) ? 0 : value;
-                                value < 40 ? value = 40 : '';
-                                value--;
-                                document.getElementById('size').value = value;
-                                document.getElementById('outputSize').textContent = value;
-                                updateLink();
-                            }
-                            function updateLink() {
-                                var link = document.getElementById('upd-ct');
-                                var quantity = document.getElementById('number').value;
-                                var size = document.getElementById('size').value;
-                                link.href = 'upd-ct?product=true&productJson=<%=URLEncoder.encode(productJson, "UTF-8")%>&userJson=<%=URLEncoder.encode(userJson, "UTF-8")%>&quantity=' + quantity + '&size=' + size;
-                            }
-                        </script>
-                        <br>
-                        <span class="desc-size">Số lượng:</span>
-                        <form class="select-input">
-                            <div class="filter_page-btn" id="decrease" onclick="decreaseValue()" value="Decrease Value">
-                                <i class="fa-solid fa-minus"></i>
-                            </div>
-                            <span class="count" id="outputQuantity">1</span>
-                            <input type="hidden" id="number" name = "quantity" value="1"/>
-                            <div class="filter_page-btn" id="increase" onclick="increaseValue()" value="Increase Value">
-                                <i class="fa-solid fa-plus"></i>
-                            </div>                               
-                        </form>
-                        <div class="option-size">
-                            <span class="desc-size">Kích Thước:</span>
+                                function increaseSize() {
+                                    var value = parseInt(document.getElementById('choose-size').value, 10);
+                                    value = isNaN(value) ? 39 : value;
+                                    value > 44 ? value = 44 : '';
+                                    value++;
+                                    document.getElementById('choose-size').value = value;
+                                    document.getElementById('outputSize').textContent = value;
+                                    updateLink();
+                                }
+                                function decreaseSize() {
+                                    var value = parseInt(document.getElementById('choose-size').value, 10);
+                                    value = isNaN(value) ? 0 : value;
+                                    value < 40 ? value = 40 : '';
+                                    value--;
+                                    document.getElementById('choose-size').value = value;
+                                    document.getElementById('outputSize').textContent = value;
+                                    updateLink();
+                                }
+                                function updateLink() {
+                                    var link = document.getElementById('upd-ct');
+                                    var quantity = document.getElementById('number').value;
+                                    var size = document.getElementById('choose-size').value;
+                                    link.href = 'upd-ct?product=true&productJson=<%=URLEncoder.encode(productJson, "UTF-8")%>&userJson=<%=URLEncoder.encode(userJson, "UTF-8")%>&quantity=' + quantity + '&size=' + size;
+                                    document.getElementById('pmt').href = 'upd-ct?order=true&productJson=<%=URLEncoder.encode(productJson, "UTF-8")%>&userJson=<%=URLEncoder.encode(userJson, "UTF-8")%>&quantity=' + quantity + '&size=' + size;
+                                }
+                            </script>
+                            <br>
+                            <span class="desc-size">Chọn số lượng:</span>
                             <form class="select-input">
-                                <!-- <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div> -->
-                                <div class="filter_page-btn" id="decrease" onclick="decreaseSize()" value="Decrease Size">
+                                <div class="filter_page-btn" id="decrease" onclick="decreaseValue()" value="Decrease Value">
                                     <i class="fa-solid fa-minus"></i>
                                 </div>
-                                <span class="count" id="outputSize">39</span>
-                                <input type="hidden" id="size" name = "size" value="39"/>
-                                <div class="filter_page-btn" id="increase" onclick="increaseSize()" value="Increase Size">
+                                <span class="count" id="outputQuantity">1</span>
+                                <input type="hidden" id="number" name = "quantity" value="1"/>
+                                <div class="filter_page-btn" id="increase" onclick="increaseValue()" value="Increase Value">
                                     <i class="fa-solid fa-plus"></i>
                                 </div>                               
                             </form>
-                        </div>
-                        <div class="action-buy">
-                            <div class="action-btn">
-                                <a id="upd-ct" href="upd-ct?product=true&productJson=<%=URLEncoder.encode(productJson, "UTF-8")%>&userJson=<%=URLEncoder.encode(userJson, "UTF-8")%>&quantity=1&size=39" >
-                                    <i class="fa-solid fa-cart-plus"></i>
-                                    <span>Thêm Vào Giỏ</span>
-                                </a>
+                            <div class="option-size">
+                                <span class="desc-size">Chọn kích Thước:</span>
+                                <form class="select-input">
+                                    <!-- <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div> -->
+                                    <div class="filter_page-btn" id="decrease" onclick="decreaseSize()" value="Decrease Size">
+                                        <i class="fa-solid fa-minus"></i>
+                                    </div>
+                                    <span class="count" id="outputSize">39</span>
+                                    <input type="hidden" id="choose-size" name = "size" value="39"/>
+                                    <div class="filter_page-btn" id="increase" onclick="increaseSize()" value="Increase Size">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </div>                               
+                                </form>
                             </div>
-                            <div class="action-btn">
-                                <a href="#!">
-                                    <i style="color: #ededed" class="fa-solid fa-money-check-dollar"></i>
-                                    <span style="color: #ededed">Mua Ngay</span>
-                                </a>
+                            <div class="action-buy">
+                                <div class="action-btn">
+                                    <a id="upd-ct" href="upd-ct?product=true&productJson=<%=URLEncoder.encode(productJson, "UTF-8")%>&userJson=<%=URLEncoder.encode(userJson, "UTF-8")%>&quantity=1&size=39" >
+                                        <i class="fa-solid fa-cart-plus"></i>
+                                        <span>Thêm Vào Giỏ</span>
+                                    </a>
+                                </div>
+                                <div class="action-btn">
+                                    <a id="pmt" href="upd-ct?order=true&productJson=<%=URLEncoder.encode(productJson, "UTF-8")%>&userJson=<%=URLEncoder.encode(userJson, "UTF-8")%>&quantity=1&size=39">
+                                        <i style="color: #ededed" class="fa-solid fa-money-check-dollar"></i>
+                                        <span style="color: #ededed">Mua Ngay</span>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                        <%} else {%>
-                        <script>
-                            function increaseValue() {
-                                var value = parseInt(document.getElementById('number').value, 10);
-                                value = isNaN(value) ? 1 : value;
-                                value++;
-                                document.getElementById('number').value = value;
-                                document.getElementById('outputQuantity').textContent = value;
-                                updateLink();
-                            }
-                            function decreaseValue() {
-                                var value = parseInt(document.getElementById('number').value, 10);
-                                value = isNaN(value) ? 1 : value;
-                                value < 2 ? value = 2 : '';
-                                value--;
-                                document.getElementById('number').value = value;
-                                document.getElementById('outputQuantity').textContent = value;
-                                updateLink();
-                            }
-                            function increaseSize() {
-                                var value = parseInt(document.getElementById('size').value, 10);
-                                value = isNaN(value) ? 39 : value;
-                                value > 44 ? value = 44 : '';
-                                value++;
-                                document.getElementById('size').value = value;
-                                document.getElementById('outputSize').textContent = value;
-                                updateLink();
-                            }
-                            function decreaseSize() {
-                                var value = parseInt(document.getElementById('size').value, 10);
-                                value = isNaN(value) ? 0 : value;
-                                value < 40 ? value = 40 : '';
-                                value--;
-                                document.getElementById('size').value = value;
-                                document.getElementById('outputSize').textContent = value;
-                                updateLink();
-                            }
-                            function updateLink() {
-                                var link = document.getElementById('login');
-                                var quantity = document.getElementById('number').value;
-                                var size = document.getElementById('size').value;
-                                link.href = 'login.jsp?product=true&productJson=<%=URLEncoder.encode(productJson, "UTF-8")%>&userJson=<%=URLEncoder.encode(userJson, "UTF-8")%>&quantity=' + quantity + '&size=' + size;
-                            }
-                        </script>
-                        <br>
-                        <span class="desc-size">Số lượng:</span>
-                        <form class="select-input" method="post" action="upd-ct">
-                            <div class="filter_page-btn" id="decrease" onclick="decreaseValue()" value="Decrease Value">
-                                <i class="fa-solid fa-minus"></i>
-                            </div>
-                            <span class="count" id="outputQuantity">1</span>
-                            <input type="hidden" id="number" name = "quantity" value="1"/>
-                            <div class="filter_page-btn" id="increase" onclick="increaseValue()" value="Increase Value">
-                                <i class="fa-solid fa-plus"></i>
-                            </div>                               
-                        </form>
-                        <div class="option-size">
-                            <span class="desc-size">Kích Thước:</span>
-                            <form class="select-input">
-                                <div class="filter_page-btn" id="decrease" onclick="decreaseSize()" value="Decrease Size">
+                            <%} else {%>
+                            <script>
+                                function increaseValue() {
+                                    var value = parseInt(document.getElementById('number').value, 10);
+                                    value = isNaN(value) ? 1 : value;
+                                    value > <%=product.getQuantity()%> - 1 ? value = <%=product.getQuantity()%> - 1 : '';
+                                    value++;
+                                    document.getElementById('number').value = value;
+                                    document.getElementById('outputQuantity').textContent = value;
+                                    updateLink();
+                                }
+                                function decreaseValue() {
+                                    var value = parseInt(document.getElementById('number').value, 10);
+                                    value = isNaN(value) ? 1 : value;
+                                    value < 2 ? value = 2 : '';
+                                    value--;
+                                    document.getElementById('number').value = value;
+                                    document.getElementById('outputQuantity').textContent = value;
+                                    updateLink();
+                                }
+                                function increaseSize() {
+                                    var value = parseInt(document.getElementById('choose-size').value, 10);
+                                    value = isNaN(value) ? 39 : value;
+                                    value > 44 ? value = 44 : '';
+                                    value++;
+                                    document.getElementById('choose-size').value = value;
+                                    document.getElementById('outputSize').textContent = value;
+                                    updateLink();
+                                }
+                                function decreaseSize() {
+                                    var value = parseInt(document.getElementById('choose-size').value, 10);
+                                    value = isNaN(value) ? 0 : value;
+                                    value < 40 ? value = 40 : '';
+                                    value--;
+                                    document.getElementById('choose-size').value = value;
+                                    document.getElementById('outputSize').textContent = value;
+                                    updateLink();
+                                }
+                                function updateLink() {
+                                    var link = document.getElementById('login');
+                                    var quantity = document.getElementById('number').value;
+                                    var size = document.getElementById('choose-size').value;
+                                    link.href = 'login.jsp?product=true&productJson=<%=URLEncoder.encode(productJson, "UTF-8")%>&userJson=<%=URLEncoder.encode(userJson, "UTF-8")%>&quantity=' + quantity + '&size=' + size;
+                                    document.getElementById('login').href = 'login.jsp?product=true&productJson=<%=URLEncoder.encode(productJson, "UTF-8")%>&userJson=<%=URLEncoder.encode(userJson, "UTF-8")%>&quantity=' + quantity + '&size=' + size;
+                                }
+                            </script>
+                            <br>
+                            <span class="desc-size">Chọn số lượng:</span>
+                            <form class="select-input" method="post" action="upd-ct">
+                                <div class="filter_page-btn" id="decrease" onclick="decreaseValue()" value="Decrease Value">
                                     <i class="fa-solid fa-minus"></i>
                                 </div>
-                                <span class="count" id="outputSize">39</span>
-                                <input type="hidden" id="size" name = "size" value="39"/>
-                                <div class="filter_page-btn" id="increase" onclick="increaseSize()" value="Increase Size">
+                                <span class="count" id="outputQuantity">1</span>
+                                <input type="hidden" id="number" name = "quantity" value="1"/>
+                                <div class="filter_page-btn" id="increase" onclick="increaseValue()" value="Increase Value">
                                     <i class="fa-solid fa-plus"></i>
                                 </div>                               
                             </form>
-                        </div>
-                        <div class="action-buy">
-                            <div class="action-btn">
-                                <a id="login" href="login.jsp?product=true&productJson=<%=URLEncoder.encode(productJson, "UTF-8")%>&userJson=<%=URLEncoder.encode(userJson, "UTF-8")%>">
-                                    <i class="fa-solid fa-cart-plus"></i>
-                                    <span>Thêm Vào Giỏ</span>
-                                </a>
+                            <div class="option-size">
+                                <span class="desc-size">Chọn kích Thước:</span>
+                                <form class="select-input">
+                                    <div class="filter_page-btn" id="decrease" onclick="decreaseSize()" value="Decrease Size">
+                                        <i class="fa-solid fa-minus"></i>
+                                    </div>
+                                    <span class="count" id="outputSize">39</span>
+                                    <input type="hidden" id="choose-size" name = "size" value="39"/>
+                                    <div class="filter_page-btn" id="increase" onclick="increaseSize()" value="Increase Size">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </div>                               
+                                </form>
                             </div>
-                            <div class="action-btn">
-                                <a href="#!">
-                                    <i style="color: #ededed" class="fa-solid fa-money-check-dollar"></i>
-                                    <span style="color: #ededed">Mua Ngay</span>
-                                </a>
+                            <div class="action-buy">
+                                <div class="action-btn">
+                                    <a id="login" href="login.jsp?product=true&productJson=<%=URLEncoder.encode(productJson, "UTF-8")%>&userJson=<%=URLEncoder.encode(userJson, "UTF-8")%>">
+                                        <i class="fa-solid fa-cart-plus"></i>
+                                        <span>Thêm Vào Giỏ</span>
+                                    </a>
+                                </div>
+                                <div class="action-btn">
+                                    <a href="login.jsp">
+                                        <i style="color: #ededed" class="fa-solid fa-money-check-dollar"></i>
+                                        <span style="color: #ededed">Mua Ngay</span>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                        <%}%>
+                            <%}
+                        }%>
                     </div>
                 </div>
             </div>
-            <%if(product.getName().equals("SUPERSTAR")) {%>
+            <%if(product.getName().equals("SUPERSTAR") || product.getName().equals("superstar")) {%>
             <div class="desc_detail">
                 <div class="reason">4 LÝ DO BẠN KHÔNG NÊN BỎ LỠ SUPERSTAR</div>
                 <div class="paragraph">
@@ -494,6 +512,14 @@ pageEncoding="UTF-8"
                 <div class="img-desc">
                     <img src="./assets/img/superstar desc 4.jpg" alt="superstar" />
                 </div>
+            </div>
+            <%} else {%>
+            <div class="desc_detail">
+                <div class="reason">Mô tả sản phẩm</div>
+                    <div class="paragraph">
+                    <%=product.getDescription()%>
+                    </div>
+                </div> 
             </div>
             <%}%>
             <div class="comment">

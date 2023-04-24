@@ -5,7 +5,7 @@ import jakarta.servlet.http.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.*;
 import java.net.*;
-public class UpdateCartServlet extends HttpServlet {
+public class UpdateDeliveryInfoServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) 
     throws IOException, ServletException {
         response.setContentType("text/html");
@@ -14,41 +14,13 @@ public class UpdateCartServlet extends HttpServlet {
         ObjectMapper mapper = new ObjectMapper();
         User user = (User) mapper.readValue(decodedValue, User.class);
         String productJson = request.getParameter("productJson");
-        if(productJson == null) {    
-            user.clearCart();
-            request.setAttribute("user", user);
-            RequestDispatcher view = request.getRequestDispatcher("cart.jsp");
-            view.forward(request, response);
-        }
         decodedValue = URLDecoder.decode(productJson, "UTF-8");
         ProductForSale product = mapper.readValue(decodedValue, ProductForSale.class);
-        if(request.getParameter("order") != null) {
-            user.clearCart();
-            product = new ProductForSale(product, Integer.parseInt(request.getParameter("size")));
-            user.addToCart(product, Integer.parseInt(request.getParameter("quantity")), product.getSaleoff());
-            request.setAttribute("user", user);
-            RequestDispatcher view = request.getRequestDispatcher("info-delivery.jsp");
-            view.forward(request, response);
-        }
-        if(request.getParameter("cart") == null) {
-            product = new ProductForSale(product, Integer.parseInt(request.getParameter("size")));
-            user.addToCart(product, Integer.parseInt(request.getParameter("quantity")), product.getSaleoff());
-            request.setAttribute("user", user);
-            request.setAttribute("product", product);
-            RequestDispatcher view = request.getRequestDispatcher("product.jsp");
-            view.forward(request, response);
-        } else {
-            if(request.getParameter("clear") != null) {
-                user.updateCart(product, 0, product.getSaleoff(), Integer.parseInt(request.getParameter("size")));
-                request.setAttribute("user", user);
-                RequestDispatcher view = request.getRequestDispatcher("cart.jsp");
-                view.forward(request, response);
-            }
-            user.updateCart(product, Integer.parseInt(request.getParameter("quantity")), product.getSaleoff(), Integer.parseInt(request.getParameter("size")));
-            request.setAttribute("user", user);
-            RequestDispatcher view = request.getRequestDispatcher("cart.jsp");
-            view.forward(request, response);
-        }
+        product = new ProductForSale(product, Integer.parseInt(request.getParameter("size")));
+        user.addToCart(product, Integer.parseInt(request.getParameter("quantity")), product.getSaleoff());
+        RequestDispatcher view = request.getRequestDispatcher("cart.jsp");
+        request.setAttribute("user", user);
+        view.forward(request, response);
     }     
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) 
@@ -67,14 +39,6 @@ public class UpdateCartServlet extends HttpServlet {
         }
         decodedValue = URLDecoder.decode(productJson, "UTF-8");
         ProductForSale product = mapper.readValue(decodedValue, ProductForSale.class);
-        if(request.getParameter("order") != null) {
-            user.clearCart();
-            product = new ProductForSale(product, Integer.parseInt(request.getParameter("size")));
-            user.addToCart(product, Integer.parseInt(request.getParameter("quantity")), product.getSaleoff());
-            request.setAttribute("user", user);
-            RequestDispatcher view = request.getRequestDispatcher("info-delivery.jsp");
-            view.forward(request, response);
-        }
         if(request.getParameter("cart") == null) {
             product = new ProductForSale(product, Integer.parseInt(request.getParameter("size")));
             user.addToCart(product, Integer.parseInt(request.getParameter("quantity")), product.getSaleoff());

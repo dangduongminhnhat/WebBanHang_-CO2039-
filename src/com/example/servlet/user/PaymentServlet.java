@@ -1,5 +1,6 @@
 package com.example.servlet.user;
 import com.example.model.user.*;
+import com.example.model.manager.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
@@ -13,7 +14,8 @@ public class PaymentServlet extends HttpServlet {
         ObjectMapper mapper = new ObjectMapper();
         User user = (User) mapper.readValue(decodedValue, User.class);    
         if(user.bankPay()) {
-            request.setAttribute("message", "Thanh toán thành công");
+            ManagerService.noOfOrders++;
+            request.setAttribute("message", "Đặt hàng thành công");
             request.setAttribute("user", user);
             RequestDispatcher view = request.getRequestDispatcher("cart.jsp");
             view.forward(request, response);
@@ -32,13 +34,14 @@ public class PaymentServlet extends HttpServlet {
         ObjectMapper mapper = new ObjectMapper();
         User user = (User) mapper.readValue(decodedValue, User.class);    
         if(user.bankPay()) {
-            request.setAttribute("message", "Thanh toán thành công");
+            ManagerService.noOfOrders++;
+            request.setAttribute("message", "Đặt hàng thành công");
             request.setAttribute("user", user);
             RequestDispatcher view = request.getRequestDispatcher("cart.jsp");
             view.forward(request, response);
         }
         else {
-            request.setAttribute("message", "Thanh toán không thành công");
+            request.setAttribute("message", "Số tiền trong tài khoản ngân hàng không đủ để thực hiện giao dịch này");
             request.setAttribute("user", user);
             RequestDispatcher view = request.getRequestDispatcher("cart.jsp");
             view.forward(request, response);
