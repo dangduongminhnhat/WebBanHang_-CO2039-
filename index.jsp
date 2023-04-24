@@ -55,7 +55,9 @@ pageEncoding="UTF-8"
     </head>
     <body>
         <%
-            ArrayList<ProductForSale> products = ManagerService.products;  
+            ArrayList<ProductForSale> newProducts = ManagerService.newProducts;  
+            ArrayList<ProductForSale> hotProducts = ManagerService.hotProducts;  
+            ArrayList<ProductForSale> saleOffProducts = ManagerService.saleOffProducts;  
             NumberFormat formatter = NumberFormat.getNumberInstance();
             User user = (User) request.getAttribute("user");
             ObjectMapper objectMapper = new ObjectMapper();
@@ -312,19 +314,13 @@ pageEncoding="UTF-8"
                     </div>
                     <div class="product_list">
                         <ul class="list">
-                            <%for(int i = 0; i < 5; i++) {
-                                String productJson = objectMapper.writeValueAsString(products.get(i));%>
+                            <%for(int i = 0; i < newProducts.size(); i++) {
+                                String productJson = objectMapper.writeValueAsString(newProducts.get(i));%>
                                 <li class="list_item">
-                                    <%if(products.get(i).getSaleoff() < 1.0) {%>
-                                        <span class="status status_sale">-<%=Math.round((1-products.get(i).getSaleoff()) * 100)%>%</span>
-                                    <%} else if(products.get(i).getNewOrHot() == true) {%>
-                                        <span class="status">NEW</span>
-                                    <%} else {%>
-                                        <span class="status status status_hot">HOT</span>
-                                    <%}%>
+                                    <span class="status">NEW</span>
                                     <a href="product?userJson=<%=URLEncoder.encode(userJson, "UTF-8")%>&productJson=<%=URLEncoder.encode(productJson, "UTF-8")%>">
-                                        <img src="<%=products.get(i).getImage()%>" alt="<%=products.get(i).getName()%>" class="img"/>
-                                        <div class="name"><%=products.get(i).getName()%></div>
+                                        <img src="<%=newProducts.get(i).getImage()%>" alt="<%=newProducts.get(i).getName()%>" class="img"/>
+                                        <div class="name"><%=newProducts.get(i).getName()%></div>
                                     </a>
                                     <a class="star">
                                         <i class="fa-solid fa-star"></i>
@@ -333,7 +329,7 @@ pageEncoding="UTF-8"
                                         <i class="fa-solid fa-star"></i>
                                         <i class="fa-solid fa-star"></i>
                                     </a>
-                                    <span class="price"><%=formatter.format(products.get(i).getUnitPrice())%>đ</span>
+                                    <span class="price"><%=formatter.format(newProducts.get(i).getUnitPrice())%>đ</span>
                                 </li>
                             <%}%>
                         </ul>
@@ -353,19 +349,13 @@ pageEncoding="UTF-8"
                     </div>
                     <div class="product_list">
                         <ul class="list">
-                            <%for(int i = 5; i < 10; i++) {
-                                String productJson = objectMapper.writeValueAsString(products.get(i));%>
+                            <%for(int i = 0; i < hotProducts.size(); i++) {
+                                String productJson = objectMapper.writeValueAsString(hotProducts.get(i));%>
                                 <li class="list_item">
-                                    <%if(products.get(i).getSaleoff() < 1.0) {%>
-                                        <span class="status status_sale">-<%=Math.round((1-products.get(i).getSaleoff()) * 100)%>%</span>
-                                    <%} else if(products.get(i).getNewOrHot() == true) {%>
-                                        <span class="status">NEW</span>
-                                    <%} else {%>
-                                        <span class="status status status_hot">HOT</span>
-                                    <%}%>
+                                    <span class="status status status_hot">HOT</span>
                                     <a href="product?userJson=<%=URLEncoder.encode(userJson, "UTF-8")%>&productJson=<%=URLEncoder.encode(productJson, "UTF-8")%>">
-                                        <img src="<%=products.get(i).getImage()%>" alt="<%=products.get(i).getName()%>" class="img"/>
-                                        <div class="name"><%=products.get(i).getName()%></div>
+                                        <img src="<%=hotProducts.get(i).getImage()%>" alt="<%=hotProducts.get(i).getName()%>" class="img"/>
+                                        <div class="name"><%=hotProducts.get(i).getName()%></div>
                                     </a>
                                     <a class="star">
                                         <i class="fa-solid fa-star"></i>
@@ -374,7 +364,7 @@ pageEncoding="UTF-8"
                                         <i class="fa-solid fa-star"></i>
                                         <i class="fa-solid fa-star"></i>
                                     </a>
-                                    <span class="price"><%=formatter.format(products.get(i).getUnitPrice())%>đ</span>
+                                    <span class="price"><%=formatter.format(hotProducts.get(i).getUnitPrice())%>đ</span>
                                 </li>
                             <%}%>
                         </ul>
@@ -394,19 +384,13 @@ pageEncoding="UTF-8"
                     </div>
                     <div class="product_list">
                         <ul class="list">
-                            <%for(int i = 10; i < 15; i++) {
-                                String productJson = objectMapper.writeValueAsString(products.get(i));%>
+                            <%for(int i = 0; i < saleOffProducts.size(); i++) {
+                                String productJson = objectMapper.writeValueAsString(saleOffProducts.get(i));%>
                                 <li class="list_item">
-                                    <%if(products.get(i).getSaleoff() < 1.0) {%>
-                                        <span class="status status_sale">-<%=Math.round((1-products.get(i).getSaleoff()) * 100)%>%</span>
-                                    <%} else if(products.get(i).getNewOrHot() == true) {%>
-                                        <span class="status">NEW</span>
-                                    <%} else {%>
-                                        <span class="status status status_hot">HOT</span>
-                                    <%}%>
+                                    <span class="status status_sale">-<%=Math.round((1-saleOffProducts.get(i).getSaleoff()) * 100)%>%</span>
                                     <a href="product?userJson=<%=URLEncoder.encode(userJson, "UTF-8")%>&productJson=<%=URLEncoder.encode(productJson, "UTF-8")%>">
-                                        <img src="<%=products.get(i).getImage()%>" alt="<%=products.get(i).getName()%>" class="img"/>
-                                        <div class="name"><%=products.get(i).getName()%></div>
+                                        <img src="<%=saleOffProducts.get(i).getImage()%>" alt="<%=saleOffProducts.get(i).getName()%>" class="img"/>
+                                        <div class="name"><%=saleOffProducts.get(i).getName()%></div>
                                     </a>
                                     <a class="star" href="product?userJson=<%=URLEncoder.encode(userJson, "UTF-8")%>&productJson=<%=URLEncoder.encode(productJson, "UTF-8")%>">
                                         <i class="fa-solid fa-star"></i>
@@ -415,8 +399,8 @@ pageEncoding="UTF-8"
                                         <i class="fa-solid fa-star"></i>
                                         <i class="fa-solid fa-star"></i>
                                     </a>
-                                    <span class="price"><%=formatter.format(Math.round(products.get(i).getSaleoff() * products.get(i).getUnitPrice()))%>đ</span>
-                                    <span class="old_price"><%=formatter.format(products.get(i).getUnitPrice())%>đ</span>
+                                    <span class="price"><%=formatter.format(Math.round(saleOffProducts.get(i).getSaleoff() * saleOffProducts.get(i).getUnitPrice()))%>đ</span>
+                                    <span class="old_price"><%=formatter.format(saleOffProducts.get(i).getUnitPrice())%>đ</span>
                                 </li>
                             <%}%>
                         </ul>
