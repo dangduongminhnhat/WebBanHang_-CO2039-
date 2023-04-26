@@ -54,6 +54,10 @@
                     <div class="small_image">
                         <div class="small_image-link">
                             <a href="#!">
+                                <!-- Sửa: src đổi lại link ảnh sản phẩm đang thêm vào 
+                                     alt đổi lại tên sản phẩm
+                                     Lưu ý: nhớ đặt tên theo đúng cú pháp tên sản phẩm + detail + số thứ tự
+                                -->
                                 <img
                                     src="./assets/img/superstar detail 1.jpeg"
                                     alt="superstar"
@@ -62,6 +66,7 @@
                         </div>
                         <div class="small_image-link">
                             <a href="#!">
+                                <!-- Sửa: tương tự dòng 57-59 -->
                                 <img
                                     src="./assets/img/superstar detail 2.jpeg"
                                     alt="superstar"
@@ -70,6 +75,7 @@
                         </div>
                         <div class="small_image-link">
                             <a href="#!">
+                                <!-- Sửa: tương tự dòng 57-59 -->
                                 <img
                                     src="./assets/img/superstar detail 3.jpeg"
                                     alt="superstar"
@@ -78,9 +84,11 @@
                         </div>
                     </div>
                     <div class="main_image">
+                        <!-- Sửa: tương tự dòng 57-59 -->
                         <img src="./assets/img/superstar detail 1.jpeg" alt="superstar" class="main_image-img" />
                     </div>
                     <div class="info_buy">
+                        <!-- Sửa: superstar thành tên sản phẩm mới -->
                         <div class="name">superstar</div>
                         <div class="star">
                             <i class="fa-solid fa-star"></i>
@@ -91,16 +99,20 @@
                         </div>
                         <div class="id">
                             <span class="id_left">mã sản phẩm:</span>
+                            <!-- Sửa: mã eg4958 thành mã sản phẩm mới  -->
                             <span class="id_right">eg4958</span>
                         </div>
                         <!-- Hiển thị giao diện quản lý: display_ui_own -->
                         <div class="">
                             <div class="ui_own">
+                                <!-- Sửa: giá bán + giá vốn (giá vốn tự cho) -->
                                 <div class="price_own">Giá Bán: 2,200,000</div>
                                 <div class="price_own">Giá Vốn: 1,000,000</div>
                                 <div class="option-size">
+                                    <!-- Sửa: đổi số 30 thành số tùy thích -->
                                     <div class="desc-size">Đã bán trong tháng: 30</div>
                                     <br />
+                                    <!-- Sửa: đổi số 24 thành số tùy thích -->
                                     <div class="desc-size">Tồn Kho: 24</div>
                                     <ul class="size-list">
                                         <li class="size-item">39</li>
@@ -128,7 +140,13 @@
                                 </div>
                             </div>
                             <div class="ui_user">
+                                <!-- Sửa: số ở dòng 144 phải bằng số ở dòng 109 -->
                                 <div class="price">2,200,000</div>
+                                <!-- Sửa: old_price là giá chưa được giảm,
+                                chỉ các sản phẩm được giảm giá mới có old_price,
+                                nếu là sản phẩm không được giảm giá thì xóa dòng 150,
+                                nếu là sản phẩm được giảm giá, thì cho dòng 150 số lớn
+                                hơn dòng 144 là được -->
                                 <div class="old_price">2,900,000</div>
                                 <div class="select-input">
                                     <!-- Disabled: filter_page-btn-disabled -->
@@ -169,7 +187,16 @@
                 </div>
             </div>
             <div class="desc_detail">
+                <!-- Sửa: phần được viết ở class="reason" sẽ được in đậm
+                Đây là phần mô tả sản phẩm chi tiết, đi copy trang kingshoes
+                rồi dán vào đây -->
+                <!-- Sửa: với các sản phẩm không được viết mô tả chi tiết
+                trên trang kingshoes, có thể tạo một nội dung văn bản không
+                có ý nghĩa bằng cách gõ lorem10 + phím tab để tạo ra 10 từ
+                không có ý nghĩa nội dung, thay đổi số 10 để tạo số lượng từ
+                như mong muốn -->
                 <div class="reason">4 LÝ DO BẠN KHÔNG NÊN BỎ LỠ SUPERSTAR</div>
+                <!-- Sửa: phần được viết ở class="paragraph" là viết thường -->
                 <div class="paragraph">
                     Hàng ngày nhìn thấy những đôi giày Adidas Superstar được rất nhiều các bạn trẻ mang trên đường phố
                     đã bao giờ bạn thắc mắc tại sao đôi giày này lại có sức hút lớn như vậy chưa? Rất có thể đọc xong
@@ -185,6 +212,7 @@
                     phố.
                 </div>
                 <div class="img-desc">
+                    <!-- Sửa: src với alt -->
                     <img src="./assets/img/superstar desc 1.jpg" alt="superstar" />
                 </div>
                 <div class="reason">2. Khả năng mix đồ không giới hạn</div>
@@ -198,6 +226,7 @@
                     ngoài ngọt ngào, đáng yêu ngay thôi!
                 </div>
                 <div class="img-desc">
+                    <!-- Sửa: src với alt -->
                     <img src="./assets/img/superstar desc 2.jpg" alt="superstar" />
                 </div>
                 <div class="reason">3. Mức giá dễ chịu</div>
@@ -210,6 +239,7 @@
                     giày đúng nghĩa.
                 </div>
                 <div class="img-desc">
+                    <!-- Sửa: src với alt -->
                     <img src="./assets/img/superstar desc 3.jpg" alt="superstar" />
                 </div>
 
@@ -221,6 +251,7 @@
                     bạn có thể sử dụng các loại tẩy rửa chuyên dụng như Crep.
                 </div>
                 <div class="img-desc">
+                    <!-- Sửa: src với alt -->
                     <img src="./assets/img/superstar desc 4.jpg" alt="superstar" />
                 </div>
             </div>
