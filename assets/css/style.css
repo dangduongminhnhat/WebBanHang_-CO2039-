@@ -176,11 +176,12 @@
 .product .list {
     margin-top: 40px;
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between;   */
     flex-wrap: wrap;
 }
 
 .product .product_list .list_item {
+    margin-right: 14px;
     position: relative;
     width: 19%;
     height: 400px;
