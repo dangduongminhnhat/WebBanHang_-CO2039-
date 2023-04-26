@@ -1,5 +1,5 @@
 Các class của service:
-•	Sevice quản lý có các class: ManagerService, Accouting, BestSeller, ProductFromProvider, Provider.
+•	Service quản lý có các class: ManagerService, Accounting, BestSeller, ProductFromProvider, Provider.
 •	Service người dùng có các class: ClientService, ProductForSale, User.
 •	Ngoài ra còn hai class service: Product và Service. Trong đó, class ProductForSale và ProductFromProvider thừa kế class Product; class ClientService và ManagerService thừa kế class Service
 	- Các class service quản lý nằm trong thư mục com/example/model/manager.
@@ -9,7 +9,7 @@ Các class của service:
 Hai class cha Product và Service:
 •	Class Product có các thuộc tính:
 	- private String image: link ảnh của sản phẩm
-	- private String decription: mô tả của sản phẩm
+	- private String description: mô tả của sản phẩm
 	- private String name: tên của sản phẩm
 	- private String category: phân loại của sản phẩm
 	- public String getName(), getCategory(), getImage(), getDescription(): trả về link ảnh, mô tả, tên và phân loại của sản phẩm.
