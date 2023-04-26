@@ -252,6 +252,7 @@ select {
 
 .body .add_file {
     display: flex;
+    justify-content: space-evenly;
     padding: 0 20px;
 }
 
@@ -285,7 +286,7 @@ select {
 
 textarea {
     margin-left: 54px;
-    width: 528px;
+    width: 760px;
     height: 100%;
     padding: 12px 20px;
     box-sizing: border-box;

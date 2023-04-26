@@ -294,3 +294,27 @@ class adidas_stan_smith extends HTMLElement {
 }
 
 customElements.define("adidas_stan_smith-component", adidas_stan_smith);
+
+class ultraboost_20_cloud_white extends HTMLElement {
+    constructor() {
+        super();
+    }
+    connectedCallback() {
+        this.innerHTML = `<span class="status status_sale">-24%</span>
+        <a href="#!">
+            <img src="./assets/img/ultraboost 20 cloud white.jpeg" alt="ultraboost 20 cloud white" class="img" />
+            <div class="name">ULTRABOOST 20 CLOUD WHITE</div>
+        </a>
+        <span class="star">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+        </span>
+        <span class="price">3,200,000</span>
+        <span class="old_price">4,200,000</span>`;
+    }
+}
+
+customElements.define("ultraboost_20_cloud_white-component", ultraboost_20_cloud_white);
