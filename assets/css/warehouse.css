@@ -81,7 +81,7 @@ body {
 /*-------- Modal ----------- */
 .modal {
     display: flex;
-    /* display: none; */
+    display: none;
     position: fixed;
     z-index: 1;
     inset: 0;
@@ -123,7 +123,7 @@ select {
     box-sizing: border-box;
 }
 
-.body input[type="submit"] {
+input[type="submit"] {
     width: 100%;
     background-color: var(--primary-color);
     color: #000;
@@ -218,6 +218,7 @@ select {
     padding: 12px;
     font-weight: 600;
     background-color: #dcf4fc;
+    background-color: var(--primary-color);
 }
 
 .product {

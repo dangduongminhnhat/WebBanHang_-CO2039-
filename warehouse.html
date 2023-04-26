@@ -38,7 +38,7 @@
         <script src="./select-custom.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
         <script src="components/header_manager.js" type="text/javascript" defer></script>
-        <title>Quản lý</title>
+        <title>Kho Hàng</title>
     </head>
     <body>
         <header_manager-component></header_manager-component>
@@ -49,10 +49,10 @@
                     <div class="frame_radio">
                         <h2 class="desc">Thương Hiệu</h2>
                         <input type="radio" id="adidas" name="brand" value="HTML" />
-                        <label for="adidas">Nike</label><br />
+                        <label for="adidas">Adidas</label><br />
                         <br />
                         <input type="radio" id="nike" name="brand" value="CSS" />
-                        <label for="nike">Adidas</label><br />
+                        <label for="nike">Nike</label><br />
                     </div>
                     <div class="frame_radio">
                         <h2 class="desc">Phân Loại</h2>
@@ -72,6 +72,9 @@
                         <br />
                         <input type="radio" id="out_of_stock" name="warehouse" value="CSS" />
                         <label for="out_of_stock">Hết Sản Phẩm</label><br />
+                    </div>
+                    <div class="frame_radio">
+                        <input type="submit" value="Tìm Kiếm" />
                     </div>
                 </div>
                 <div class="right">
@@ -121,8 +124,8 @@
                                             <label for="brand_product">Thương Hiệu</label>
                                             <div class="custom-select">
                                                 <select id="brand_product" name="brand_product">
-                                                    <option value="nike">Nike</option>
                                                     <option value="adidas">Adidas</option>
+                                                    <option value="nike">Nike</option>
                                                 </select>
                                             </div>
 
@@ -148,8 +151,8 @@
                                                 placeholder=""
                                                 style="margin-top: 6px" />
 
-                                            <label id="note_ex" for="available">
-                                                <!-- Size Giày - Số Lượng
+                                            <!-- <label id="note_ex" for="available"> -->
+                                            <!-- Size Giày - Số Lượng
                                                 <div class="frame_ex">
                                                     <i class="fa-solid fa-exclamation"></i>
                                                     <div class="desc_note">
@@ -158,9 +161,9 @@
                                                         Ví dụ: 38-4;40-7 có 4 đôi giày size 38, 7 đôi giày size 40.
                                                     </div>
                                                 </div> -->
-                                                Size Giày
-                                            </label>
-                                            <input type="text" id="size_count" name="size_count" placeholder="" />
+                                            <!-- Size Giày -->
+                                            <!-- </label> -->
+                                            <!-- <input type="text" id="size_count" name="size_count" placeholder="" /> -->
                                             <label for="amount">Số Lượng</label>
                                             <input
                                                 type="text"
@@ -209,7 +212,7 @@
                         </div>
                     </div>
                     <div class="frame_statistical">
-                        <div class="statistical" style="background-color: #dcf4fc">
+                        <div class="statistical" style="background-color: var(--primary-color)">
                             <div class="col_1"><div class="col_name">Mã Sản Phẩm</div></div>
                             <div class="col_2"><div class="col_name">Tên Sản Phẩm</div></div>
                             <div class="col_3"><div class="col_name">Giá Bán</div></div>
