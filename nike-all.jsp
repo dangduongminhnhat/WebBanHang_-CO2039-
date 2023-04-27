@@ -465,7 +465,7 @@ pageEncoding="UTF-8"
                         <%if(sort != null) {
                             for(int i = 0; i < copyProducts.size(); i++) {
                                 String productJson = objectMapper.writeValueAsString(copyProducts.get(i));
-                                if(copyProducts.get(i).getCategory().equals("Adidas") && (copyProducts.get(i).getUnitPrice() * copyProducts.get(i).getSaleoff() < priceFilter1) && (copyProducts.get(i).getUnitPrice() * copyProducts.get(i).getSaleoff() >= priceFilter2)) {%>
+                                if(copyProducts.get(i).getCategory().equals("Nike") && (copyProducts.get(i).getUnitPrice() * copyProducts.get(i).getSaleoff() < priceFilter1) && (copyProducts.get(i).getUnitPrice() * copyProducts.get(i).getSaleoff() >= priceFilter2)) {%>
                                 <li class="list_item">
                                     <%if(copyProducts.get(i).getSaleoff() < 1.0) {%>
                                         <span class="status status_sale">-<%=Math.round((1-copyProducts.get(i).getSaleoff()) * 100)%>%</span>
@@ -510,7 +510,7 @@ pageEncoding="UTF-8"
                         <ul class="list">
                             <%for(int i = 0; i < products.size(); i++) {
                                 String productJson = objectMapper.writeValueAsString(products.get(i));
-                                if(products.get(i).getCategory().equals("Adidas") && (products.get(i).getUnitPrice() * products.get(i).getSaleoff() < priceFilter1) && (products.get(i).getUnitPrice() * products.get(i).getSaleoff() >= priceFilter2)) {%>
+                                if(products.get(i).getCategory().equals("Nike") && (products.get(i).getUnitPrice() * products.get(i).getSaleoff() < priceFilter1) && (products.get(i).getUnitPrice() * products.get(i).getSaleoff() >= priceFilter2)) {%>
                                 <li class="list_item">
                                     <%if(products.get(i).getSaleoff() < 1.0) {%>
                                         <span class="status status_sale">-<%=Math.round((1-products.get(i).getSaleoff()) * 100)%>%</span>

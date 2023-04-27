@@ -64,30 +64,35 @@ pageEncoding="UTF-8"
                     <div class="title">Hàng Hóa</div>
                     <div class="frame_radio">
                         <h2 class="desc">Thương Hiệu</h2>
-                        <input type="radio" id="adidas" name="brand" value="HTML" />
+                        <input form="filter" type="radio" id="adidas" name="brand" value="Nike" />
                         <label for="adidas">Nike</label><br />
                         <br />
-                        <input type="radio" id="nike" name="brand" value="CSS" />
+                        <input form="filter" type="radio" id="nike" name="brand" value="Adidas" />
                         <label for="nike">Adidas</label><br />
                     </div>
-                    <div class="frame_radio">
+                    <!-- <div class="frame_radio">
                         <h2 class="desc">Phân Loại</h2>
-                        <input type="radio" id="crush" name="classify" value="HTML" />
+                        <input form="filter" type="radio" id="crush" name="classify" value="HTML" />
                         <label for="crush">Giày đi với crush</label><br />
                         <br />
-                        <input type="radio" id="fix_bug" name="classify" value="CSS" />
+                        <input form="filter" type="radio" id="fix_bug" name="classify" value="CSS" />
                         <label for="fix_bug">Giày thể thao</label><br />
-                    </div>
+                    </div> -->
                     <div class="frame_radio">
                         <h2 class="desc">Tồn Kho</h2>
-                        <input type="radio" id="available_out" name="warehouse" value="HTML" />
+                        <input form="filter" type="radio" id="available_out" name="state" value="emptySoon"/>
                         <label for="availble_out">Sắp Hết Sản Phẩm</label><br />
                         <br />
-                        <input type="radio" id="available" name="warehouse" value="HTML" />
+                        <input form="filter" type="radio" id="available" name="state" value="notEmpty" />
                         <label for="available">Còn Sản Phẩm</label><br />
                         <br />
-                        <input type="radio" id="out_of_stock" name="warehouse" value="CSS" />
+                        <input form="filter" type="radio" id="out_of_stock" name="state" value="empty" />
                         <label for="out_of_stock">Hết Sản Phẩm</label><br />
+                    </div>
+                    <div class="frame_radio">
+                        <form id="filter" method="get" action="warehouse.jsp">
+                            <input type="submit" value="Tìm Kiếm" />
+                        </form>
                     </div>
                 </div>
                 <div class="right">
@@ -106,7 +111,7 @@ pageEncoding="UTF-8"
                         </button>
                     </div>
                     <div class="frame_statistical">
-                        <div class="statistical" style="background-color: #dcf4fc">
+                        <div class="statistical" style="background-color: var(--primary-color)">
                             <div class="col_2"><div class="col_name">Tên Sản Phẩm</div></div>
                             <div class="col_1"><div class="col_name">Giá Bán</div></div>
                             <div class="col_3"><div class="col_name">Giá Vốn</div></div>
@@ -131,10 +136,69 @@ pageEncoding="UTF-8"
                                         <div class="col_5">
                                             <%int noOfProducts = 0;
                                             int noOfSolds = 0;
-                                            for(int i = 0; i < products.size(); i++) {
-                                                noOfProducts += products.get(i).getQuantity();
-                                                noOfSolds += products.get(i).getNoOfSolds();
-                                            }%>
+                                            String brand = request.getParameter("brand");
+                                            String state = request.getParameter("state");
+                                            if(brand == null && state == null) {
+                                                for(int i = 0; i < products.size(); i++) {
+                                                    noOfProducts += products.get(i).getQuantity();
+                                                    noOfSolds += products.get(i).getNoOfSolds();
+                                                }
+                                            }
+                                            else if(brand != null && state == null) {
+                                                for(int i = 0; i < products.size(); i++) {
+                                                    if(products.get(i).getCategory().equals(brand)) {
+                                                        noOfProducts += products.get(i).getQuantity();
+                                                        noOfSolds += products.get(i).getNoOfSolds();
+                                                    }
+                                                }
+                                            } else if(brand == null && state != null) {
+                                                if(state.equals("empty")) {
+                                                    for(int i = 0; i < products.size(); i++) {
+                                                        if(products.get(i).getQuantity() <= 0) {
+                                                            noOfProducts += products.get(i).getQuantity();
+                                                            noOfSolds += products.get(i).getNoOfSolds();
+                                                        }
+                                                    }
+                                                } else if(state.equals("emptySoon")) {
+                                                    for(int i = 0; i < products.size(); i++) {
+                                                        if(products.get(i).getQuantity() < 5 && products.get(i).getQuantity() > 0) {
+                                                            noOfProducts += products.get(i).getQuantity();
+                                                            noOfSolds += products.get(i).getNoOfSolds();
+                                                        }
+                                                    }
+                                                } else {
+                                                    for(int i = 0; i < products.size(); i++) {
+                                                        if(products.get(i).getQuantity() > 0) {
+                                                            noOfProducts += products.get(i).getQuantity();
+                                                            noOfSolds += products.get(i).getNoOfSolds();
+                                                        }
+                                                    }
+                                                }
+                                            } else {
+                                                if(state.equals("empty")) {
+                                                    for(int i = 0; i < products.size(); i++) {
+                                                        if(products.get(i).getCategory().equals(brand) && products.get(i).getQuantity() <= 0) {
+                                                            noOfProducts += products.get(i).getQuantity();
+                                                            noOfSolds += products.get(i).getNoOfSolds();
+                                                        }
+                                                    }
+                                                } else if(state.equals("emptySoon")) {
+                                                    for(int i = 0; i < products.size(); i++) {
+                                                        if(products.get(i).getCategory().equals(brand) && products.get(i).getQuantity() < 5 && products.get(i).getQuantity() > 0) {
+                                                            noOfProducts += products.get(i).getQuantity();
+                                                            noOfSolds += products.get(i).getNoOfSolds();
+                                                        }
+                                                    }
+                                                } else {
+                                                    for(int i = 0; i < products.size(); i++) {
+                                                        if(products.get(i).getCategory().equals(brand) && products.get(i).getQuantity() > 0) {
+                                                            noOfProducts += products.get(i).getQuantity();
+                                                            noOfSolds += products.get(i).getNoOfSolds();
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            %>
                                             <div class="col_item" style="color: #111; font-weight: 700"><%=noOfProducts%></div>
                                         </div>
                                         <div class="col_4">
@@ -145,13 +209,173 @@ pageEncoding="UTF-8"
                                 <%for(int i = 0; i < products.size(); i++) {
                                     String productJson = objectMapper.writeValueAsString(products.get(i));%>
                                 <li class="list_item">
-                                    <a href="./product-manager.jsp?productJson=<%=URLEncoder.encode(productJson, "UTF-8")%></a>" class="statistical">
-                                        <div class="col_2"><div class="col_item"><%=products.get(i).getName()%></div></div>
-                                        <div class="col_1"><div class="col_item"><%=formatter.format(products.get(i).getUnitPrice() * products.get(i).getSaleoff())%>đ</div></div>
-                                        <div class="col_3"><div class="col_item"><%=formatter.format(products.get(i).getInitPrice())%>đ</div></div>
-                                        <div class="col_4"><div class="col_item"><%=products.get(i).getQuantity()%></div></div>
-                                        <div class="col_5"><div class="col_item"><%=products.get(i).getNoOfSolds()%></div></div>
-                                    </a>
+                                    <%if(brand != null) {
+                                        if(products.get(i).getCategory().equals(brand)) {
+                                            if(state != null) {
+                                                if(state.equals("empty")) {
+                                                    if(products.get(i).getQuantity() <= 0) {%>
+                                                    <a href="#p-m<%=i%>" id="p-m<%=i%>" class="statistical">
+                                                        <div class="col_2"><div class="col_item"><%=products.get(i).getName()%></div></div>
+                                                        <div class="col_1"><div class="col_item"><%=formatter.format(products.get(i).getUnitPrice() * products.get(i).getSaleoff())%>đ</div></div>
+                                                        <div class="col_3"><div class="col_item"><%=formatter.format(products.get(i).getInitPrice())%>đ</div></div>
+                                                        <div class="col_4"><div class="col_item"><%=products.get(i).getQuantity()%></div></div>
+                                                        <div class="col_5"><div class="col_item"><%=products.get(i).getNoOfSolds()%></div></div>
+                                                    </a>
+                                                    <form action="product-manager.jsp" method="post" id="p-m-form<%=i%>">
+                                                        <input type="hidden" name="productJson" value="<%=URLEncoder.encode(productJson, "UTF-8")%>"/>
+                                                        <script>
+                                                            const pmButton<%=i%>= document.getElementById('p-m<%=i%>');
+                                                            const pmForm<%=i%> = document.getElementById('p-m-form<%=i%>');
+                                                            pmButton<%=i%>.addEventListener('click',function() {
+                                                                pmForm<%=i%>.submit();
+                                                            });
+                                                        </script>
+                                                    </form>
+                                                    <%}
+                                                } else if(state.equals("emptySoon")) {
+                                                    if(products.get(i).getQuantity() < 5 && products.get(i).getQuantity() > 0) {%>
+                                                    <a href="#p-m<%=i%>" id="p-m<%=i%>" class="statistical">
+                                                        <div class="col_2"><div class="col_item"><%=products.get(i).getName()%></div></div>
+                                                        <div class="col_1"><div class="col_item"><%=formatter.format(products.get(i).getUnitPrice() * products.get(i).getSaleoff())%>đ</div></div>
+                                                        <div class="col_3"><div class="col_item"><%=formatter.format(products.get(i).getInitPrice())%>đ</div></div>
+                                                        <div class="col_4"><div class="col_item"><%=products.get(i).getQuantity()%></div></div>
+                                                        <div class="col_5"><div class="col_item"><%=products.get(i).getNoOfSolds()%></div></div>
+                                                    </a>
+                                                    <form action="product-manager.jsp" method="post" id="p-m-form<%=i%>">
+                                                        <input type="hidden" name="productJson" value="<%=URLEncoder.encode(productJson, "UTF-8")%>"/>
+                                                        <script>
+                                                            const pmButton<%=i%>= document.getElementById('p-m<%=i%>');
+                                                            const pmForm<%=i%> = document.getElementById('p-m-form<%=i%>');
+                                                            pmButton<%=i%>.addEventListener('click',function() {
+                                                                pmForm<%=i%>.submit();
+                                                            });
+                                                        </script>
+                                                    </form>
+                                                    <%}
+                                                } else {
+                                                    if(products.get(i).getQuantity() > 0) {%>
+                                                    <a href="#p-m<%=i%>" id="p-m<%=i%>" class="statistical">
+                                                        <div class="col_2"><div class="col_item"><%=products.get(i).getName()%></div></div>
+                                                        <div class="col_1"><div class="col_item"><%=formatter.format(products.get(i).getUnitPrice() * products.get(i).getSaleoff())%>đ</div></div>
+                                                        <div class="col_3"><div class="col_item"><%=formatter.format(products.get(i).getInitPrice())%>đ</div></div>
+                                                        <div class="col_4"><div class="col_item"><%=products.get(i).getQuantity()%></div></div>
+                                                        <div class="col_5"><div class="col_item"><%=products.get(i).getNoOfSolds()%></div></div>
+                                                    </a>
+                                                    <form action="product-manager.jsp" method="post" id="p-m-form<%=i%>">
+                                                        <input type="hidden" name="productJson" value="<%=URLEncoder.encode(productJson, "UTF-8")%>"/>
+                                                        <script>
+                                                            const pmButton<%=i%>= document.getElementById('p-m<%=i%>');
+                                                            const pmForm<%=i%> = document.getElementById('p-m-form<%=i%>');
+                                                            pmButton<%=i%>.addEventListener('click',function() {
+                                                                pmForm<%=i%>.submit();
+                                                            });
+                                                        </script>
+                                                    </form>
+                                                    <%}
+                                                }
+                                            } else {%>
+                                                <a href="#p-m<%=i%>" id="p-m<%=i%>" class="statistical">
+                                                    <div class="col_2"><div class="col_item"><%=products.get(i).getName()%></div></div>
+                                                    <div class="col_1"><div class="col_item"><%=formatter.format(products.get(i).getUnitPrice() * products.get(i).getSaleoff())%>đ</div></div>
+                                                    <div class="col_3"><div class="col_item"><%=formatter.format(products.get(i).getInitPrice())%>đ</div></div>
+                                                    <div class="col_4"><div class="col_item"><%=products.get(i).getQuantity()%></div></div>
+                                                    <div class="col_5"><div class="col_item"><%=products.get(i).getNoOfSolds()%></div></div>
+                                                </a>
+                                                <form action="product-manager.jsp" method="post" id="p-m-form<%=i%>">
+                                                    <input type="hidden" name="productJson" value="<%=URLEncoder.encode(productJson, "UTF-8")%>"/>
+                                                    <script>
+                                                        const pmButton<%=i%>= document.getElementById('p-m<%=i%>');
+                                                        const pmForm<%=i%> = document.getElementById('p-m-form<%=i%>');
+                                                        pmButton<%=i%>.addEventListener('click',function() {
+                                                            pmForm<%=i%>.submit();
+                                                        });
+                                                    </script>
+                                                </form>
+                                            <%}
+                                        }
+                                    } else {
+                                        if(state != null) {
+                                            if(state.equals("empty")) {
+                                                if(products.get(i).getQuantity() <= 0) {%>
+                                                <a href="#p-m<%=i%>" id="p-m<%=i%>" class="statistical">
+                                                    <div class="col_2"><div class="col_item"><%=products.get(i).getName()%></div></div>
+                                                    <div class="col_1"><div class="col_item"><%=formatter.format(products.get(i).getUnitPrice() * products.get(i).getSaleoff())%>đ</div></div>
+                                                    <div class="col_3"><div class="col_item"><%=formatter.format(products.get(i).getInitPrice())%>đ</div></div>
+                                                    <div class="col_4"><div class="col_item"><%=products.get(i).getQuantity()%></div></div>
+                                                    <div class="col_5"><div class="col_item"><%=products.get(i).getNoOfSolds()%></div></div>
+                                                </a>
+                                                <form action="product-manager.jsp" method="post" id="p-m-form<%=i%>">
+                                                    <input type="hidden" name="productJson" value="<%=URLEncoder.encode(productJson, "UTF-8")%>"/>
+                                                    <script>
+                                                        const pmButton<%=i%>= document.getElementById('p-m<%=i%>');
+                                                        const pmForm<%=i%> = document.getElementById('p-m-form<%=i%>');
+                                                        pmButton<%=i%>.addEventListener('click',function() {
+                                                            pmForm<%=i%>.submit();
+                                                        });
+                                                    </script>
+                                                </form>
+                                                <%}
+                                            } else if(state.equals("emptySoon")) {
+                                                if(products.get(i).getQuantity() < 5 && products.get(i).getQuantity() > 0) {%>
+                                                <a href="#p-m<%=i%>" id="p-m<%=i%>" class="statistical">
+                                                    <div class="col_2"><div class="col_item"><%=products.get(i).getName()%></div></div>
+                                                    <div class="col_1"><div class="col_item"><%=formatter.format(products.get(i).getUnitPrice() * products.get(i).getSaleoff())%>đ</div></div>
+                                                    <div class="col_3"><div class="col_item"><%=formatter.format(products.get(i).getInitPrice())%>đ</div></div>
+                                                    <div class="col_4"><div class="col_item"><%=products.get(i).getQuantity()%></div></div>
+                                                    <div class="col_5"><div class="col_item"><%=products.get(i).getNoOfSolds()%></div></div>
+                                                </a>
+                                                <form action="product-manager.jsp" method="post" id="p-m-form<%=i%>">
+                                                    <input type="hidden" name="productJson" value="<%=URLEncoder.encode(productJson, "UTF-8")%>"/>
+                                                    <script>
+                                                        const pmButton<%=i%>= document.getElementById('p-m<%=i%>');
+                                                        const pmForm<%=i%> = document.getElementById('p-m-form<%=i%>');
+                                                        pmButton<%=i%>.addEventListener('click',function() {
+                                                            pmForm<%=i%>.submit();
+                                                        });
+                                                    </script>
+                                                </form>
+                                                <%}
+                                            } else {
+                                                if(products.get(i).getQuantity() > 0) {%>
+                                                <a href="#p-m<%=i%>" id="p-m<%=i%>" class="statistical">
+                                                    <div class="col_2"><div class="col_item"><%=products.get(i).getName()%></div></div>
+                                                    <div class="col_1"><div class="col_item"><%=formatter.format(products.get(i).getUnitPrice() * products.get(i).getSaleoff())%>đ</div></div>
+                                                    <div class="col_3"><div class="col_item"><%=formatter.format(products.get(i).getInitPrice())%>đ</div></div>
+                                                    <div class="col_4"><div class="col_item"><%=products.get(i).getQuantity()%></div></div>
+                                                    <div class="col_5"><div class="col_item"><%=products.get(i).getNoOfSolds()%></div></div>
+                                                </a>
+                                                <form action="product-manager.jsp" method="post" id="p-m-form<%=i%>">
+                                                    <input type="hidden" name="productJson" value="<%=URLEncoder.encode(productJson, "UTF-8")%>"/>
+                                                    <script>
+                                                        const pmButton<%=i%>= document.getElementById('p-m<%=i%>');
+                                                        const pmForm<%=i%> = document.getElementById('p-m-form<%=i%>');
+                                                        pmButton<%=i%>.addEventListener('click',function() {
+                                                            pmForm<%=i%>.submit();
+                                                        });
+                                                    </script>
+                                                </form>
+                                                <%}
+                                            }
+                                        } else {%>
+                                            <a href="#p-m<%=i%>" id="p-m<%=i%>" class="statistical">
+                                                <div class="col_2"><div class="col_item"><%=products.get(i).getName()%></div></div>
+                                                <div class="col_1"><div class="col_item"><%=formatter.format(products.get(i).getUnitPrice() * products.get(i).getSaleoff())%>đ</div></div>
+                                                <div class="col_3"><div class="col_item"><%=formatter.format(products.get(i).getInitPrice())%>đ</div></div>
+                                                <div class="col_4"><div class="col_item"><%=products.get(i).getQuantity()%></div></div>
+                                                <div class="col_5"><div class="col_item"><%=products.get(i).getNoOfSolds()%></div></div>
+                                            </a>
+                                            <form action="product-manager.jsp" method="post" id="p-m-form<%=i%>">
+                                                <input type="hidden" name="productJson" value="<%=URLEncoder.encode(productJson, "UTF-8")%>"/>
+                                                <script>
+                                                    const pmButton<%=i%>= document.getElementById('p-m<%=i%>');
+                                                    const pmForm<%=i%> = document.getElementById('p-m-form<%=i%>');
+                                                    pmButton<%=i%>.addEventListener('click',function() {
+                                                        pmForm<%=i%>.submit();
+                                                    });
+                                                </script>
+                                            </form>
+                                        <%}
+                                    }%>
                                 </li>
                                 <%}%>
                             </ul>

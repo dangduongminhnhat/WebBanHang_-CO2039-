@@ -137,6 +137,20 @@ pageEncoding="UTF-8"
                                         <li class="size-item">45</li>
                                     </ul>
                                 </div>
+                                <div class="action-buy">
+                                    <div class="action-btn">
+                                        <a href="importProduct.jsp?image=<%=product.getImage()%>&description=<%=product.getDescription()%>&name=<%=product.getName()%>&category=<%=product.getCategory()%>&quantity=<%=product.getQuantity()%>&initPrice=<%=product.getInitPrice()%>&unitPrice=<%=product.getUnitPrice()%>">
+                                            <i class="fa-regular fa-pen-to-square"></i>
+                                            <span>Cập Nhật</span>
+                                        </a>
+                                    </div>
+                                    <div class="action-btn">
+                                        <a href="rm-product?productJson=<%=URLEncoder.encode(productJson, "UTF-8")%>">
+                                            <i style="color: #ededed" class="fa-regular fa-trash-can"></i>
+                                            <span style="color: #ededed">Xóa</span>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -224,7 +238,7 @@ pageEncoding="UTF-8"
                                     <%}%>
                                     <%=LocalDate.now().toString()%>
                                 </div>
-                                Bởi: <div class="user_name"><%=product.getCrs().get(i).getFromUser()%></div>
+                                <div class="user_name"><%=product.getCrs().get(i).getFromUser()%></div>
                                 <div class="comment_content"><%=product.getCrs().get(i).getReview()%></div>
                                 <div class="react heart-solid">
                                     <!-- Heart: heart-full -->

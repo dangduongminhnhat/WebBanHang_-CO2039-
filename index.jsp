@@ -46,10 +46,11 @@ pageEncoding="UTF-8"
         <link rel="stylesheet" href="./assets/css/header.css" />
         <link rel="stylesheet" href="./assets/css/footer.css" />
         <link rel="stylesheet" href="./assets/css/style-superstar.css" />
-        <script src="components/header.js" type="text/javascript" defer></script>
-        <script src="components/footer.js" type="text/javascript" defer></script>
-        <script src="components/adidas.js" type="text/javascript" defer></script>
-        <script src="components/nike.js" type="text/javascript" defer></script>
+        <link rel="stylesheet" href="./assets/css/select-input.css" />
+        <script src="./components/header.js" type="text/javascript" defer></script>
+        <script src="./components/footer.js" type="text/javascript" defer></script>
+        <script src="./components/adidas.js" type="text/javascript" defer></script>
+        <script src="./components/nike.js" type="text/javascript" defer></script>
 
         <title>Thợ Code Bán Giày</title>
     </head>
@@ -68,20 +69,49 @@ pageEncoding="UTF-8"
             <div class="sub_content">
                 <div class="navbar">
                     <!-- Logo -->
-                    <a href="home?userJson=<%=URLEncoder.encode(userJson, "UTF-8")%>" class="logo">
-                        <img src="./assets/img/logo.png" alt="Thợ Code Bán Giày"/>
-                        <!-- <div class="brand">Thợ Code Bán Giày</div> -->
-                    </a>
+                    <form action="home" method="post" id="home-form" class="logo">
+                        <input type="hidden" name="userJson" value="<%=URLEncoder.encode(userJson, "UTF-8")%>"/>
+                        <a href="#home">
+                            <img id="home" src="./assets/img/logo.png" alt="Thợ Code Bán Giày"/>
+                        </a>
+                        <script>
+                            const homeButton = document.getElementById('home');
+                            const homeForm = document.getElementById('home-form');
+                            homeButton.addEventListener('click',function() {
+                                homeForm.submit();
+                            });
+                        </script>
+                    </form>
                     <!-- Navigation -->
                     <ul class="list">
                         <li>
                             <a href="#!"><i>THƯƠNG HIỆU</i></a>
                             <ul class="sub-list">
                                 <li>
-                                    <a href="adidas?userJson=<%=URLEncoder.encode(userJson, "UTF-8")%>">Adidas</a>
+                                    <form action="adidas" method="post" id="adidas-form">
+                                        <input type="hidden" name="userJson" value="<%=URLEncoder.encode(userJson, "UTF-8")%>"/>
+                                        <div id="adidas"><a href="#adidas">Adidas</a></div>
+                                        <script>
+                                            const adidasButton = document.getElementById('adidas');
+                                            const adidasForm = document.getElementById('adidas-form');
+                                            adidasButton.addEventListener('click',function() {
+                                                adidasForm.submit();
+                                            });
+                                        </script>
+                                    </form>
                                 </li>
                                 <li>
-                                    <a href="#!">Nike</a>
+                                    <form action="nike" method="post" id="nike-form">
+                                        <input type="hidden" name="userJson" value="<%=URLEncoder.encode(userJson, "UTF-8")%>"/>
+                                        <div id="nike"><a href="#nike">Nike</a></div>
+                                        <script>
+                                            const nikeButton = document.getElementById('nike');
+                                            const nikeForm = document.getElementById('nike-form');
+                                            nikeButton.addEventListener('click',function() {
+                                                nikeForm.submit();
+                                            });
+                                        </script>
+                                    </form>
                                 </li>
                             </ul>
                         </li>
@@ -97,10 +127,30 @@ pageEncoding="UTF-8"
                             </ul>
                         </li>
                         <li>
-                            <a href="#sa"><i>KHUYẾN MÃI</i></a>
+                            <form action="saleoffProducts" method="post" id="saleoff-form">
+                                <input type="hidden" name="userJson" value="<%=URLEncoder.encode(userJson, "UTF-8")%>"/>
+                                <div id="saleoff"><a href="#saleoff">KHUYẾN MÃI</a></div>
+                                <script>
+                                    const saleoffButton = document.getElementById('saleoff');
+                                    const saleoffForm = document.getElementById('saleoff-form');
+                                    saleoffButton.addEventListener('click',function() {
+                                        saleoffForm.submit();
+                                    });
+                                </script>
+                            </form>
                         </li>
                         <li>
-                            <a href="#new_product"><i>SẢN PHẨM MỚI</i></a>
+                            <form action="newProducts" method="post" id="new-form">
+                                <input type="hidden" name="userJson" value="<%=URLEncoder.encode(userJson, "UTF-8")%>"/>
+                                <div id="new"><a href="#new">SẢN PHẨM MỚI</a></div>
+                                <script>
+                                    const newButton = document.getElementById('new');
+                                    const newForm = document.getElementById('new-form');
+                                    newButton.addEventListener('click',function() {
+                                        newForm.submit();
+                                    });
+                                </script>
+                            </form>
                         </li>
                         <li>
                             <a href="#!"><i>HỖ TRỢ</i></a>
@@ -115,109 +165,160 @@ pageEncoding="UTF-8"
                     </div>
                     <!-- Action -->
                     <%if(user == null) {%>
+                    <div class="action">
                         <a href="login.jsp" class="action-btn">
                             <i class="fa-regular fa-user"></i>
                         </a>
-                    <%} else {%>
-                        <div class="navbar">
-                            <ul class="list">
-                                <li>
-                                    <a href="#!"><i class="fa-regular fa-user"></i></a>
-                                    <ul class="sub-list">
-                                        <a>
-                                            <form method="post" action="Logout">
-                                                <input type="hidden" name = "userJson" value = "<%=URLEncoder.encode(userJson, "UTF-8")%>">
-                                                <input type="submit" id="post" value = "Đăng xuất">
-                                            </form>
-                                        </a>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    <%}%>
-                    <div class="action">
                         <div class="header_cart">
                             <div class="header_cart-wrap">
-                                <%if(user == null) {%>
                                 <a href="login.jsp?cart=true" class="action-btn cart">
                                     <i class="header_cart-ico fa-solid fa-cart-plus"></i>
                                 </a>
-                                <%} else {%>
-                                <a href="Cart?userJson=<%=URLEncoder.encode(userJson, "UTF-8")%>" class="action-btn cart">
-                                    <i class="header_cart-icon fa-solid fa-cart-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <%} else {%>
+                    <div class="action">
+                        <div class="user-wrap">
+                            <a href="#!" class="action-btn"><i class="fa-regular fa-user"></i></a>
+                            <form action="Logout" method="post" id="logout-form">
+                                <input type="hidden" name="userJson" value="<%=URLEncoder.encode(userJson, "UTF-8")%>"/>
+                                <a href="#logout" id="logout" class="user_list">Đăng xuất</a>
+                                <script>
+                                    const logoutButton = document.getElementById('logout');
+                                    const logoutForm = document.getElementById('logout-form');
+                                    logoutButton.addEventListener('click',function() {
+                                        logoutForm.submit();
+                                    });
+                                </script>
+                            </form>
+                        </div>
+                        <div class="header_cart">
+                            <div class="header_cart-wrap">
+                                <form action="Cart" method="post" id="cart-form" class="action-btn cart">
+                                    <i id="to-cart" class="header_cart-icon fa-solid fa-cart-plus"></i>
                                     <span class="header_cart-notice"><%=user.getCartState().totalQuantity%></span>
-                                </a>
-                                    <%
-                                    if(user.getCartState().totalQuantity == 0) {%>
-                                    <!-- No cart: header_cart-list--no-cart -->
-                                    <div class="header_cart-list header_cart-list--no-cart">
-                                        <img
-                                            src="./assets/img/no_cart.jpg"
-                                            alt=""
-                                            class="header_cart-no-cart-img"
-                                        />
-                                        <div class="header_cart-list-no-cart-msg">
-                                            Chưa Có Sản Phẩm
-                                        </div>
+                                    <input type="hidden" name="userJson" value="<%=URLEncoder.encode(userJson, "UTF-8")%>"/>
+                                    <script>
+                                        const cartButton = document.getElementById('to-cart');
+                                        const cartForm = document.getElementById('cart-form');
+                                        cartButton.addEventListener('click',function() {
+                                            cartForm.submit();
+                                        });
+                                    </script>
+                                </form>
+                                <%
+                                if(user.getCartState().totalQuantity == 0) {%>
+                                <!-- No cart: header_cart-list--no-cart -->
+                                <div class="header_cart-list header_cart-list--no-cart">
+                                    <img
+                                        src="./assets/img/no_cart.jpg"
+                                        alt=""
+                                        class="header_cart-no-cart-img"
+                                    />
+                                    <div class="header_cart-list-no-cart-msg">
+                                        Chưa Có Sản Phẩm
                                     </div>
-                                    <%} else {%> 
-                                    <div class="header_cart-list">
-                                        <!-- Cart Cart Cart -->
-                                        <h4 class="header_cart-heading">Sản Phẩm Đã Thêm: <%=user.getCartState().products.size()%></h4>
-                                        <ul class="header_cart-list-item">
-                                            <!-- Cart item -->
-                                            <%int size = user.getCartState().products.size();
-                                            if(size > 4) size = 4;
-                                            for(int i = 0; i < size; i++) {
-                                                String productJson = objectMapper.writeValueAsString(user.getCartState().products.get(i));%>
-                                            <li>
-                                                <a href="#!" class="header_cart-anchor header_cart-item">
-                                                    <div class="img-wrap">
-                                                        <img
-                                                            src="<%=user.getCartState().products.get(i).getImage()%>"
-                                                            alt="<%=user.getCartState().products.get(i).getName()%>"
-                                                            class="header_cart-img"
-                                                        />
-                                                    </div>
-                                                    <div class="header_cart-item-info">
+                                </div>
+                                <%} else {%> 
+                                <div class="header_cart-list">
+                                    <!-- Cart Cart Cart -->
+                                    <h4 class="header_cart-heading">Sản Phẩm Đã Thêm: <%=user.getCartState().products.size()%></h4>
+                                    <ul class="header_cart-list-item">
+                                        <!-- Cart item -->
+                                        <%int size = user.getCartState().products.size();
+                                        if(size > 4) size = 4;
+                                        for(int i = 0; i < size; i++) {
+                                            String productJson = objectMapper.writeValueAsString(user.getCartState().products.get(i));%>
+                                        <li>
+                                            <div class="header_cart-anchor header_cart-item">
+                                                <div class="img-wrap">
+                                                    <img
+                                                        src="<%=user.getCartState().products.get(i).getImage()%>"
+                                                        alt="<%=user.getCartState().products.get(i).getName()%>"
+                                                        class="header_cart-img"
+                                                    />
+                                                </div>
+                                                <div class="header_cart-item-info">
+                                                    <div class="header_cart-item-head">
+                                                        <form action="Cart" method="post" id="cart-form2" class="header_cart-item-name">
+                                                            <a href="#to-cart2" id="to-cart2" class="header_cart-item-name"><%=user.getCartState().products.get(i).getName()%></a>
+                                                            <input type="hidden" name="userJson" value="<%=URLEncoder.encode(userJson, "UTF-8")%>"/>
+                                                            <script>
+                                                                const cartButton2 = document.getElementById('to-cart2');
+                                                                const cartForm2 = document.getElementById('cart-form2');
+                                                                cartButton2.addEventListener('click',function() {
+                                                                    cartForm2.submit();
+                                                                });
+                                                            </script>
+                                                        </form>
                                                         <div class="header_cart-item-head">
-                                                            <div class="header_cart-item-name">
-                                                                <%=user.getCartState().products.get(i).getName()%>
-                                                            </div>
-                                                            <div class="header_cart-item-head">
-                                                                <span class="header_cart-item-price"><%=formatter.format(Math.round(user.getCartState().products.get(i).getSaleoff() * user.getCartState().products.get(i).getUnitPrice()))%>đ</span>
-                                                                <span class="header_cart-item-multiply">x</span>
-                                                                <span class="header_cart-item-qnt"><%=user.getCartState().quantityEachProduct.get(i)%></span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="header_cart-item-body">
-                                                            <span class="header_cart-item-description">Size giày <%=user.getCartState().products.get(i).getSize()%></span>
-                                                            <span class="header_cart-item-remove">Xóa</span>
-                                                            <!-- <span class="header_cart-item-remove"><a href="u-t-c?clear=true&productJson=<%=URLEncoder.encode(productJson, "UTF-8")%>&userJson=<%=URLEncoder.encode(userJson, "UTF-8")%>">Xóa</a></span> -->
+                                                            <span class="header_cart-item-price"><%=formatter.format(Math.round(user.getCartState().products.get(i).getSaleoff() * user.getCartState().products.get(i).getUnitPrice()))%>đ</span>
+                                                            <span class="header_cart-item-multiply">x</span>
+                                                            <span class="header_cart-item-qnt"><%=user.getCartState().quantityEachProduct.get(i)%></span>
                                                         </div>
                                                     </div>
-                                                </a>
-                                            </li>
-                                            <%} if(user.getCartState().products.size() > 4) {%>
-                                                <div class="title">
-                                                    <div class="more">
-                                                        <a href="Cart?userJson=<%=URLEncoder.encode(userJson, "UTF-8")%>">
-                                                            ...
-                                                        </a>
+                                                    <div class="header_cart-item-body">
+                                                        <span class="header_cart-item-description">Size giày <%=user.getCartState().products.get(i).getSize()%></span>
+                                                        <form action="upd-ct" method="post" id="clear-form1<%=i%>" class="header_cart-item-remove">
+                                                            <span id="clear1<%=i%>">Xóa</a>
+                                                            <input type="hidden" name="userJson" value="<%=URLEncoder.encode(userJson, "UTF-8")%>"/>
+                                                            <input type="hidden" name="productJson" value="<%=URLEncoder.encode(productJson, "UTF-8")%>"/>
+                                                            <input type="hidden" name="quantity" value="0"/>
+                                                            <input type="hidden" name="size" value="39"/>
+                                                            <script>
+                                                                const clearButton1<%=i%> = document.getElementById('clear1<%=i%>');
+                                                                const clearForm1<%=i%> = document.getElementById('clear-form1<%=i%>');
+                                                                clearButton1<%=i%>.addEventListener('click',function() {
+                                                                    clearForm1<%=i%>.submit();
+                                                                });
+                                                            </script>
+                                                        </form>
                                                     </div>
                                                 </div>
-                                            <%}%>
-                                        </ul>
-                                        <div>
-                                            Tổng cộng: <%=formatter.format(user.getCartState().totalCost)%>đ
-                                        </div>
-                                        <a href="Cart?userJson=<%=URLEncoder.encode(userJson, "UTF-8")%>" class="header_cart-view-cart action-btn">Xem Giỏ Hàng</a>
+                                            </div>
+                                        </li>
+                                        <%} if(user.getCartState().products.size() > 4) {%>
+                                            <div class="title">
+                                                <div class="more">
+                                                    <a href="#to-cart3" id="to-cart3">
+                                                        ...
+                                                        <form action="Cart" method="post" id="cart-form3">
+                                                            <input type="hidden" name="userJson" value="<%=URLEncoder.encode(userJson, "UTF-8")%>"/>
+                                                            <script>
+                                                                const cartButton3 = document.getElementById('to-cart3');
+                                                                const cartForm3 = document.getElementById('cart-form3');
+                                                                cartButton3.addEventListener('click',function() {
+                                                                    cartForm3.submit();
+                                                                });
+                                                            </script>
+                                                        </form>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        <%}%>
+                                    </ul>
+                                    <div class="total_price">
+                                        <div class="desc">Tổng Cộng:</div>
+                                        <div class="number"><%=formatter.format(user.getCartState().totalCost)%>đ</div>
                                     </div>
-                                    <%}%>
+                                    <form action="Cart" method="post" id="cart-form4" class="header_cart-view-cart action-btn">
+                                        <span id="to-cart4">Xem giỏ hàng</span>
+                                        <input type="hidden" name="userJson" value="<%=URLEncoder.encode(userJson, "UTF-8")%>"/>
+                                        <script>
+                                            const cartButton4 = document.getElementById('to-cart4');
+                                            const cartForm4 = document.getElementById('cart-form4');
+                                            cartButton4.addEventListener('click',function() {
+                                                cartForm4.submit();
+                                            });
+                                        </script>
+                                    </form>
+                                </div>
                                 <%}%>
                             </div>
                         </div>
                     </div>
+                    <%}%>
                 </div>
             </div>
         </div>
@@ -318,10 +419,21 @@ pageEncoding="UTF-8"
                                 String productJson = objectMapper.writeValueAsString(newProducts.get(i));%>
                                 <li class="list_item">
                                     <span class="status">NEW</span>
-                                    <a href="product?userJson=<%=URLEncoder.encode(userJson, "UTF-8")%>&productJson=<%=URLEncoder.encode(productJson, "UTF-8")%>">
-                                        <img src="<%=newProducts.get(i).getImage()%>" alt="<%=newProducts.get(i).getName()%>" class="img"/>
+                                    <form action="product" method="post" id="newProduct-form<%=i%>">
+                                        <a href="#newProduct<%=i%>">
+                                            <img id="newProduct<%=i%>" src="<%=newProducts.get(i).getImage()%>" alt="<%=newProducts.get(i).getName()%>" class="img"/>
+                                        </a>
                                         <div class="name"><%=newProducts.get(i).getName()%></div>
-                                    </a>
+                                        <input type="hidden" name="userJson" value="<%=URLEncoder.encode(userJson, "UTF-8")%>"/>
+                                        <input type="hidden" name="productJson" value="<%=URLEncoder.encode(productJson, "UTF-8")%>"/>
+                                        <script>
+                                            const newProductButton<%=i%> = document.getElementById('newProduct<%=i%>');
+                                            const newProductForm<%=i%> = document.getElementById('newProduct-form<%=i%>');
+                                                newProductButton<%=i%>.addEventListener('click',function() {
+                                                newProductForm<%=i%>.submit();
+                                            });
+                                        </script>
+                                    </form>
                                     <a class="star">
                                         <i class="fa-solid fa-star"></i>
                                         <i class="fa-solid fa-star"></i>
@@ -353,10 +465,21 @@ pageEncoding="UTF-8"
                                 String productJson = objectMapper.writeValueAsString(hotProducts.get(i));%>
                                 <li class="list_item">
                                     <span class="status status status_hot">HOT</span>
-                                    <a href="product?userJson=<%=URLEncoder.encode(userJson, "UTF-8")%>&productJson=<%=URLEncoder.encode(productJson, "UTF-8")%>">
-                                        <img src="<%=hotProducts.get(i).getImage()%>" alt="<%=hotProducts.get(i).getName()%>" class="img"/>
+                                    <form action="product" method="post" id="hotProduct-form<%=i%>">
+                                        <a href="#hotProduct<%=i%>">
+                                            <img id="hotProduct<%=i%>" src="<%=hotProducts.get(i).getImage()%>" alt="<%=hotProducts.get(i).getName()%>" class="img"/>
+                                        </a>
                                         <div class="name"><%=hotProducts.get(i).getName()%></div>
-                                    </a>
+                                        <input type="hidden" name="userJson" value="<%=URLEncoder.encode(userJson, "UTF-8")%>"/>
+                                        <input type="hidden" name="productJson" value="<%=URLEncoder.encode(productJson, "UTF-8")%>"/>
+                                        <script>
+                                            const hotProductButton<%=i%> = document.getElementById('hotProduct<%=i%>');
+                                            const hotProductForm<%=i%> = document.getElementById('hotProduct-form<%=i%>');
+                                                hotProductButton<%=i%>.addEventListener('click',function() {
+                                                hotProductForm<%=i%>.submit();
+                                            });
+                                        </script>
+                                    </form>
                                     <a class="star">
                                         <i class="fa-solid fa-star"></i>
                                         <i class="fa-solid fa-star"></i>
@@ -388,11 +511,22 @@ pageEncoding="UTF-8"
                                 String productJson = objectMapper.writeValueAsString(saleOffProducts.get(i));%>
                                 <li class="list_item">
                                     <span class="status status_sale">-<%=Math.round((1-saleOffProducts.get(i).getSaleoff()) * 100)%>%</span>
-                                    <a href="product?userJson=<%=URLEncoder.encode(userJson, "UTF-8")%>&productJson=<%=URLEncoder.encode(productJson, "UTF-8")%>">
-                                        <img src="<%=saleOffProducts.get(i).getImage()%>" alt="<%=saleOffProducts.get(i).getName()%>" class="img"/>
+                                    <form action="product" method="post" id="saleOffProduct-form<%=i%>">
+                                        <a href="#saleOffProduct<%=i%>">
+                                            <img id="saleOffProduct<%=i%>" src="<%=saleOffProducts.get(i).getImage()%>" alt="<%=saleOffProducts.get(i).getName()%>" class="img"/>
+                                        </a>
                                         <div class="name"><%=saleOffProducts.get(i).getName()%></div>
-                                    </a>
-                                    <a class="star" href="product?userJson=<%=URLEncoder.encode(userJson, "UTF-8")%>&productJson=<%=URLEncoder.encode(productJson, "UTF-8")%>">
+                                        <input type="hidden" name="userJson" value="<%=URLEncoder.encode(userJson, "UTF-8")%>"/>
+                                        <input type="hidden" name="productJson" value="<%=URLEncoder.encode(productJson, "UTF-8")%>"/>
+                                        <script>
+                                            const saleOffProductButton<%=i%> = document.getElementById('saleOffProduct<%=i%>');
+                                            const saleOffProductForm<%=i%> = document.getElementById('saleOffProduct-form<%=i%>');
+                                                saleOffProductButton<%=i%>.addEventListener('click',function() {
+                                                saleOffProductForm<%=i%>.submit();
+                                            });
+                                        </script>
+                                    </form>
+                                    <a class="star">
                                         <i class="fa-solid fa-star"></i>
                                         <i class="fa-solid fa-star"></i>
                                         <i class="fa-solid fa-star"></i>

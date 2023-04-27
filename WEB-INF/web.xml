@@ -81,6 +81,24 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>RemoveProductServlet</servlet-name>
+        <servlet-class>com.example.servlet.manager.RemoveProductServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RemoveProductServlet</servlet-name>
+        <url-pattern>/rm-product</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>UpdateProductServlet</servlet-name>
+        <servlet-class>com.example.servlet.manager.UpdateProductServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateProductServlet</servlet-name>
+        <url-pattern>/upd-product</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>CheckCartServlet</servlet-name>
         <servlet-class>com.example.servlet.user.CheckCartServlet</servlet-class>
     </servlet>
@@ -132,6 +150,33 @@
     <servlet-mapping>
         <servlet-name>GetAdidasServlet</servlet-name>
         <url-pattern>/adidas</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GetNikeServlet</servlet-name>
+        <servlet-class>com.example.servlet.user.GetNikeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetNikeServlet</servlet-name>
+        <url-pattern>/nike</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GetNewProductsServlet</servlet-name>
+        <servlet-class>com.example.servlet.user.GetNewProductsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetNewProductsServlet</servlet-name>
+        <url-pattern>/newProducts</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GetSaleoffProductsServlet</servlet-name>
+        <servlet-class>com.example.servlet.user.GetSaleoffProductsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetSaleoffProductsServlet</servlet-name>
+        <url-pattern>/saleoffProducts</url-pattern>
     </servlet-mapping>
 
     <!-- <servlet>

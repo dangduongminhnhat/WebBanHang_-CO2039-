@@ -76,7 +76,8 @@ pageEncoding="UTF-8"
             int initPrice = 0;
             int unitPrice = 0;
             if(product == null) {
-                image = "./assets/img/" + request.getParameter("file");
+                if(request.getParameter("file").length() > 0) image = "./assets/img/" + request.getParameter("file");
+                else image = request.getParameter("image");
                 smallImg1 = request.getParameter("smlImg1");
                 smallImg2 = request.getParameter("smlImg2");
                 smallImg3 = request.getParameter("smlImg3");
@@ -170,7 +171,11 @@ pageEncoding="UTF-8"
                                 if(message == null) {%>
                                 <div class="action-buy">
                                     <div class="action-btn">
+                                        <%if(request.getParameter("file").length() > 0) {%>
                                         <a href="imp-p?image=<%=image%>&description=<%=description%>&name=<%=name%>&category=<%=category%>&quantity=<%=quantity%>&initPrice=<%=initPrice%>&unitPrice=<%=unitPrice%>">
+                                        <%} else {%>
+                                        <a href="upd-product?image=<%=image%>&description=<%=description%>&name=<%=name%>&category=<%=category%>&quantity=<%=quantity%>&initPrice=<%=initPrice%>&unitPrice=<%=unitPrice%>">
+                                        <%}%>
                                             <i class="fa-regular fa-pen-to-square"></i>
                                             <span>Cập Nhật</span>
                                         </a>

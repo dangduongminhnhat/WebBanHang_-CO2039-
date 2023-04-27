@@ -53,51 +53,67 @@ pageEncoding="UTF-8"
     </head>
     <body>
         <%
-        ArrayList<User> users = ManagerService.users;
+        String userJson = request.getParameter("userJson");
         NumberFormat formatter = NumberFormat.getNumberInstance();
+        String decodedValue = URLDecoder.decode(userJson, "UTF-8");
         ObjectMapper objectMapper = new ObjectMapper();
+        User user = (User) objectMapper.readValue(decodedValue, User.class);    
         %>
         <header_manager-component></header_manager-component>
         <div class="sub_content">
             <div class="frame">
+                <style>
+                    .col_6 {
+                        flex: 0.3;
+                    }
+                </style>
                 <div class="right">
-                    <div class="title">Danh Sách Khách Hàng</div>
+                    <div class="title">Lịch Sử Mua Hàng Của Khách Hàng: <%=user.getFullName()%></div>
                     <div class="frame_statistical">
                         <div class="statistical" style="background-color: var(--primary-color)">
-                            <div class="col_2"><div class="col_name">Họ và tên</div></div>
+                            <div class="col_6"><div class="col_name">Stt</div></div>
+                            <div class="col_1"><div class="col_name">Người nhận</div></div>
                             <div class="col_1"><div class="col_name">Số điện thoại</div></div>
-                            <div class="col_3"><div class="col_name">Số đơn đã mua</div></div>
-                            <div class="col_4"><div class="col_name">Tổng tiền</div></div>
+                            <div class="col_1"><div class="col_name">Địa chỉ</div></div>
+                            <div class="col_2"><div class="col_name">Email</div></div>
+                            <div class="col_1"><div class="col_name">Ghi chú</div></div>
+                            <div class="col_6"><div class="col_name">Ngày đặt</div></div>
+                            <div class="col_1"><div class="col_name">Tổng tiền</div></div>
                         </div>
                         <!-- Có SP phù hợp: available_product -->
-                        <%if(users.size() == 0) {%>
+                        <%if(user.getbuyingHistory().infoDeliverys.size() == 0) {%>
                         <div class="product">
                             <i class="fa-regular fa-clipboard"></i>
                             <br />
-                            Chưa có khách hàng nào
+                            Chưa có đơn hàng nào
                         </div>
                         <%} else {%>
                         <div class="available_product">
                             <ul class="list">
-                                <%for(int i = 0; i < users.size(); i++) {
-                                    String userJson = objectMapper.writeValueAsString(users.get(i));%>
+                                <%for(int i = 0; i < user.getbuyingHistory().infoDeliverys.size(); i++) {
+                                    String infoDeliveryJson = objectMapper.writeValueAsString(user.getbuyingHistory().infoDeliverys.get(i));%>
                                 <li class="list_item">
-                                    <a href="#b-h<%=i%>" id="b-h<%=i%>" class="statistical">
-                                        <div class="col_2"><div class="col_item"><%=users.get(i).getFullName()%></div></div>
-                                        <div class="col_1"><div class="col_item"><%=users.get(i).getPhoneNums()%></div></div>
-                                        <div class="col_3"><div class="col_item"><%=users.get(i).getbuyingHistory().quantityEachProduct.size()%></div></div>
-                                        <div class="col_4"><div class="col_item"><%=formatter.format(users.get(i).getbuyingHistory().totalCost)%>đ</div></div>
+                                    <a href="#order-detail<%=i%>" id="order-detail<%=i%>" class="statistical">
+                                        <div class="col_6"><div class="col_item"><%=i + 1%></div></div>
+                                        <div class="col_1"><div class="col_item"><%=user.getbuyingHistory().infoDeliverys.get(i).getFullName()%></div></div>
+                                        <div class="col_1"><div class="col_item"><%=user.getbuyingHistory().infoDeliverys.get(i).getPhoneNums()%></div></div>
+                                        <div class="col_1"><div class="col_item"><%=user.getbuyingHistory().infoDeliverys.get(i).getAddress()%></div></div>
+                                        <div class="col_2"><div class="col_item"><%=user.getbuyingHistory().infoDeliverys.get(i).getEmail()%></div></div>
+                                        <div class="col_1"><div class="col_item"><%=user.getbuyingHistory().infoDeliverys.get(i).getNote()%></div></div>
+                                        <div class="col_6"><div class="col_item"><%=user.getbuyingHistory().infoDeliverys.get(i).getOrderDate()%></div></div>
+                                        <div class="col_1"><div class="col_item"><%=formatter.format(user.getbuyingHistory().infoDeliverys.get(i).totalCost)%>đ</div></div>
+                                        <form action="order-detail.jsp" method="post" id="order-detail-form<%=i%>">
+                                            <input type="hidden" name="userJson" value="<%=userJson%>"/>
+                                            <input type="hidden" name="i" value="<%=i%>"/>
+                                            <script>
+                                                const odButton<%=i%> = document.getElementById('order-detail<%=i%>');
+                                                const odForm<%=i%> = document.getElementById('order-detail-form<%=i%>');
+                                                odButton<%=i%>.addEventListener('click',function() {
+                                                    odForm<%=i%>.submit();
+                                                });
+                                            </script>
+                                        </form>
                                     </a>
-                                    <form action="buyingHistory.jsp" method="post" id="b-h-form<%=i%>">
-                                        <input type="hidden" name="userJson" value="<%=URLEncoder.encode(userJson, "UTF-8")%>"/>
-                                        <script>
-                                            const bhButton<%=i%> = document.getElementById('b-h<%=i%>');
-                                            const bhForm<%=i%> = document.getElementById('b-h-form<%=i%>');
-                                            bhButton<%=i%>.addEventListener('click',function() {
-                                                bhForm<%=i%>.submit();
-                                            });
-                                        </script>
-                                    </form>
                                 </li>
                                 <%}%>
                             </ul>

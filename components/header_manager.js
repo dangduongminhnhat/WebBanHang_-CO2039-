@@ -10,16 +10,16 @@ class Header_Manager extends HTMLElement {
                 <div class="navbar">
                     <!-- Logo -->
                     <div class="wrap-left">
-                        <a href="./index.html" class="logo">
+                        <a href="./index.jsp" class="logo">
                             <img src="./assets/img/logo.png" alt="Thợ Code Bán Giày" />
                         </a>
                         <!-- Navigation -->
                         <ul class="list">
                             <li>
-                                <a href="index-manager.html">TỔNG QUAN</a>
+                                <a href="index-manager.jsp">TỔNG QUAN</a>
                             </li>
                             <li>
-                                <a href="warehouse.html">KHO HÀNG</a>
+                                <a href="warehouse.jsp">KHO HÀNG</a>
                             </li>
                             <li>
                                 <a href="#!">BÁO CÁO</a>
@@ -39,16 +39,11 @@ class Header_Manager extends HTMLElement {
                                 <a href="#!">ĐỐI TÁC</a>
                                 <ul class="sub-list">
                                     <li>
-                                        <a href="#!">Khách Hàng</a>
+                                        <a href="users.jsp">Khách Hàng</a>
                                     </li>
                                 </ul>
                             </li>
                         </ul>
-                    </div>
-                    <div class="action">
-                        <a href="./login.html" class="action-btn">
-                            <i class="fa-regular fa-user"></i>
-                        </a>
                     </div>
                 </div>
             </div>

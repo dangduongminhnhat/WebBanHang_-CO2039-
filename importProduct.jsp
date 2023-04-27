@@ -52,6 +52,31 @@ pageEncoding="UTF-8"
         <title>Quản lý</title>
     </head>
     <body>
+        <%
+            int size = 0;
+            String image = null;
+            String smallImg1 = null;
+            String smallImg2 = null;
+            String smallImg3 = null;
+            String description = null;
+            String name = null;
+            String category = null;
+            int quantity = 0;
+            int initPrice = 0;
+            int unitPrice = 0;
+            image = request.getParameter("image");
+            smallImg1 = request.getParameter("smlImg1");
+            smallImg2 = request.getParameter("smlImg2");
+            smallImg3 = request.getParameter("smlImg3");
+            description = request.getParameter("description");
+            name = request.getParameter("name");
+            category = request.getParameter("category");
+            if(request.getParameter("quantity") != null) {
+                quantity = Integer.parseInt(request.getParameter("quantity"));
+                initPrice = Integer.parseInt(request.getParameter("initPrice"));
+                unitPrice = Integer.parseInt(request.getParameter("unitPrice"));
+            }
+        %>
         <header_manager-component></header_manager-component>
         <div class="sub_content">
             <div class="frame">
@@ -120,9 +145,34 @@ pageEncoding="UTF-8"
                                 <div class="wrap">
                                     <div class="info">
                                         <form>
+                                            <%if(name != null) {%>
+                                            <label for="name_product">Tên Sản Phẩm</label>
+                                            <input type="text" id="name_product" placeholder="<%=name%>" />
+                                            <label for="id_product">Mã Sản Phẩm</label>
+                                            <input type="text" id="id_product" name="id_product" placeholder="CW2288 111" /> 
+                                            <label for="brand_product">Thương Hiệu</label>
+                                            <div class="custom-select">
+                                                <select id="brand_product" name="category" form="submit-form">
+                                                    <%if(category.equals("Adidas")) {%>
+                                                        <option value="Nike">Nike</option>
+                                                        <option value="Adidas" selected>Adidas</option>
+                                                    <%} else {%>   
+                                                        <option value="Nike" selected>Nike</option>
+                                                        <option value="Adidas">Adidas</option>
+                                                    <%}%>
+                                                </select>
+                                            </div>
+
+                                            <label for="classify_product">Phân Loại</label>
+                                            <div class="custom-select">
+                                                <select id="classify_product">
+                                                    <option value="crush">Giày đi với crush</option>
+                                                    <option value="fix_bug">Giày thể thao</option>
+                                                </select>
+                                            </div>
+                                            <%} else {%>
                                             <label for="name_product">Tên Sản Phẩm</label>
                                             <input type="text" id="name_product" placeholder="Air Force 1..." />
-
                                             <label for="id_product">Mã Sản Phẩm</label>
                                             <input type="text" id="id_product" name="id_product" placeholder="CW2288 111" /> 
                                             <label for="brand_product">Thương Hiệu</label>
@@ -140,10 +190,23 @@ pageEncoding="UTF-8"
                                                     <option value="fix_bug">Giày thể thao</option>
                                                 </select>
                                             </div>
+                                            <%}%>
                                         </form>
                                     </div>
                                     <div class="info">
                                         <form>
+                                            <%if(image != null) {%>
+                                            <label for="cost_price">Giá Vốn</label>
+                                            <input type="text" id="cost_price" placeholder="<%=initPrice%>" />
+
+                                            <label for="price">Giá Bán</label>
+                                            <input type="text" id="price" placeholder="<%=unitPrice%>" style="margin-top: 6px" />
+
+                                            <label id="note_ex" for="available">Kích thước</label>
+                                            <input type="text" id="size_count" name="size_count" placeholder="39-45" />
+                                            <label for="amount">Số Lượng</label>
+                                            <input type="text" id="amount" placeholder="<%=quantity%>" style="margin-top: 8px" />
+                                            <%} else {%>
                                             <label for="cost_price">Giá Vốn</label>
                                             <input type="text" id="cost_price" placeholder="" />
 
@@ -154,21 +217,28 @@ pageEncoding="UTF-8"
                                             <input type="text" id="size_count" name="size_count" placeholder="39-45" />
                                             <label for="amount">Số Lượng</label>
                                             <input type="text" id="amount" placeholder="" style="margin-top: 8px" />
+                                            <%}%>
                                         </form>
                                     </div>
                                 </div>
                                 <div class="add_file">
-                                    <input type="file" form="submit-form" name="file" id="file" class="inputfile" />
+                                    <input type="file" form="submit-form" name="file" id="file" class="inputfile" value=""/>
                                     <label for="file"></label>
-                                    <textarea form="submit-form" name="description" placeholder="Mô tả sản phẩm"></textarea>
+                                    <form>
+                                        <%if(description != null) {%>
+                                        <textarea form="submit-form" name="description" placeholder="<%=description%>" value="<%=description%>"><%=description%></textarea>
+                                        <%} else {%>
+                                        <textarea form="submit-form" name="description" placeholder="Mô tả sản phẩm"></textarea>
+                                        <%}%>
+                                    </form>
                                 </div>
-                                <form method="post" id="submit-form" action="update_product-manager.jsp">
+                                <form method="get" id="submit-form" action="update_product-manager.jsp">
                                     <div class="frame_submit">
-                                        <input type="hidden" id="image" name="image" value="./assets/img/superstar.jpeg"/>
-                                        <input type="hidden" id="name" name="name" value=""/>
-                                        <input type="hidden" id="unitPrice" name="unitPrice" value="0"/>
-                                        <input type="hidden" id="initPrice" name="initPrice" value="0"/>
-                                        <input type="hidden" id="quantity" name="quantity" value="100"/>
+                                        <input type="hidden" id="image" name="image" value="<%=image%>"/>
+                                        <input type="hidden" id="name" name="name" value="<%=name%>"/>
+                                        <input type="hidden" id="unitPrice" name="unitPrice" value="<%=unitPrice%>"/>
+                                        <input type="hidden" id="initPrice" name="initPrice" value="<%=initPrice%>"/>
+                                        <input type="hidden" id="quantity" name="quantity" value="<%=quantity%>"/>
                                         <input type="submit" value="Lưu Thông Tin"/>
                                         <script>
                                             document.getElementById('name_product').addEventListener('input', () => {

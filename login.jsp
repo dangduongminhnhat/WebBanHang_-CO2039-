@@ -65,7 +65,6 @@ pageEncoding="UTF-8"%>
           <p class="no_account">
             Bạn chưa có tài khoản? <a class="register" href="register.jsp"><i>Đăng ký tại đây</i></a><br>
           </p>
-          <button class="login" onclick="window.location.href = 'index.jsp'">Trở về</button>
           ${message}
         </div>
       </div>

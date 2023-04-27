@@ -5,7 +5,7 @@ import jakarta.servlet.http.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.*;
 import java.net.*;
-public class GetAdidasServlet extends HttpServlet {
+public class GetNikeServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) 
         throws IOException, ServletException {
         response.setContentType("text/html");
@@ -16,7 +16,7 @@ public class GetAdidasServlet extends HttpServlet {
         request.setAttribute("user", user);
         request.setAttribute("price", request.getParameter("price"));
         request.setAttribute("sort", request.getParameter("sort"));
-        RequestDispatcher view = request.getRequestDispatcher("adidas-all.jsp");
+        RequestDispatcher view = request.getRequestDispatcher("nike-all.jsp");
         view.forward(request, response);
     }     
     public void doGet(HttpServletRequest request, HttpServletResponse response) 
@@ -30,7 +30,7 @@ public class GetAdidasServlet extends HttpServlet {
         request.setAttribute("price", request.getParameter("price"));
         request.setAttribute("sort", request.getParameter("sort"));
         request.setAttribute("filter", request.getParameter("filter"));
-        RequestDispatcher view = request.getRequestDispatcher("adidas-all.jsp");
+        RequestDispatcher view = request.getRequestDispatcher("nike-all.jsp");
         view.forward(request, response);
     }  
 }

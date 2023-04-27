@@ -31,6 +31,12 @@ public class UpdateCartServlet extends HttpServlet {
             view.forward(request, response);
         }
         if(request.getParameter("cart") == null) {
+            if(Integer.parseInt(request.getParameter("quantity")) == 0) {
+                user.updateCart(product, 0, product.getSaleoff(), Integer.parseInt(request.getParameter("size")));
+                request.setAttribute("user", user);
+                RequestDispatcher view = request.getRequestDispatcher("cart.jsp");
+                view.forward(request, response);
+            }
             product = new ProductForSale(product, Integer.parseInt(request.getParameter("size")));
             user.addToCart(product, Integer.parseInt(request.getParameter("quantity")), product.getSaleoff());
             request.setAttribute("user", user);
@@ -76,6 +82,12 @@ public class UpdateCartServlet extends HttpServlet {
             view.forward(request, response);
         }
         if(request.getParameter("cart") == null) {
+            if(Integer.parseInt(request.getParameter("quantity")) == 0) {
+                user.updateCart(product, 0, product.getSaleoff(), Integer.parseInt(request.getParameter("size")));
+                request.setAttribute("user", user);
+                RequestDispatcher view = request.getRequestDispatcher("cart.jsp");
+                view.forward(request, response);
+            }
             product = new ProductForSale(product, Integer.parseInt(request.getParameter("size")));
             user.addToCart(product, Integer.parseInt(request.getParameter("quantity")), product.getSaleoff());
             request.setAttribute("user", user);

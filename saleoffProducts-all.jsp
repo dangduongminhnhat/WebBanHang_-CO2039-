@@ -61,13 +61,16 @@ pageEncoding="UTF-8"
             User user = (User) request.getAttribute("user");
             String price = (String) request.getAttribute("price");
             String sort = (String) request.getAttribute("sort");
-            double priceFilter1 = 100000000;
+            String brand = (String) request.getAttribute("brand");
+            double priceFilter1 = 100000000;    
             double priceFilter2 = 0;
             if(price != null) {
                 if(price.equals("less-3")) priceFilter1 = 3000000;
                 else if(price.equals("greater-3")) priceFilter2 = 3000000;
             }
             ArrayList<Double> sortedCost = new ArrayList<Double>();
+            ArrayList<ProductForSale> copyProducts = new ArrayList<ProductForSale>();
+            ArrayList<String> copyProductsName = new ArrayList<String>();
             for(int i = 0; i < ManagerService.products.size(); i++) {
                 sortedCost.add(ManagerService.products.get(i).getUnitPrice() * ManagerService.products.get(i).getSaleoff());
             }
@@ -77,28 +80,43 @@ pageEncoding="UTF-8"
                 } else if(sort.equals("inc")) {
                     Collections.sort(sortedCost);
                 }
-            }
-            ArrayList<ProductForSale> copyProducts = new ArrayList<ProductForSale>();
-            ArrayList<String> copyProductsName = new ArrayList<String>();
-            for(int i = 0, j = 0; j < sortedCost.size(); i++) {
-                if(ManagerService.products.get(i).getUnitPrice() * ManagerService.products.get(i).getSaleoff() == sortedCost.get(j) && !copyProductsName.contains(ManagerService.products.get(i).getName())) {
-                    copyProductsName.add(ManagerService.products.get(i).getName());
-                    copyProducts.add(ManagerService.products.get(i));
-                    i = -1;
-                    j++;
+                for(int i = 0, j = 0; j < sortedCost.size(); i++) {
+                    if(ManagerService.products.get(i).getUnitPrice() * ManagerService.products.get(i).getSaleoff() == sortedCost.get(j) && !copyProductsName.contains(ManagerService.products.get(i).getName())) {
+                        copyProductsName.add(ManagerService.products.get(i).getName());
+                        copyProducts.add(ManagerService.products.get(i));
+                        i = -1;
+                        j++;
+                    }
+                }
+                if(brand != null) {
+                    if(brand.equals("nike")) {
+                        for(int i = 0; i < copyProducts.size(); i++) {
+                            if(copyProducts.get(i).getCategory().equals("adidas")) {
+                                copyProducts.remove(i);
+                                i--;
+                            }
+                        }
+                    }
+                    else {
+                        for(int i = 0; i < copyProducts.size(); i++) {
+                            if(copyProducts.get(i).getCategory().equals("nike")) {
+                                copyProducts.remove(i);
+                                i--;
+                            }
+                        }
+                    }
                 }
             }
-        %>
-        <script>
-            console.log('<%=copyProducts.get(0).getName()%>;;;');
-            console.log('<%=copyProducts.get(1).getName()%>;;;');
-            console.log('<%=copyProducts.get(2).getName()%>;;;');
-            console.log('<%=copyProducts.get(3).getName()%>;;;');
-            console.log('<%=copyProducts.get(4).getName()%>;;;');
-            console.log('<%=copyProducts.get(5).getName()%>;;;');
-            console.log('<%=copyProducts.get(6).getName()%>;;;');
-        </script>
-        <%
+            if(brand != null) {
+                if(brand.equals("nike")) {
+                    brand = "Nike";
+                }
+                else {
+                    brand = "Adidas";
+                }
+            }
+            %>
+            <%
             /*if(sort != null) {
                 if(sort.equals("dec")) {
                     Collections.sort(sortedCost, Collections.reverseOrder());
@@ -130,11 +148,6 @@ pageEncoding="UTF-8"
             String userJson = objectMapper.writeValueAsString(user);
 			int size = 0;
         %>
-        <script>
-            console.log('<%=copyProducts.size()%>');
-            console.log('<%=sortedCost.size()%>');
-            console.log('<%=sortedCost.get(14)%>');
-        </script>
         <div class="content_1">
             <div class="sub_content">
                 <div class="navbar">
@@ -396,20 +409,6 @@ pageEncoding="UTF-8"
             <div class="sub_content">
                 <div class="filter">
                     <!-- Tạo thanh tìm kiếm -->
-                    <!-- <div class="select-input">
-                        <div class="custom-select" style="width: 200px">
-                            <select name="size" id="size" form="filter-form">
-                                <option value="none" selected>Chọn Size Giày</option>
-                                <option value="39">39</option>
-                                <option value="40">40</option>
-                                <option value="41">41</option>
-                                <option value="41">42</option>
-                                <option value="41">43</option>
-                                <option value="41">44</option>
-                                <option value="41">45</option>
-                            </select>
-                        </div>
-                    </div> -->
                     <div class="select-input">
                         <div class="custom-select" style="width: 200px">
                             <select name="price" id="price" form="filter-form">
@@ -448,7 +447,7 @@ pageEncoding="UTF-8"
                         </div>
                     </div>
                     <div class="select-input select-input_last">
-                        <form id="filter-form" action="adidas">
+                        <form method="get"id="filter-form" action="saleoffProducts">
                             <input type="hidden" name="userJson" value="<%=URLEncoder.encode(userJson, "UTF-8")%>" />
                             <input type="hidden" name="filter" value="true"/>
                             <input class="select-input select-input_last" type="submit" value="Tìm kiếm ngay"/>
@@ -462,96 +461,49 @@ pageEncoding="UTF-8"
                 <div class="new_product">
                     <div class="product_list">
                         <ul class="list">
-                        <%if(sort != null) {
-                            for(int i = 0; i < copyProducts.size(); i++) {
-                                String productJson = objectMapper.writeValueAsString(copyProducts.get(i));
-                                if(copyProducts.get(i).getCategory().equals("Adidas") && (copyProducts.get(i).getUnitPrice() * copyProducts.get(i).getSaleoff() < priceFilter1) && (copyProducts.get(i).getUnitPrice() * copyProducts.get(i).getSaleoff() >= priceFilter2)) {%>
-                                <li class="list_item">
-                                    <%if(copyProducts.get(i).getSaleoff() < 1.0) {%>
-                                        <span class="status status_sale">-<%=Math.round((1-copyProducts.get(i).getSaleoff()) * 100)%>%</span>
-                                    <%} else if(copyProducts.get(i).getNewOrHot() == true) {%>
-                                        <span class="status">NEW</span>
-                                    <%} else {%>
-                                        <span class="status status status_hot">HOT</span>
-                                    <%}%>
-                                    <form action="product" method="post" id="product-form<%=i%>">
-                                        <a href="#product<%=i%>">
-                                            <img id="product<%=i%>" src="<%=copyProducts.get(i).getImage()%>" alt="<%=copyProducts.get(i).getName()%>" class="img"/>
-                                        </a>
-                                        <div class="name"><%=copyProducts.get(i).getName()%></div>
-                                        <input type="hidden" name="userJson" value="<%=URLEncoder.encode(userJson, "UTF-8")%>"/>
-                                        <input type="hidden" name="productJson" value="<%=URLEncoder.encode(productJson, "UTF-8")%>"/>
-                                        <script>
-                                            const productButton<%=i%> = document.getElementById('product<%=i%>');
-                                            const productForm<%=i%> = document.getElementById('product-form<%=i%>');
-                                                productButton<%=i%>.addEventListener('click',function() {
-                                                productForm<%=i%>.submit();
-                                            });
-                                        </script>
-                                    </form>
-                                    <a class="star">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </a>
-                                    <%if(copyProducts.get(i).getSaleoff() < 1.0) {%>
-                                        <span class="price"><%=formatter.format(Math.round(copyProducts.get(i).getSaleoff() * copyProducts.get(i).getUnitPrice()))%>đ</span>
-                                        <span class="old_price"><%=formatter.format(copyProducts.get(i).getUnitPrice())%>đ</span>
-                                    <%} else {%>
-                                        <span class="price"><%=formatter.format(copyProducts.get(i).getUnitPrice())%>đ</span>
-                                    <%}%>
-                                </li>
-                                <%}%>
-                            <%}%>
-                        </ul>
-                        <%} else {%>
-                        <ul class="list">
                             <%for(int i = 0; i < products.size(); i++) {
-                                String productJson = objectMapper.writeValueAsString(products.get(i));
-                                if(products.get(i).getCategory().equals("Adidas") && (products.get(i).getUnitPrice() * products.get(i).getSaleoff() < priceFilter1) && (products.get(i).getUnitPrice() * products.get(i).getSaleoff() >= priceFilter2)) {%>
-                                <li class="list_item">
-                                    <%if(products.get(i).getSaleoff() < 1.0) {%>
-                                        <span class="status status_sale">-<%=Math.round((1-products.get(i).getSaleoff()) * 100)%>%</span>
-                                    <%} else if(products.get(i).getNewOrHot() == true) {%>
-                                        <span class="status">NEW</span>
-                                    <%} else {%>
-                                        <span class="status status status_hot">HOT</span>
-                                    <%}%>
-                                    <form action="product" method="post" id="product-form<%=i%>">
-                                        <a href="#product<%=i%>">
-                                            <img id="product<%=i%>" src="<%=products.get(i).getImage()%>" alt="<%=products.get(i).getName()%>" class="img"/>
-                                        </a>
-                                        <div class="name"><%=products.get(i).getName()%></div>
-                                        <input type="hidden" name="userJson" value="<%=URLEncoder.encode(userJson, "UTF-8")%>"/>
-                                        <input type="hidden" name="productJson" value="<%=URLEncoder.encode(productJson, "UTF-8")%>"/>
-                                        <script>
-                                            const productButton<%=i%> = document.getElementById('product<%=i%>');
-                                            const productForm<%=i%> = document.getElementById('product-form<%=i%>');
-                                                productButton<%=i%>.addEventListener('click',function() {
-                                                productForm<%=i%>.submit();
-                                            });
-                                        </script>
-                                    </form>
-                                    <a class="star">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </a>
-                                    <%if(products.get(i).getSaleoff() < 1.0) {%>
-                                        <span class="price"><%=formatter.format(Math.round(products.get(i).getSaleoff() * products.get(i).getUnitPrice()))%>đ</span>
-                                        <span class="old_price"><%=formatter.format(products.get(i).getUnitPrice())%>đ</span>
-                                    <%} else {%>
-                                        <span class="price"><%=formatter.format(products.get(i).getUnitPrice())%>đ</span>
-                                    <%}%>
-                                </li>
+                            String productJson = objectMapper.writeValueAsString(products.get(i));
+                            if(products.get(i).getSaleoff() < 1.0) {%>
+                            <li class="list_item">
+                                <%if(products.get(i).getSaleoff() < 1.0) {%>
+                                    <span class="status status_sale">-<%=Math.round((1-products.get(i).getSaleoff()) * 100)%>%</span>
+                                <%} else if(products.get(i).getNewOrHot() == true) {%>
+                                    <span class="status">NEW</span>
+                                <%} else {%>
+                                    <span class="status status status_hot">HOT</span>
                                 <%}%>
-                            <%}%>
+                                <form action="product" method="post" id="product-form<%=i%>">
+                                    <a href="#product<%=i%>">
+                                        <img id="product<%=i%>" src="<%=products.get(i).getImage()%>" alt="<%=products.get(i).getName()%>" class="img"/>
+                                    </a>
+                                    <div class="name"><%=products.get(i).getName()%></div>
+                                    <input type="hidden" name="userJson" value="<%=URLEncoder.encode(userJson, "UTF-8")%>"/>
+                                    <input type="hidden" name="productJson" value="<%=URLEncoder.encode(productJson, "UTF-8")%>"/>
+                                    <script>
+                                        const productButton<%=i%> = document.getElementById('product<%=i%>');
+                                        const productForm<%=i%> = document.getElementById('product-form<%=i%>');
+                                            productButton<%=i%>.addEventListener('click',function() {
+                                            productForm<%=i%>.submit();
+                                        });
+                                    </script>
+                                </form>
+                                <a class="star">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </a>
+                                <%if(products.get(i).getSaleoff() < 1.0) {%>
+                                    <span class="price"><%=formatter.format(Math.round(products.get(i).getSaleoff() * products.get(i).getUnitPrice()))%>đ</span>
+                                    <span class="old_price"><%=formatter.format(products.get(i).getUnitPrice())%>đ</span>
+                                <%} else {%>
+                                    <span class="price"><%=formatter.format(products.get(i).getUnitPrice())%>đ</span>
+                                <%}%>
+                            </li>
+                            <%}
+                            }%>
                         </ul>
-                        <%}%>
                     </div>
                 </div>
             </div>

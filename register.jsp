@@ -53,8 +53,7 @@
             <input class="reg" type="submit" value="Đăng ký" />
           </div>
         </form>
-        <p>${message}</p>
-        <button onclick="window.location.href = 'index.jsp'">Trở về</button>
+        ${message}
       </div>
     </div>
   </body>

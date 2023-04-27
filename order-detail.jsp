@@ -53,56 +53,47 @@ pageEncoding="UTF-8"
     </head>
     <body>
         <%
-        ArrayList<User> users = ManagerService.users;
+        String userJson = request.getParameter("userJson");
         NumberFormat formatter = NumberFormat.getNumberInstance();
+        String decodedValue = URLDecoder.decode(userJson, "UTF-8");
         ObjectMapper objectMapper = new ObjectMapper();
+        User user = (User) objectMapper.readValue(decodedValue, User.class);    
+        InfoDelivery infoDelivery = user.getbuyingHistory().infoDeliverys.get(Integer.parseInt(request.getParameter("i")));
         %>
         <header_manager-component></header_manager-component>
         <div class="sub_content">
             <div class="frame">
                 <div class="right">
-                    <div class="title">Danh Sách Khách Hàng</div>
+                    <div class="title">Danh Sách Sản Phẩm</div>
                     <div class="frame_statistical">
+                        <style>
+                            .col_6 {
+                                flex: 0.2;
+                            }
+                        </style>
                         <div class="statistical" style="background-color: var(--primary-color)">
-                            <div class="col_2"><div class="col_name">Họ và tên</div></div>
-                            <div class="col_1"><div class="col_name">Số điện thoại</div></div>
-                            <div class="col_3"><div class="col_name">Số đơn đã mua</div></div>
-                            <div class="col_4"><div class="col_name">Tổng tiền</div></div>
+                            <div class="col_6"><div class="col_name">Stt</div></div>
+                            <div class="col_1"><div class="col_name">Tên sản phẩm</div></div>
+                            <div class="col_1"><div class="col_name">Số lượng</div></div>
+                            <div class="col_1"><div class="col_name">Kích thước</div></div>
+                            <div class="col_1"><div class="col_name">Tổng tiền</div></div>
                         </div>
                         <!-- Có SP phù hợp: available_product -->
-                        <%if(users.size() == 0) {%>
-                        <div class="product">
-                            <i class="fa-regular fa-clipboard"></i>
-                            <br />
-                            Chưa có khách hàng nào
-                        </div>
-                        <%} else {%>
                         <div class="available_product">
                             <ul class="list">
-                                <%for(int i = 0; i < users.size(); i++) {
-                                    String userJson = objectMapper.writeValueAsString(users.get(i));%>
+                                <%for(int i = 0; i < infoDelivery.products.size(); i++) {%>
                                 <li class="list_item">
-                                    <a href="#b-h<%=i%>" id="b-h<%=i%>" class="statistical">
-                                        <div class="col_2"><div class="col_item"><%=users.get(i).getFullName()%></div></div>
-                                        <div class="col_1"><div class="col_item"><%=users.get(i).getPhoneNums()%></div></div>
-                                        <div class="col_3"><div class="col_item"><%=users.get(i).getbuyingHistory().quantityEachProduct.size()%></div></div>
-                                        <div class="col_4"><div class="col_item"><%=formatter.format(users.get(i).getbuyingHistory().totalCost)%>đ</div></div>
-                                    </a>
-                                    <form action="buyingHistory.jsp" method="post" id="b-h-form<%=i%>">
-                                        <input type="hidden" name="userJson" value="<%=URLEncoder.encode(userJson, "UTF-8")%>"/>
-                                        <script>
-                                            const bhButton<%=i%> = document.getElementById('b-h<%=i%>');
-                                            const bhForm<%=i%> = document.getElementById('b-h-form<%=i%>');
-                                            bhButton<%=i%>.addEventListener('click',function() {
-                                                bhForm<%=i%>.submit();
-                                            });
-                                        </script>
-                                    </form>
+                                    <div href="#!" class="statistical">
+                                        <div class="col_6"><div class="col_item"><%=i + 1%></div></div>
+                                        <div class="col_1"><div class="col_item"><%=infoDelivery.products.get(i).getName()%></div></div>
+                                        <div class="col_1"><div class="col_item"><%=infoDelivery.quantityEachProduct.get(i)%></div></div>
+                                        <div class="col_1"><div class="col_item"><%=infoDelivery.products.get(i).getSize()%></div></div>
+                                        <div class="col_1"><div class="col_item"><%=formatter.format(infoDelivery.products.get(i).getUnitPrice() * infoDelivery.products.get(i).getSaleoff() * infoDelivery.quantityEachProduct.get(i))%>đ</div></div>
+                                    </div>
                                 </li>
                                 <%}%>
                             </ul>
                         </div>
-                        <%}%>
                     </div>
                 </div>
             </div>

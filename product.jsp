@@ -76,20 +76,49 @@ pageEncoding="UTF-8"
             <div class="sub_content">
                 <div class="navbar">
                     <!-- Logo -->
-                    <a href="home?userJson=<%=URLEncoder.encode(userJson, "UTF-8")%>" class="logo">
-                        <img src="./assets/img/logo.png" alt="Thợ Code Bán Giày"/>
-                        <!-- <div class="brand">Thợ Code Bán Giày</div> -->
-                    </a>
+                    <form action="home" method="post" id="home-form" class="logo">
+                        <input type="hidden" name="userJson" value="<%=URLEncoder.encode(userJson, "UTF-8")%>"/>
+                        <a href="#home">
+                            <img id="home" src="./assets/img/logo.png" alt="Thợ Code Bán Giày"/>
+                        </a>
+                        <script>
+                            const homeButton = document.getElementById('home');
+                            const homeForm = document.getElementById('home-form');
+                            homeButton.addEventListener('click',function() {
+                                homeForm.submit();
+                            });
+                        </script>
+                    </form>
                     <!-- Navigation -->
                     <ul class="list">
 						<li>
                             <a href="#!"><i>THƯƠNG HIỆU</i></a>
                             <ul class="sub-list">
                                 <li>
-                                    <a href="adidas?userJson=<%=URLEncoder.encode(userJson, "UTF-8")%>">Adidas</a>
+                                    <form action="adidas" method="post" id="adidas-form">
+                                        <input type="hidden" name="userJson" value="<%=URLEncoder.encode(userJson, "UTF-8")%>"/>
+                                        <div id="adidas"><a href="#adidas">Adidas</a></div>
+                                        <script>
+                                            const adidasButton = document.getElementById('adidas');
+                                            const adidasForm = document.getElementById('adidas-form');
+                                            adidasButton.addEventListener('click',function() {
+                                                adidasForm.submit();
+                                            });
+                                        </script>
+                                    </form>
                                 </li>
                                 <li>
-                                    <a href="#!">Nike</a>
+                                    <form action="nike" method="post" id="nike-form">
+                                        <input type="hidden" name="userJson" value="<%=URLEncoder.encode(userJson, "UTF-8")%>"/>
+                                        <div id="nike"><a href="#nike">Nike</a></div>
+                                        <script>
+                                            const nikeButton = document.getElementById('nike');
+                                            const nikeForm = document.getElementById('nike-form');
+                                            nikeButton.addEventListener('click',function() {
+                                                nikeForm.submit();
+                                            });
+                                        </script>
+                                    </form>
                                 </li>
                             </ul>
                         </li>
@@ -105,10 +134,30 @@ pageEncoding="UTF-8"
                             </ul>
                         </li>
                         <li>
-                            <a href="#sa"><i>KHUYẾN MÃI</i></a>
+                            <form action="saleoffProducts" method="post" id="saleoff-form">
+                                <input type="hidden" name="userJson" value="<%=URLEncoder.encode(userJson, "UTF-8")%>"/>
+                                <div id="saleoff"><a href="#saleoff">KHUYẾN MÃI</a></div>
+                                <script>
+                                    const saleoffButton = document.getElementById('saleoff');
+                                    const saleoffForm = document.getElementById('saleoff-form');
+                                    saleoffButton.addEventListener('click',function() {
+                                        saleoffForm.submit();
+                                    });
+                                </script>
+                            </form>
                         </li>
                         <li>
-                            <a href="#new_product"><i>SẢN PHẨM MỚI</i></a>
+                            <form action="newProducts" method="post" id="new-form">
+                                <input type="hidden" name="userJson" value="<%=URLEncoder.encode(userJson, "UTF-8")%>"/>
+                                <div id="new"><a href="#new">SẢN PHẨM MỚI</a></div>
+                                <script>
+                                    const newButton = document.getElementById('new');
+                                    const newForm = document.getElementById('new-form');
+                                    newButton.addEventListener('click',function() {
+                                        newForm.submit();
+                                    });
+                                </script>
+                            </form>
                         </li>
                         <li>
                             <a href="#!"><i>HỖ TRỢ</i></a>
@@ -123,104 +172,163 @@ pageEncoding="UTF-8"
                     </div>
                     <!-- Action -->
                     <%if(user == null) {%>
+                    <div class="action">
                         <a href="login.jsp" class="action-btn">
                             <i class="fa-regular fa-user"></i>
                         </a>
-                    <%} else {%>
-                        <div class="navbar">
-                            <ul class="list">
-                                <li>
-                                    <a href="#!"><i class="fa-regular fa-user"></i></a>
-                                    <ul class="sub-list">
-                                        <a>
-                                            <form method="post" action="Logout">
-                                                <input type="hidden" name = "userJson" value = "<%=URLEncoder.encode(userJson, "UTF-8")%>">
-                                                <input type="submit" id="post" value = "Đăng xuất">
-                                            </form>
-                                        </a>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    <%}%>
-                    <div class="action">
                         <div class="header_cart">
                             <div class="header_cart-wrap">
-                                <%if(user == null) {%>
                                 <a href="login.jsp?cart=true" class="action-btn cart">
-                                    <i class="header_cart-icon fa-solid fa-cart-plus"></i>
+                                    <i class="header_cart-ico fa-solid fa-cart-plus"></i>
                                 </a>
-                                <%} else {%>
-									<a href="Cart?userJson=<%=URLEncoder.encode(userJson, "UTF-8")%>" class="action-btn cart">
-										<i class="header_cart-icon fa-solid fa-cart-plus"></i>
-										<span class="header_cart-notice"><%=user.getCartState().totalQuantity%></span><br>
-									</a>    
-                                    <%
-                                    if(user.getCartState().totalQuantity == 0) {%>
-                                    <!-- No cart: header_cart-list--no-cart -->
-                                    <div class="header_cart-list header_cart-list--no-cart">
-                                        <img src="./assets/img/no_cart.jpg" alt="" class="header_cart-no-cart-img"/>
-                                        <div class="header_cart-list-no-cart-msg">
-                                            Chưa Có Sản Phẩm
-                                        </div>
+                            </div>
+                        </div>
+                    </div>
+                    <%} else {%>
+                    <div class="action">
+                        <div class="user-wrap">
+                            <a href="#!" class="action-btn"><i class="fa-regular fa-user"></i></a>
+                            <form action="Logout" method="post" id="logout-form">
+                                <input type="hidden" name="userJson" value="<%=URLEncoder.encode(userJson, "UTF-8")%>"/>
+                                <a href="#logout" id="logout" class="user_list">Đăng xuất</a>
+                                <script>
+                                    const logoutButton = document.getElementById('logout');
+                                    const logoutForm = document.getElementById('logout-form');
+                                    logoutButton.addEventListener('click',function() {
+                                        logoutForm.submit();
+                                    });
+                                </script>
+                            </form>
+                        </div>
+                        <div class="header_cart">
+                            <div class="header_cart-wrap">
+                                <form action="Cart" method="post" id="cart-form" class="action-btn cart">
+                                    <i id="to-cart" class="header_cart-icon fa-solid fa-cart-plus"></i>
+                                    <span class="header_cart-notice"><%=user.getCartState().totalQuantity%></span>
+                                    <input type="hidden" name="userJson" value="<%=URLEncoder.encode(userJson, "UTF-8")%>"/>
+                                    <script>
+                                        const cartButton = document.getElementById('to-cart');
+                                        const cartForm = document.getElementById('cart-form');
+                                        cartButton.addEventListener('click',function() {
+                                            cartForm.submit();
+                                        });
+                                    </script>
+                                </form>
+                                <%
+                                if(user.getCartState().totalQuantity == 0) {%>
+                                <!-- No cart: header_cart-list--no-cart -->
+                                <div class="header_cart-list header_cart-list--no-cart">
+                                    <img
+                                        src="./assets/img/no_cart.jpg"
+                                        alt=""
+                                        class="header_cart-no-cart-img"
+                                    />
+                                    <div class="header_cart-list-no-cart-msg">
+                                        Chưa Có Sản Phẩm
                                     </div>
-                                    <%} else {%> 
-                                    <div class="header_cart-list">
-                                        <!-- Cart Cart Cart -->
-                                        <h4 class="header_cart-heading">Sản Phẩm Đã Thêm: <%=user.getCartState().products.size()%></h4>
-                                        <ul class="header_cart-list-item">
-                                            <!-- Cart item -->
-                                            <%size = user.getCartState().products.size();
-                                            if(size > 4) size = 4;
-                                            for(int i = 0; i < size; i++) {
-                                                productJson = objectMapper.writeValueAsString(user.getCartState().products.get(i));%>
-                                            <li>
-                                                <a href="#!" class="header_cart-anchor header_cart-item">
-                                                    <div class="img-wrap">
-                                                        <img src="<%=user.getCartState().products.get(i).getImage()%>" alt="<%=user.getCartState().products.get(i).getName()%>" class="header_cart-img"/>
-                                                    </div>
-                                                    <div class="header_cart-item-info">
+                                </div>
+                                <%} else {%> 
+                                <div class="header_cart-list">
+                                    <!-- Cart Cart Cart -->
+                                    <h4 class="header_cart-heading">Sản Phẩm Đã Thêm: <%=user.getCartState().products.size()%></h4>
+                                    <ul class="header_cart-list-item">
+                                        <!-- Cart item -->
+                                        <%size = user.getCartState().products.size();
+                                        if(size > 4) size = 4;
+                                        for(int i = 0; i < size; i++) {
+                                            productJson = objectMapper.writeValueAsString(user.getCartState().products.get(i));%>
+                                        <li>
+                                            <div class="header_cart-anchor header_cart-item">
+                                                <div class="img-wrap">
+                                                    <img
+                                                        src="<%=user.getCartState().products.get(i).getImage()%>"
+                                                        alt="<%=user.getCartState().products.get(i).getName()%>"
+                                                        class="header_cart-img"
+                                                    />
+                                                </div>
+                                                <div class="header_cart-item-info">
+                                                    <div class="header_cart-item-head">
+                                                        <form action="Cart" method="post" id="cart-form2" class="header_cart-item-name">
+                                                            <a href="#to-cart2" id="to-cart2" class="header_cart-item-name"><%=user.getCartState().products.get(i).getName()%></a>
+                                                            <input type="hidden" name="userJson" value="<%=URLEncoder.encode(userJson, "UTF-8")%>"/>
+                                                            <script>
+                                                                const cartButton2 = document.getElementById('to-cart2');
+                                                                const cartForm2 = document.getElementById('cart-form2');
+                                                                cartButton2.addEventListener('click',function() {
+                                                                    cartForm2.submit();
+                                                                });
+                                                            </script>
+                                                        </form>
                                                         <div class="header_cart-item-head">
-                                                            <div class="header_cart-item-name">
-                                                                <%=user.getCartState().products.get(i).getName()%>
-                                                            </div>
-                                                            <div class="header_cart-item-head">
-                                                                <span class="header_cart-item-price"><%=formatter.format(Math.round(user.getCartState().products.get(i).getSaleoff() * user.getCartState().products.get(i).getUnitPrice()))%>đ</span>
-                                                                <span class="header_cart-item-multiply">x</span>
-                                                                <span class="header_cart-item-qnt"><%=user.getCartState().quantityEachProduct.get(i)%></span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="header_cart-item-body">
-                                                            <span class="header_cart-item-description">Size giày <%=user.getCartState().products.get(i).getSize()%></span>
-                                                            <span class="header_cart-item-remove">Xóa</span>
+                                                            <span class="header_cart-item-price"><%=formatter.format(Math.round(user.getCartState().products.get(i).getSaleoff() * user.getCartState().products.get(i).getUnitPrice()))%>đ</span>
+                                                            <span class="header_cart-item-multiply">x</span>
+                                                            <span class="header_cart-item-qnt"><%=user.getCartState().quantityEachProduct.get(i)%></span>
                                                         </div>
                                                     </div>
-                                                </a>
-                                            </li>
-                                            <%} if(user.getCartState().products.size() > 4) {%>
-                                                <div class="title">
-                                                    <div class="more">
-                                                        <a href="#cart">
-                                                            ...
-                                                        </a>
+                                                    <div class="header_cart-item-body">
+                                                        <span class="header_cart-item-description">Size giày <%=user.getCartState().products.get(i).getSize()%></span>
+                                                        <form action="upd-ct" method="post" id="clear-form1<%=i%>" class="header_cart-item-remove">
+                                                            <span id="clear1<%=i%>">Xóa</a>
+                                                            <input type="hidden" name="userJson" value="<%=URLEncoder.encode(userJson, "UTF-8")%>"/>
+                                                            <input type="hidden" name="productJson" value="<%=URLEncoder.encode(productJson, "UTF-8")%>"/>
+                                                            <input type="hidden" name="quantity" value="0"/>
+                                                            <input type="hidden" name="size" value="39"/>
+                                                            <script>
+                                                                const clearButton1<%=i%> = document.getElementById('clear1<%=i%>');
+                                                                const clearForm1<%=i%> = document.getElementById('clear-form1<%=i%>');
+                                                                clearButton1<%=i%>.addEventListener('click',function() {
+                                                                    clearForm1<%=i%>.submit();
+                                                                });
+                                                            </script>
+                                                        </form>
                                                     </div>
                                                 </div>
-                                            <%}%>
-                                        </ul>
-                                        <div>
-                                            Tổng cộng: <%=formatter.format(user.getCartState().totalCost)%>đ
-                                        </div>
-                                        <a href="Cart?userJson=<%=URLEncoder.encode(userJson, "UTF-8")%>" class="header_cart-view-cart action-btn">Xem Giỏ Hàng</a>
+                                            </div>
+                                        </li>
+                                        <%} if(user.getCartState().products.size() > 4) {%>
+                                            <div class="title">
+                                                <div class="more">
+                                                    <a href="#to-cart3" id="to-cart3">
+                                                        ...
+                                                        <form action="Cart" method="post" id="cart-form3">
+                                                            <input type="hidden" name="userJson" value="<%=URLEncoder.encode(userJson, "UTF-8")%>"/>
+                                                            <script>
+                                                                const cartButton3 = document.getElementById('to-cart3');
+                                                                const cartForm3 = document.getElementById('cart-form3');
+                                                                cartButton3.addEventListener('click',function() {
+                                                                    cartForm3.submit();
+                                                                });
+                                                            </script>
+                                                        </form>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        <%}%>
+                                    </ul>
+                                    <div class="total_price">
+                                        <div class="desc">Tổng Cộng:</div>
+                                        <div class="number"><%=formatter.format(user.getCartState().totalCost)%>đ</div>
                                     </div>
-                                    <%}%>
+                                    <form action="Cart" method="post" id="cart-form4" class="header_cart-view-cart action-btn">
+                                        <span id="to-cart4">Xem giỏ hàng</span>
+                                        <input type="hidden" name="userJson" value="<%=URLEncoder.encode(userJson, "UTF-8")%>"/>
+                                        <script>
+                                            const cartButton4 = document.getElementById('to-cart4');
+                                            const cartForm4 = document.getElementById('cart-form4');
+                                            cartButton4.addEventListener('click',function() {
+                                                cartForm4.submit();
+                                            });
+                                        </script>
+                                    </form>
+                                </div>
                                 <%}%>
                             </div>
                         </div>
                     </div>
+                    <%}%>
                 </div>
             </div>
         </div>
-		<select_input-component></select_input-component>
 		<div class="product_detail">
             <div class="sub_content">
                 <div class="main_content">
@@ -251,6 +359,33 @@ pageEncoding="UTF-8"
                             </a>
                         </div>
                     </div>
+                    <%} else if(product.getName().equals("LOWELEVATE")) {%>
+                    <div class="small_image">
+                        <div class="small_image-link">
+                            <a href="./assets/img/jordan 1 low elevate detail 1.png">
+                                <img
+                                    src="./assets/img/jordan 1 low elevate detail 1.png"
+                                    alt="<%=product.getName()%>"
+                                    class="small_image-img" />
+                            </a>
+                        </div>
+                        <div class="small_image-link">
+                            <a href="./assets/img/jordan 1 low elevate detail 2.pngg">
+                                <img
+                                    src="./assets/img/jordan 1 low elevate detail 2.png"
+                                    alt="<%=product.getName()%>"
+                                    class="small_image-img" />
+                            </a>
+                        </div>
+                        <div class="small_image-link">
+                            <a href="./assets/img/jordan 1 low elevate detail 3.png">
+                                <img
+                                    src="./assets/img/jordan 1 low elevate detail 3.png"
+                                    alt="<%=product.getName()%>"
+                                    class="small_image-img" />
+                            </a>
+                        </div>
+                    </div>
                     <%}%>
                     <div class="main_image">
                         <img src="<%=product.getImage()%>" alt="<%=product.getName()%>" class="main_image-img" />
@@ -276,7 +411,12 @@ pageEncoding="UTF-8"
                                 </div>
                             </div>
                         </div>
-                        <div class="price"><%=formatter.format(Math.round(product.getSaleoff() * product.getUnitPrice()))%>đ</div>
+                        <div class="ui_user">
+                            <div class="price"><%=formatter.format(Math.round(product.getSaleoff() * product.getUnitPrice()))%>đ</div>
+                            <%if(product.getSaleoff() < 1.0) {%>
+                            <div class="old_price"><%=formatter.format(product.getUnitPrice())%>đ</div>
+                            <%}%>
+                        </div>
                         <%if(product.getQuantity() > 0) {%>
                             <%if(user != null) {
                                 productJson = objectMapper.writeValueAsString(product);%>
@@ -287,8 +427,8 @@ pageEncoding="UTF-8"
                                     value > <%=product.getQuantity()%> - 1 ? value = <%=product.getQuantity()%> - 1: '';
                                     value++;
                                     document.getElementById('number').value = value;
+                                    document.getElementById('quantityOrder').value = value;
                                     document.getElementById('outputQuantity').textContent = value;
-                                    updateLink();
                                 }
                                 function decreaseValue() {
                                     var value = parseInt(document.getElementById('number').value, 10);
@@ -296,18 +436,18 @@ pageEncoding="UTF-8"
                                     value < 2 ? value = 2 : '';
                                     value--;
                                     document.getElementById('number').value = value;
+                                    document.getElementById('quantityOrder').value = value;
                                     document.getElementById('outputQuantity').textContent = value;
-                                    updateLink();
                                 }
-
+                                
                                 function increaseSize() {
                                     var value = parseInt(document.getElementById('choose-size').value, 10);
                                     value = isNaN(value) ? 39 : value;
                                     value > 44 ? value = 44 : '';
                                     value++;
                                     document.getElementById('choose-size').value = value;
+                                    document.getElementById('sizeOrder').value = value;
                                     document.getElementById('outputSize').textContent = value;
-                                    updateLink();
                                 }
                                 function decreaseSize() {
                                     var value = parseInt(document.getElementById('choose-size').value, 10);
@@ -315,15 +455,8 @@ pageEncoding="UTF-8"
                                     value < 40 ? value = 40 : '';
                                     value--;
                                     document.getElementById('choose-size').value = value;
+                                    document.getElementById('sizeOrder').value = value;
                                     document.getElementById('outputSize').textContent = value;
-                                    updateLink();
-                                }
-                                function updateLink() {
-                                    var link = document.getElementById('upd-ct');
-                                    var quantity = document.getElementById('number').value;
-                                    var size = document.getElementById('choose-size').value;
-                                    link.href = 'upd-ct?product=true&productJson=<%=URLEncoder.encode(productJson, "UTF-8")%>&userJson=<%=URLEncoder.encode(userJson, "UTF-8")%>&quantity=' + quantity + '&size=' + size;
-                                    document.getElementById('pmt').href = 'upd-ct?order=true&productJson=<%=URLEncoder.encode(productJson, "UTF-8")%>&userJson=<%=URLEncoder.encode(userJson, "UTF-8")%>&quantity=' + quantity + '&size=' + size;
                                 }
                             </script>
                             <br>
@@ -333,7 +466,7 @@ pageEncoding="UTF-8"
                                     <i class="fa-solid fa-minus"></i>
                                 </div>
                                 <span class="count" id="outputQuantity">1</span>
-                                <input type="hidden" id="number" name = "quantity" value="1"/>
+                                <input form="upd-ct" type="hidden" id="number" name = "quantity" value="1"/>
                                 <div class="filter_page-btn" id="increase" onclick="increaseValue()" value="Increase Value">
                                     <i class="fa-solid fa-plus"></i>
                                 </div>                               
@@ -346,80 +479,55 @@ pageEncoding="UTF-8"
                                         <i class="fa-solid fa-minus"></i>
                                     </div>
                                     <span class="count" id="outputSize">39</span>
-                                    <input type="hidden" id="choose-size" name = "size" value="39"/>
+                                    <input form="upd-ct" type="hidden" id="choose-size" name = "size" value="39"/>
                                     <div class="filter_page-btn" id="increase" onclick="increaseSize()" value="Increase Size">
                                         <i class="fa-solid fa-plus"></i>
                                     </div>                               
                                 </form>
                             </div>
                             <div class="action-buy">
-                                <div class="action-btn">
-                                    <a id="upd-ct" href="upd-ct?product=true&productJson=<%=URLEncoder.encode(productJson, "UTF-8")%>&userJson=<%=URLEncoder.encode(userJson, "UTF-8")%>&quantity=1&size=39" >
+                                <a href="#add-to-cart" id="add-to-cart" class="action-btn">
+                                    <form method="post" id="upd-ct" action="upd-ct">
+                                        <input type="hidden" name="product" value="true"/>
+                                        <input type="hidden" name="productJson" value="<%=URLEncoder.encode(productJson, "UTF-8")%>"/>
+                                        <input type="hidden" name="userJson" value="<%=URLEncoder.encode(userJson, "UTF-8")%>"/>
                                         <i class="fa-solid fa-cart-plus"></i>
-                                        <span>Thêm Vào Giỏ</span>
-                                    </a>
-                                </div>
-                                <div class="action-btn">
-                                    <a id="pmt" href="upd-ct?order=true&productJson=<%=URLEncoder.encode(productJson, "UTF-8")%>&userJson=<%=URLEncoder.encode(userJson, "UTF-8")%>&quantity=1&size=39">
-                                        <i style="color: #ededed" class="fa-solid fa-money-check-dollar"></i>
-                                        <span style="color: #ededed">Mua Ngay</span>
-                                    </a>
-                                </div>
+                                    </form> 
+                                    <span>Thêm Vào Giỏ</span>
+                                </a>
+                                <a class="action-btn" id="pmt" href="#pmt">
+                                    <i style="color: #ededed" class="fa-solid fa-money-check-dollar"></i>
+                                    <form method="post" id="pmt-form" action="upd-ct">
+                                        <input type="hidden" name="order" value="true"/>
+                                        <input type="hidden" id="quantityOrder" name="quantity" value="1">
+                                        <input type="hidden" id="sizeOrder" name="size" value="39">
+                                        <input type="hidden" name="productJson" value="<%=URLEncoder.encode(productJson, "UTF-8")%>"/>
+                                        <input type="hidden" name="userJson" value="<%=URLEncoder.encode(userJson, "UTF-8")%>"/>
+                                    </form> 
+                                    <span style="color: #ededed">Mua Ngay</span>
+                                </a>
                             </div>
-                            <%} else {%>
                             <script>
-                                function increaseValue() {
-                                    var value = parseInt(document.getElementById('number').value, 10);
-                                    value = isNaN(value) ? 1 : value;
-                                    value > <%=product.getQuantity()%> - 1 ? value = <%=product.getQuantity()%> - 1 : '';
-                                    value++;
-                                    document.getElementById('number').value = value;
-                                    document.getElementById('outputQuantity').textContent = value;
-                                    updateLink();
-                                }
-                                function decreaseValue() {
-                                    var value = parseInt(document.getElementById('number').value, 10);
-                                    value = isNaN(value) ? 1 : value;
-                                    value < 2 ? value = 2 : '';
-                                    value--;
-                                    document.getElementById('number').value = value;
-                                    document.getElementById('outputQuantity').textContent = value;
-                                    updateLink();
-                                }
-                                function increaseSize() {
-                                    var value = parseInt(document.getElementById('choose-size').value, 10);
-                                    value = isNaN(value) ? 39 : value;
-                                    value > 44 ? value = 44 : '';
-                                    value++;
-                                    document.getElementById('choose-size').value = value;
-                                    document.getElementById('outputSize').textContent = value;
-                                    updateLink();
-                                }
-                                function decreaseSize() {
-                                    var value = parseInt(document.getElementById('choose-size').value, 10);
-                                    value = isNaN(value) ? 0 : value;
-                                    value < 40 ? value = 40 : '';
-                                    value--;
-                                    document.getElementById('choose-size').value = value;
-                                    document.getElementById('outputSize').textContent = value;
-                                    updateLink();
-                                }
-                                function updateLink() {
-                                    var link = document.getElementById('login');
-                                    var quantity = document.getElementById('number').value;
-                                    var size = document.getElementById('choose-size').value;
-                                    link.href = 'login.jsp?product=true&productJson=<%=URLEncoder.encode(productJson, "UTF-8")%>&userJson=<%=URLEncoder.encode(userJson, "UTF-8")%>&quantity=' + quantity + '&size=' + size;
-                                    document.getElementById('login').href = 'login.jsp?product=true&productJson=<%=URLEncoder.encode(productJson, "UTF-8")%>&userJson=<%=URLEncoder.encode(userJson, "UTF-8")%>&quantity=' + quantity + '&size=' + size;
-                                }
+                                const addToCartButton = document.getElementById('add-to-cart');
+                                const addToCartForm = document.getElementById('upd-ct');
+                                addToCartButton.addEventListener('click',function() {
+                                    addToCartForm.submit();
+                                });
+                                const buyButton = document.getElementById('pmt');
+                                const buyForm = document.getElementById('pmt-form');
+                                buyButton.addEventListener('click',function() {
+                                    buyForm.submit();
+                                });
                             </script>
+                            <%} else {%>
                             <br>
                             <span class="desc-size">Chọn số lượng:</span>
-                            <form class="select-input" method="post" action="upd-ct">
+                            <form class="select-input">
                                 <div class="filter_page-btn" id="decrease" onclick="decreaseValue()" value="Decrease Value">
                                     <i class="fa-solid fa-minus"></i>
                                 </div>
                                 <span class="count" id="outputQuantity">1</span>
-                                <input type="hidden" id="number" name = "quantity" value="1"/>
+                                <input form="upd-ct" type="hidden" id="number" name = "quantity" value="1"/>
                                 <div class="filter_page-btn" id="increase" onclick="increaseValue()" value="Increase Value">
                                     <i class="fa-solid fa-plus"></i>
                                 </div>                               
@@ -427,29 +535,26 @@ pageEncoding="UTF-8"
                             <div class="option-size">
                                 <span class="desc-size">Chọn kích Thước:</span>
                                 <form class="select-input">
+                                    <!-- <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div> -->
                                     <div class="filter_page-btn" id="decrease" onclick="decreaseSize()" value="Decrease Size">
                                         <i class="fa-solid fa-minus"></i>
                                     </div>
                                     <span class="count" id="outputSize">39</span>
-                                    <input type="hidden" id="choose-size" name = "size" value="39"/>
+                                    <input form="upd-ct" type="hidden" id="choose-size" name = "size" value="39"/>
                                     <div class="filter_page-btn" id="increase" onclick="increaseSize()" value="Increase Size">
                                         <i class="fa-solid fa-plus"></i>
                                     </div>                               
                                 </form>
                             </div>
                             <div class="action-buy">
-                                <div class="action-btn">
-                                    <a id="login" href="login.jsp?product=true&productJson=<%=URLEncoder.encode(productJson, "UTF-8")%>&userJson=<%=URLEncoder.encode(userJson, "UTF-8")%>">
-                                        <i class="fa-solid fa-cart-plus"></i>
-                                        <span>Thêm Vào Giỏ</span>
-                                    </a>
-                                </div>
-                                <div class="action-btn">
-                                    <a href="login.jsp">
-                                        <i style="color: #ededed" class="fa-solid fa-money-check-dollar"></i>
-                                        <span style="color: #ededed">Mua Ngay</span>
-                                    </a>
-                                </div>
+                                <a href="login.jsp" class="action-btn">
+                                    <i class="fa-solid fa-cart-plus"></i>
+                                    <span>Thêm Vào Giỏ</span>
+                                </a>
+                                <a class="action-btn" href="login.jsp">
+                                    <i style="color: #ededed" class="fa-solid fa-money-check-dollar"></i>
+                                    <span style="color: #ededed">Mua Ngay</span>
+                                </a>
                             </div>
                             <%}
                         }%>
@@ -511,6 +616,58 @@ pageEncoding="UTF-8"
                 </div>
                 <div class="img-desc">
                     <img src="./assets/img/superstar desc 4.jpg" alt="superstar" />
+                </div>
+            </div>
+            <%} else if(product.getName().equals("LOWELEVATE")) {%>
+            <div class="desc_detail">
+                <!-- Sửa: phần được viết ở class="reason" sẽ được in đậm
+                Đây là phần mô tả sản phẩm chi tiết, đi copy trang kingshoes
+                rồi dán vào đây -->
+                <!-- Sửa: với các sản phẩm không được viết mô tả chi tiết
+                trên trang kingshoes, có thể tạo một nội dung văn bản không
+                có ý nghĩa bằng cách gõ lorem10 + phím tab để tạo ra 10 từ
+                không có ý nghĩa nội dung, thay đổi số 10 để tạo số lượng từ
+                như mong muốn -->
+                <div class="reason">4 LÝ DO BẠN KHÔNG NÊN BỎ LỠ LOWELEVATE</div>
+                <!-- Sửa: phần được viết ở class="paragraph" là viết thường -->
+                <div class="paragraph">
+                    Nike Air Jordan 1 với lịch sử hơn 30 năm luôn được nhìn nhận như một trong những dòng sản phẩm 
+                    thành công nhất của Nike. Nike Jordan 1 luôn bán hết một cách nhanh chóng ngay từ khi ra mắt đến nay, 
+                    luôn là sản phẩm được các tín đồ thời trang chú ý hàng đầu. Air Jordan được đặt dựa theo ngôi sao 
+                    bóng rổ lừng danh Michael Jordan, huyền thoại của NBA.
+                </div>
+                <div class="reason">1. Mẫu giày không bao giờ lỗi thời</div>
+                <div class="paragraph">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, aspernatur.
+                </div>
+                <div class="img-desc">
+                    <!-- Sửa: src với alt -->
+                    <img src="./assets/img/jordan 1 low elevate desc 1.png" alt="lowelevate" />
+                </div>
+                <div class="reason">2. Khả năng mix đồ không giới hạn</div>
+                <div class="paragraph">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, illum.
+                </div>
+                <div class="img-desc">
+                    <!-- Sửa: src với alt -->
+                    <img src="./assets/img/jordan 1 low elevate desc 2.png" alt="lowelevate" />
+                </div>
+                <div class="reason">3. Mức giá dễ chịu</div>
+                <div class="paragraph">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, blanditiis.
+                </div>
+                <div class="img-desc">
+                    <!-- Sửa: src với alt -->
+                    <img src="./assets/img/jordan 1 low elevate desc 3.png" alt="lowelevate" />
+                </div>
+
+                <div class="reason">4. Bảo quản dễ dàng</div>
+                <div class="paragraph">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint, ipsam.
+                </div>
+                <div class="img-desc">
+                    <!-- Sửa: src với alt -->
+                    <img src="./assets/img/jordan 1 low elevate desc 4.png" alt="lowelevate" />
                 </div>
             </div>
             <%} else {%>
@@ -602,7 +759,7 @@ pageEncoding="UTF-8"
                                     <%}%>
                                     <%=LocalDate.now().toString()%>
                                 </div>
-                                Bởi: <div class="user_name"><%=product.getCrs().get(i).getFromUser()%></div>
+                                <div class="user_name"><%=product.getCrs().get(i).getFromUser()%></div>
                                 <div class="comment_content"><%=product.getCrs().get(i).getReview()%></div>
                                 <div class="react heart-solid">
                                     <!-- Heart: heart-full -->

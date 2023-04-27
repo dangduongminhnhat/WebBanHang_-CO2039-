@@ -148,16 +148,14 @@ pageEncoding="UTF-8"
                             var string = "<%=copy.subList(0, 5)%>";
                             var yValues = string.substring(1, string.length - 1).split(", ");
                             <%ArrayList<String> top5 = new ArrayList<String>();
-                            int k = 0;
                             for(int i = 0, j = 0; j < 5; i++) {
-                                if(ManagerService.products.get(i).getNoOfSolds() == copy.get(j)) {
-                                    if(copy.get(j) > 0) k++;
+                                if(ManagerService.products.get(i).getNoOfSolds() == copy.get(j) && !top5.contains(ManagerService.productsName.get(i))) {
                                     top5.add(ManagerService.productsName.get(i));
                                     j++;
                                     i = -1;
                                 }
                             }
-                            if(k < 5) top5 = new ArrayList<String>(top5.subList(0, k));%>
+                            %>
                             string = "<%=top5.toString()%>";
                             var xValues = string.substring(1, string.length - 1).split(", ");
                             var barColors = "#0094da";
