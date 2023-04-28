@@ -160,7 +160,17 @@ pageEncoding="UTF-8"
                             </form>
                         </li>
                         <li>
-                            <a href="#!"><i>HỖ TRỢ</i></a>
+                            <form action="hotProducts" method="post" id="hot-form">
+                                <input type="hidden" name="userJson" value="<%=URLEncoder.encode(userJson, "UTF-8")%>"/>
+                                <div id="hot"><a href="#hot">SẢN PHẨM HOT</a></div>
+                                <script>
+                                    const hotButton = document.getElementById('hot');
+                                    const hotForm = document.getElementById('hot-form');
+                                    hotButton.addEventListener('click',function() {
+                                        hotForm.submit();
+                                    });
+                                </script>
+                            </form>
                         </li>
                     </ul>
 					<!-- Searchbar -->
@@ -264,23 +274,6 @@ pageEncoding="UTF-8"
                                                             <span class="header_cart-item-multiply">x</span>
                                                             <span class="header_cart-item-qnt"><%=user.getCartState().quantityEachProduct.get(i)%></span>
                                                         </div>
-                                                    </div>
-                                                    <div class="header_cart-item-body">
-                                                        <span class="header_cart-item-description">Size giày <%=user.getCartState().products.get(i).getSize()%></span>
-                                                        <form action="upd-ct" method="post" id="clear-form1<%=i%>" class="header_cart-item-remove">
-                                                            <span id="clear1<%=i%>">Xóa</a>
-                                                            <input type="hidden" name="userJson" value="<%=URLEncoder.encode(userJson, "UTF-8")%>"/>
-                                                            <input type="hidden" name="productJson" value="<%=URLEncoder.encode(productJson, "UTF-8")%>"/>
-                                                            <input type="hidden" name="quantity" value="0"/>
-                                                            <input type="hidden" name="size" value="39"/>
-                                                            <script>
-                                                                const clearButton1<%=i%> = document.getElementById('clear1<%=i%>');
-                                                                const clearForm1<%=i%> = document.getElementById('clear-form1<%=i%>');
-                                                                clearButton1<%=i%>.addEventListener('click',function() {
-                                                                    clearForm1<%=i%>.submit();
-                                                                });
-                                                            </script>
-                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>

@@ -64,11 +64,11 @@ pageEncoding="UTF-8"
                     <div class="title">Hàng Hóa</div>
                     <div class="frame_radio">
                         <h2 class="desc">Thương Hiệu</h2>
-                        <input form="filter" type="radio" id="adidas" name="brand" value="Nike" />
-                        <label for="adidas">Nike</label><br />
-                        <br />
                         <input form="filter" type="radio" id="nike" name="brand" value="Adidas" />
                         <label for="nike">Adidas</label><br />
+                        <br />
+                        <input form="filter" type="radio" id="adidas" name="brand" value="Nike" />
+                        <label for="adidas">Nike</label><br />
                     </div>
                     <!-- <div class="frame_radio">
                         <h2 class="desc">Phân Loại</h2>
@@ -90,9 +90,15 @@ pageEncoding="UTF-8"
                         <label for="out_of_stock">Hết Sản Phẩm</label><br />
                     </div>
                     <div class="frame_radio">
-                        <form id="filter" method="get" action="warehouse.jsp">
-                            <input type="submit" value="Tìm Kiếm" />
-                        </form>
+                        <%if(request.getParameter("brand") == null && request.getParameter("state") == null) {%>
+                            <form id="filter" method="get" action="warehouse.jsp">
+                                <input type="submit" value="Tìm Kiếm" />
+                            </form>
+                        <%} else {%>
+                            <form id="filter" method="get" action="warehouse.jsp">
+                                <input type="submit" value="Tất cả" />
+                            </form>
+                        <%}%>
                     </div>
                 </div>
                 <div class="right">

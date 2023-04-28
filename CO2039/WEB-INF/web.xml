@@ -171,6 +171,15 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>GetHotProductsServlet</servlet-name>
+        <servlet-class>com.example.servlet.user.GetHotProductsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetHotProductsServlet</servlet-name>
+        <url-pattern>/hotProducts</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>GetSaleoffProductsServlet</servlet-name>
         <servlet-class>com.example.servlet.user.GetSaleoffProductsServlet</servlet-class>
     </servlet>

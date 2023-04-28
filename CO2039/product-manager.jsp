@@ -120,7 +120,7 @@ pageEncoding="UTF-8"
                         <div class="display_ui_own">
                             <div class="ui_own">
                                 <div class="price_own">Giá Bán: <%=formatter.format(product.getUnitPrice() * product.getSaleoff())%>đ</div>
-                                <div class="price_own">Giá vốn: <%=formatter.format(product.getInitPrice())%>đ</div>
+                                <div class="price_own">Giá Vốn: <%=formatter.format(product.getInitPrice())%>đ</div>
                                 <div class="option-size">
                                     <div class="desc-size">Đã bán: <%=product.getNoOfSolds()%></div>
                                     <br />
@@ -138,18 +138,18 @@ pageEncoding="UTF-8"
                                     </ul>
                                 </div>
                                 <div class="action-buy">
-                                    <div class="action-btn">
-                                        <a href="importProduct.jsp?image=<%=product.getImage()%>&description=<%=product.getDescription()%>&name=<%=product.getName()%>&category=<%=product.getCategory()%>&quantity=<%=product.getQuantity()%>&initPrice=<%=product.getInitPrice()%>&unitPrice=<%=product.getUnitPrice()%>">
+                                    <a class="action-btn" href="importProduct.jsp?image=<%=product.getImage()%>&description=<%=product.getDescription()%>&name=<%=product.getName()%>&category=<%=product.getCategory()%>&quantity=<%=product.getQuantity()%>&initPrice=<%=product.getInitPrice()%>&unitPrice=<%=product.getUnitPrice()%>">
+                                    <div>
                                             <i class="fa-regular fa-pen-to-square"></i>
                                             <span>Cập Nhật</span>
-                                        </a>
-                                    </div>
-                                    <div class="action-btn">
-                                        <a href="rm-product?productJson=<%=URLEncoder.encode(productJson, "UTF-8")%>">
+                                        </div>
+                                    </a>
+                                    <a class="action-btn" href="rm-product?productJson=<%=URLEncoder.encode(productJson, "UTF-8")%>">
+                                        <div>
                                             <i style="color: #ededed" class="fa-regular fa-trash-can"></i>
                                             <span style="color: #ededed">Xóa</span>
-                                        </a>
-                                    </div>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                         </div>
