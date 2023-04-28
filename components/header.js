@@ -42,7 +42,7 @@ class Header extends HTMLElement {
                             <a href="./new-all.html"><i>SẢN PHẨM MỚI</i></a>
                         </li>
                         <li>
-                            <a href="./no-content.html"><i>HỖ TRỢ</i></a>
+                            <a href="./hot-all.html"><i>HOT</i></a>
                         </li>
                     </ul>
                     <!-- Searchbar -->

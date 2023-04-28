@@ -3,7 +3,6 @@ body {
 }
 
 .cart-detail {
-    width: 100vw;
     background-color: #eeeeeeee;
     display: flex;
     flex-direction: column;
