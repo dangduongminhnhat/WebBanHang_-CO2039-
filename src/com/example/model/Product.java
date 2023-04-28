@@ -9,7 +9,6 @@ public abstract class Product {
     protected String name;
     protected String category;
     protected int size;
-    protected String colors;
     public String getName() {return name;}
     public String getCategory() {return category;}
     public String getImage() {return image;}
@@ -18,5 +17,4 @@ public abstract class Product {
     public String getSmallImg3() {return smallImg3;}
     public String getDescription() {return description;}
     public int getSize() {return size;}
-    public String getColors() {return colors;}
 }

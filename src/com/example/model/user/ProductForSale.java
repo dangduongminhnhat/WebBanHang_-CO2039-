@@ -19,11 +19,11 @@ public class ProductForSale extends Product {
         this.initPrice = product.initPrice;
         this.noOfSolds = product.noOfSolds;
         this.saleoff = product.saleoff;
-        this.colors = product.colors;
         this.crs = product.crs;
         this.newOrHot = product.newOrHot;
         this.size = size;
     }
+    
     public ProductForSale(String image, String smlImg1, String smlImg2, String smlImg3, String description, String name, String category, int quantity, int unitPrice, int initPrice, boolean newOrHot) {
         this.image = image;
         this.smallImg1 = smlImg1;
@@ -78,6 +78,18 @@ public class ProductForSale extends Product {
         this.crs = crs;
         this.newOrHot = newOrHot;
     }
+    public ProductForSale(String image, String description, String name, String category, int quantity, int unitPrice, int initPrice, double saleoff, int noOfSolds, ArrayList<CustomerReview> crs) {
+        this.image = image;
+        this.description = description;
+        this.name = name;
+        this.category = category;
+        this.quantity = quantity;
+        this.initPrice = initPrice;
+        this.noOfSolds = noOfSolds;
+        this.unitPrice = unitPrice;
+        this.saleoff = saleoff;
+        this.crs = crs;
+    }
     public ProductForSale(String image, String smlImg1, String smlImg2, String smlImg3, String description, String name, String category, int quantity, int unitPrice, int initPrice, int noOfSolds, ArrayList<CustomerReview> crs) {
         this.image = image;
         this.smallImg1 = smlImg1;
@@ -103,6 +115,18 @@ public class ProductForSale extends Product {
         this.unitPrice = unitPrice;
         this.saleoff = 1.0;
         this.crs = new ArrayList<CustomerReview>();
+    }
+    public ProductForSale(String image, String description, String name, String category, int quantity, int unitPrice, int initPrice, int noOfSolds, ArrayList<CustomerReview> crs) {
+        this.image = image;
+        this.description = description;
+        this.name = name;
+        this.category = category;
+        this.quantity = quantity;
+        this.initPrice = initPrice;
+        this.unitPrice = unitPrice;
+        this.saleoff = 1.0;
+        this.crs = crs;
+        this.noOfSolds = noOfSolds;
     }
     public ProductForSale(String image, String smlImg1, String smlImg2, String smlImg3, String description, String name, String category, int quantity, int unitPrice, int initPrice, double saleoff) {
         this.image = image;
@@ -152,12 +176,6 @@ public class ProductForSale extends Product {
         crs.setFromUser(user.getFullName());
         this.crs.add(crs);
     }
-    public void addCustomerReview(String review, User user) {
-        CustomerReview crs = new CustomerReview();
-        crs.setReview(review);
-        crs.setFromUser(user.getFullName());
-        this.crs.add(crs);
-    }
     public static void updateNoOfSolds(User.CartState cartState) {
         int size = cartState.products.size();
         for(int i = 0; i < size; i++) {
@@ -171,8 +189,5 @@ public class ProductForSale extends Product {
                 }
             }
         }
-    }
-    public void updateQuantity(int quantity) {
-        this.quantity += quantity;
     }
 }
