@@ -170,22 +170,22 @@ pageEncoding="UTF-8"
                                 <%String message = (String) request.getAttribute("message");
                                 if(message == null) {%>
                                 <div class="action-buy">
-                                    <div class="action-btn">
-                                        <%if(request.getParameter("file").length() > 0) {%>
-                                        <a href="imp-p?image=<%=image%>&description=<%=description%>&name=<%=name%>&category=<%=category%>&quantity=<%=quantity%>&initPrice=<%=initPrice%>&unitPrice=<%=unitPrice%>">
+                                    <%if(request.getParameter("file").length() > 0) {%>
+                                    <a class="action-btn" href="imp-p?image=<%=image%>&description=<%=description%>&name=<%=name%>&category=<%=category%>&quantity=<%=quantity%>&initPrice=<%=initPrice%>&unitPrice=<%=unitPrice%>">
                                         <%} else {%>
-                                        <a href="upd-product?image=<%=image%>&description=<%=description%>&name=<%=name%>&category=<%=category%>&quantity=<%=quantity%>&initPrice=<%=initPrice%>&unitPrice=<%=unitPrice%>">
+                                    <a class="action-btn" href="upd-product?image=<%=image%>&description=<%=description%>&name=<%=name%>&category=<%=category%>&quantity=<%=quantity%>&initPrice=<%=initPrice%>&unitPrice=<%=unitPrice%>">
                                         <%}%>
+                                        <div>
                                             <i class="fa-regular fa-pen-to-square"></i>
                                             <span>Cập Nhật</span>
-                                        </a>
-                                    </div>
-                                    <div class="action-btn">
-                                        <a href="importProduct.jsp">
+                                        </div>
+                                    </a>
+                                    <a class="action-btn" href="importProduct.jsp">
+                                        <div >
                                             <i style="color: #ededed" class="fa-regular fa-trash-can"></i>
                                             <span style="color: #ededed">Xóa</span>
-                                        </a>
-                                    </div>
+                                        </div>
+                                    </a>
                                 </div>
                                 <%}%>
                             </div>

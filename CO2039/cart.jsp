@@ -48,8 +48,8 @@ pageEncoding="UTF-8"
         <link rel="stylesheet" href="./assets/css/cart.css" />
         <link rel="stylesheet" href="./assets/css/style-superstar.css" />
         <link rel="stylesheet" href="./assets/css/select-input.css" />
-        <script src="components/header.js" type="text/javascript" defer></script>
-        <script src="components/footer.js" type="text/javascript" defer></script>
+        <script src="./components/header.js" type="text/javascript" defer></script>
+        <script src="./components/footer.js" type="text/javascript" defer></script>
 
         <title>Giỏ hàng</title>
     </head>
@@ -150,7 +150,17 @@ pageEncoding="UTF-8"
                             </form>
                         </li>
                         <li>
-                            <a href="#!"><i>HỖ TRỢ</i></a>
+                            <form action="hotProducts" method="post" id="hot-form">
+                                <input type="hidden" name="userJson" value="<%=URLEncoder.encode(userJson, "UTF-8")%>"/>
+                                <div id="hot"><a href="#hot">SẢN PHẨM HOT</a></div>
+                                <script>
+                                    const hotButton = document.getElementById('hot');
+                                    const hotForm = document.getElementById('hot-form');
+                                    hotButton.addEventListener('click',function() {
+                                        hotForm.submit();
+                                    });
+                                </script>
+                            </form>
                         </li>
                     </ul>
                     <!-- Searchbar -->
@@ -227,7 +237,17 @@ pageEncoding="UTF-8"
                 <img class="img-no-cart" src="./assets/img/no_cart.jpg" alt="" />
                 <span class="desc-no-cart">Không có sản phẩm nào trong giỏ hàng</span>
                 <div class="frame_buy">
-                    <button id="home" class="action-btn action-btn-custom">Trang Chủ</button>
+                    <form action="home" method="post" id="to-horm-form">
+                        <input type="hidden" name="userJson" value="<%=URLEncoder.encode(userJson, "UTF-8")%>"/>
+                        <button id="to-home" class="action-btn action-btn-custom">Trang Chủ</button>
+                        <script>
+                            const toHomeButton = document.getElementById('to-home');
+                            const toHomeForm = document.getElementById('to-home-form');
+                            toHomeButton.addEventListener('click',function() {
+                                toHomeForm.submit();
+                            });
+                        </script>
+                    </form>
                 </div>
             </div>
         </div>

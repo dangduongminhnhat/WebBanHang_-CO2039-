@@ -154,8 +154,8 @@ pageEncoding="UTF-8"
                                             <div class="custom-select">
                                                 <select id="brand_product" name="category" form="submit-form">
                                                     <%if(category.equals("Adidas")) {%>
-                                                        <option value="Nike">Nike</option>
                                                         <option value="Adidas" selected>Adidas</option>
+                                                        <option value="Nike">Nike</option>
                                                     <%} else {%>   
                                                         <option value="Nike" selected>Nike</option>
                                                         <option value="Adidas">Adidas</option>
@@ -178,8 +178,8 @@ pageEncoding="UTF-8"
                                             <label for="brand_product">Thương Hiệu</label>
                                             <div class="custom-select">
                                                 <select id="brand_product" name="category" form="submit-form">
-                                                    <option value="Nike">Nike</option>
                                                     <option value="Adidas">Adidas</option>
+                                                    <option value="Nike">Nike</option>
                                                 </select>
                                             </div>
 
@@ -202,8 +202,6 @@ pageEncoding="UTF-8"
                                             <label for="price">Giá Bán</label>
                                             <input type="text" id="price" placeholder="<%=unitPrice%>" style="margin-top: 6px" />
 
-                                            <label id="note_ex" for="available">Kích thước</label>
-                                            <input type="text" id="size_count" name="size_count" placeholder="39-45" />
                                             <label for="amount">Số Lượng</label>
                                             <input type="text" id="amount" placeholder="<%=quantity%>" style="margin-top: 8px" />
                                             <%} else {%>
@@ -213,8 +211,6 @@ pageEncoding="UTF-8"
                                             <label for="price">Giá Bán</label>
                                             <input type="text" id="price" placeholder="" style="margin-top: 6px" />
 
-                                            <label id="note_ex" for="available">Kích thước</label>
-                                            <input type="text" id="size_count" name="size_count" placeholder="39-45" />
                                             <label for="amount">Số Lượng</label>
                                             <input type="text" id="amount" placeholder="" style="margin-top: 8px" />
                                             <%}%>
