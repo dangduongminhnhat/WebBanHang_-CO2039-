@@ -11,7 +11,7 @@ public class MyServletContextListener implements ServletContextListener {
 
         ManagerService.products.add(new ProductForSale("./assets/img/superstar.jpeg", "./assets/img/superstar detail 1.jpeg", "./assets/img/superstar detail 2.jpeg", "./assets/img/superstar detail 3.jpeg", "siêu bền", "SUPERSTAR", "Adidas", 20, 2200000, 1000000, true));
         ManagerService.products.add(new ProductForSale("./assets/img/jordan 1 mid tuft orange.jpeg", "màu cam", "JORDAN 1 MID TUFT ORANGE", "Nike", 10, 5800000, 1000000, true));
-        ManagerService.products.add(new ProductForSale("./assets/img/air force 1 shadow multicolor.jpeg", "nhiều màu", "AIR FORCE 1 SHADOW MULTICOLOR", "Nike", 12, 3900000, 1000000, true));
+        ManagerService.products.add(new ProductForSale("./assets/img/air force 1 shadow multicolor.jpeg", "...", "AIR FORCE 1 SHADOW MULTICOLOR", "Nike", 12, 3900000, 1000000, true));
         ManagerService.products.add(new ProductForSale("./assets/img/ultraboost 4.0 dna.jpg", "màu đen", "ULTRABOOST 4.0 DNA", "Adidas", 71, 3800000, 1000000, true));
         ManagerService.products.add(new ProductForSale("./assets/img/day jogger dash green linen.jpg", "không biết màu gì", "DAY JOGGER DASH GREEN LINEN", "Adidas", 21, 2200000, 1000000, true));
         ManagerService.newProducts.add(new ProductForSale("./assets/img/superstar.jpeg", "./assets/img/superstar detail 1.jpeg", "./assets/img/superstar detail 2.jpeg", "./assets/img/superstar detail 3.jpeg", "siêu bền", "SUPERSTAR", "Adidas", 20, 2200000, 1000000, true));
@@ -42,16 +42,20 @@ public class MyServletContextListener implements ServletContextListener {
         ManagerService.saleOffProducts = new ArrayList<ProductForSale>();
 
         ManagerService.products.add(new ProductForSale("./assets/img/nike pegasus 39.jpeg", "màu hồng", "NIKE PEGASUS 39", "Nike", 26, 3900000, 1000000, 0.9));
-        ManagerService.products.add(new ProductForSale("./assets/img/nike air zoom pegasus 39.jpeg", "màu tím", "NIKE AIR ZOOM PEGASUS 39", "Adidas", 14, 3900000, 1000000, 0.92));
+        ManagerService.products.add(new ProductForSale("./assets/img/nike air zoom pegasus 39.jpeg", "màu tím", "NIKE AIR ZOOM PEGASUS 39", "Nike", 14, 3900000, 1000000, 0.92));
         ManagerService.products.add(new ProductForSale("./assets/img/ultraboost 20 metallic gold.jpeg", "trắng tinh", "ULTRABOOST 20 METALLIC GOLD", "Adidas", 10, 4200000, 1000000, 0.69));
-        ManagerService.products.add(new ProductForSale("./assets/img/nike court vision low next nature.jpeg", "màu đỏ", "ULTRABOOST 21", "Adidas", 66, 4200000, 1000000, 0.9));
+        ManagerService.products.add(new ProductForSale("./assets/img/ultraboost 21.jpeg", "màu đỏ", "ULTRABOOST 21", "Adidas", 66, 4200000, 1000000, 0.9));
         ManagerService.products.add(new ProductForSale("./assets/img/jordan series es phantom.jpeg", "màu da người", "JORDAN SERIES ES PHANTOM", "Nike", 6, 3200000, 1000000, 0.9));
+        ManagerService.products.add(new ProductForSale("./assets/img/ultraboost 20 cloud white.jpeg", "màu trắng sọc xanh", "ULTRABOOST 20 CLOUD WHITE", "Adidas", 35, 4200000, 1000000, 0.76));
+        ManagerService.products.add(new ProductForSale("./assets/img/jordan 1 low elevate.png", "màu trắng", "LOWELEVATE", "Nike", 22, 6600000, 1000000, 0.87));
         ManagerService.saleOffProducts.add(new ProductForSale("./assets/img/nike pegasus 39.jpeg", "màu hồng", "NIKE PEGASUS 39", "Nike", 26, 3900000, 1000000, 0.9));
-        ManagerService.saleOffProducts.add(new ProductForSale("./assets/img/nike air zoom pegasus 39.jpeg", "màu tím", "NIKE AIR ZOOM PEGASUS 39", "Adidas", 14, 3900000, 1000000, 0.92));
+        ManagerService.saleOffProducts.add(new ProductForSale("./assets/img/nike air zoom pegasus 39.jpeg", "màu tím", "NIKE AIR ZOOM PEGASUS 39", "Nike", 14, 3900000, 1000000, 0.92));
         ManagerService.saleOffProducts.add(new ProductForSale("./assets/img/ultraboost 20 metallic gold.jpeg", "trắng tinh", "ULTRABOOST 20 METALLIC GOLD", "Adidas", 10, 4200000, 1000000, 0.69));
-        ManagerService.saleOffProducts.add(new ProductForSale("./assets/img/nike court vision low next nature.jpeg", "màu đỏ", "ULTRABOOST 21", "Adidas", 66, 4200000, 1000000, 0.9));
+        ManagerService.saleOffProducts.add(new ProductForSale("./assets/img/ultraboost 21.jpeg", "màu đỏ", "ULTRABOOST 21", "Adidas", 66, 4200000, 1000000, 0.9));
         ManagerService.saleOffProducts.add(new ProductForSale("./assets/img/jordan series es phantom.jpeg", "màu da người", "JORDAN SERIES ES PHANTOM", "Nike", 6, 3200000, 1000000, 0.9));
-
+        ManagerService.saleOffProducts.add(new ProductForSale("./assets/img/ultraboost 20 cloud white.jpeg", "màu trắng sọc xanh", "ULTRABOOST 20 CLOUD WHITE", "Adidas", 35, 4200000, 1000000, 0.76));
+        ManagerService.saleOffProducts.add(new ProductForSale("./assets/img/jordan 1 low elevate.png", "màu trắng", "LOWELEVATE", "Nike", 22, 6600000, 1000000, 0.87));
+        
 
 
         // //nothing

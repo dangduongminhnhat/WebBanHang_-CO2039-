@@ -30,7 +30,7 @@ public class RegisterServlet extends HttpServlet {
                 view.forward(request, response);
             }
             else if(ClientService.isExistedUserId(userId) == true) {
-                request.setAttribute("message", "Id tài khoản đã được sử dụng");
+                request.setAttribute("message", "Tên đăng nhập đã được sử dụng");
                 RequestDispatcher view = request.getRequestDispatcher("register.jsp");
                 view.forward(request, response);
             }

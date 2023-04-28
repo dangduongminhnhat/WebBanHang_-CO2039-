@@ -2,6 +2,7 @@ package com.example.model.user;
 import com.example.model.manager.*;
 import java.util.*;
 
+
 public class User {
     public User() {}
     public User(String fullName, String phoneNums, String userId, String password) {
@@ -12,7 +13,6 @@ public class User {
         bankAcc = new BankAccount();
         buyingHistory = new BuyingHistory();
         cartState = new CartState();
-        orderState = new OrderState();
     }
     public class BankAccount {
         public BankAccount() {
@@ -30,27 +30,22 @@ public class User {
             }
             return false;
         }
-        public void deposit(int money) {
-            balance += money;
-        }
     }
     public class CartState {
         public CartState() {
             products = new ArrayList<ProductForSale>();
             quantityEachProduct = new ArrayList<Integer>();
-            totalCost = 0;
         }
-        /*Product number 1 have quantity is value at index of quantityEachProduct*/
         public ArrayList<ProductForSale> products;
         public ArrayList<Integer> quantityEachProduct;
         public int totalCost;
         public int totalQuantity;
     }
     public class BuyingHistory {
-        /*Product number 1 have quantity is value at index of quantityEachProduct*/
         public BuyingHistory() {
             products = new ArrayList<ProductForSale>();
             quantityEachProduct = new ArrayList<Integer>();
+            infoDeliverys = new ArrayList<InfoDelivery>();
             hasAsset = new ArrayList<Boolean>();
             totalCost = 0;
         }
@@ -58,16 +53,7 @@ public class User {
         public ArrayList<Integer> quantityEachProduct;
         public ArrayList<Boolean> hasAsset;
         public int totalCost;
-    }
-    public class OrderState {
-        public OrderState() {
-            products = new ArrayList<ProductForSale>();
-            quantityEachProduct = new ArrayList<Integer>();
-        }
-        /*Product number 1 have quantity is value at index of quantityEachProduct*/
-        public ArrayList<ProductForSale> products;
-        public ArrayList<Integer> quantityEachProduct;
-        public String state;    
+        public ArrayList<InfoDelivery> infoDeliverys;
     }
     private boolean logInState;
     private String fullName;
@@ -76,7 +62,6 @@ public class User {
     private String phoneNums;
     private BankAccount bankAcc;
     private BuyingHistory buyingHistory;
-    private OrderState orderState;
     private CartState cartState; 
     
     public void setActiveLoginState() {
@@ -98,7 +83,6 @@ public class User {
         }
     }
     public CartState getCartState() {return cartState;}
-    public OrderState getOrderState() {return orderState;}
     public BuyingHistory getbuyingHistory() {return buyingHistory;}
     public String getFullName() {return fullName;}
     public String getPhoneNums() {return phoneNums;}
@@ -146,22 +130,21 @@ public class User {
         cartState.totalCost = 0;
         cartState.totalQuantity = 0;
     }
-    public void updateOrderState() {
-        /*Update orderState based on cartState*/
-        orderState.state = "Delivered";
-        orderState.products = cartState.products;
-        orderState.quantityEachProduct = cartState.quantityEachProduct;
-    }
-    public void updateBuyingHistory() {
+    public void updateBuyingHistory(String fullName, String phoneNums, String address, String email, String note) {
         /*update BuyingHistory based on cartState*/
+        ArrayList<ProductForSale> products = new ArrayList<ProductForSale>();
         for(ProductForSale product : cartState.products) {
             buyingHistory.products.add(product);
+            products.add(product);
             buyingHistory.hasAsset.add(false);
         }
+        ArrayList<Integer> quantityEachProduct = new ArrayList<Integer>();
         for(int quantity : cartState.quantityEachProduct) {
             buyingHistory.quantityEachProduct.add(quantity);
+            quantityEachProduct.add(quantity);
         }
         buyingHistory.totalCost += cartState.totalCost;
+        buyingHistory.infoDeliverys.add(new InfoDelivery(fullName, phoneNums, address, email, note, products, quantityEachProduct, cartState.totalCost));
         for(int i = 0; i < ManagerService.users.size(); i++) {
             if(ManagerService.users.get(i).getUserId().equals(this.userId)) {
                 ManagerService.users.set(i, this);
@@ -169,21 +152,16 @@ public class User {
             }
         }
     }
-    public boolean bankPay() {
+    public boolean bankPay(String fullName, String phoneNums, String address, String email, String note) {
         //update orderState, bankAccount, buyingHistory, cartState
         if(bankAcc.pay(cartState.totalCost) == true) {
             ManagerService.accounting.updateRevenue(cartState.totalCost);
             ProductForSale.updateNoOfSolds(cartState);
-            updateOrderState();
-            updateBuyingHistory();
+            updateBuyingHistory(fullName, phoneNums, address, email, note);
             clearCart();
             return true;
         }
         else return false;
-    }
-    public void depositToBankAcc(int money) {
-        /*deposit to bank account*/
-        bankAcc.deposit(money);
     }
     public void addProductReview(ProductForSale product, int noOfStars, String review, User user) {
         product.addCustomerReview(noOfStars, review, user);
@@ -191,20 +169,6 @@ public class User {
             if(buyingHistory.products.get(i).getName().equals(product.getName())) {
                 buyingHistory.products.set(i, product);
                 buyingHistory.hasAsset.set(i, true);
-            }
-        }
-        for(int i = 0; i < ManagerService.products.size(); i++) {
-            if(ManagerService.products.get(i).getName().equals(product.getName())) {
-                ManagerService.products.set(i, product);    
-                return;
-            }
-        }
-    }
-    public void addProductReview(ProductForSale product, String review, User user) {
-        product.addCustomerReview(review, user);
-        for(int i = 0; i < buyingHistory.products.size(); i++) {
-            if(buyingHistory.products.get(i).getName().equals(product.getName())) {
-                buyingHistory.products.set(i, product);
             }
         }
         for(int i = 0; i < ManagerService.products.size(); i++) {

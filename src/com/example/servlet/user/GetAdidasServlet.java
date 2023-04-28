@@ -14,6 +14,8 @@ public class GetAdidasServlet extends HttpServlet {
         ObjectMapper mapper = new ObjectMapper();
         User user = (User) mapper.readValue(decodedValue, User.class);
         request.setAttribute("user", user);
+        request.setAttribute("price", request.getParameter("price"));
+        request.setAttribute("sort", request.getParameter("sort"));
         RequestDispatcher view = request.getRequestDispatcher("adidas-all.jsp");
         view.forward(request, response);
     }     
@@ -25,6 +27,9 @@ public class GetAdidasServlet extends HttpServlet {
         ObjectMapper mapper = new ObjectMapper();
         User user = (User) mapper.readValue(decodedValue, User.class);
         request.setAttribute("user", user);
+        request.setAttribute("price", request.getParameter("price"));
+        request.setAttribute("sort", request.getParameter("sort"));
+        request.setAttribute("filter", request.getParameter("filter"));
         RequestDispatcher view = request.getRequestDispatcher("adidas-all.jsp");
         view.forward(request, response);
     }  

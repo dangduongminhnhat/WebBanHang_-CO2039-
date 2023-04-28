@@ -14,7 +14,4 @@ public class Accounting {
     public int getRevenue() {
         return revenue;
     }
-    public int getProfit() {
-        return revenue - expense;
-    }
 }
