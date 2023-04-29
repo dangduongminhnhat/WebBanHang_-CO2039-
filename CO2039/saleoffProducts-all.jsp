@@ -435,7 +435,6 @@ pageEncoding="UTF-8"
                                 <option value="none" selected>Sắp Xếp Theo</option>
                                 <option value="inc">Giá Thấp Đến Cao</option>
                                 <option value="dec">Giá Cao Đến Thấp</option>
-                                <option value="sal">Giảm Giá Nhiều Nhất</option>
                             </select>
                         </div>
                     </div>

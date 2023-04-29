@@ -352,7 +352,88 @@ pageEncoding="UTF-8"
                             </a>
                         </div>
                     </div>
-                    <%} else if(product.getName().equals("LOWELEVATE")) {%>
+                    <%} else if(product.getName().equals("ULTRABOOST 21")) {%>
+                        <div class="small_image">
+                            <div class="small_image-link">
+                                <a href="./assets/img/adidas ultra 4dfwd detail 1.png">
+                                    <img
+                                        src="./assets/img/adidas ultra 4dfwd detail 1.png"
+                                        alt="<%=product.getName()%>"
+                                        class="small_image-img" />
+                                </a>
+                            </div>
+                            <div class="small_image-link">
+                                <a href="./assets/img/adidas ultra 4dfwd detail 2.png">
+                                    <img
+                                        src="./assets/img/adidas ultra 4dfwd detail 2.png"
+                                        alt="<%=product.getName()%>"
+                                        class="small_image-img" />
+                                </a>
+                            </div>
+                            <div class="small_image-link">
+                                <a href="./assets/img/adidas ultra 4dfwd detail 3.png">
+                                    <img
+                                        src="./assets/img/adidas ultra 4dfwd detail 3.png"
+                                        alt="<%=product.getName()%>"
+                                        class="small_image-img" />
+                                </a>
+                            </div>
+                        </div>
+                    <%} else if(product.getName().equals("ADIDAS ULTRA 4DFWD")) {%>
+                        <div class="small_image">
+                            <div class="small_image-link">
+                                <a href="./assets/img/adidas ultra 4dfwd detail 1.png">
+                                    <img
+                                        src="./assets/img/adidas ultra 4dfwd detail 1.png"
+                                        alt="<%=product.getName()%>"
+                                        class="small_image-img" />
+                                </a>
+                            </div>
+                            <div class="small_image-link">
+                                <a href="./assets/img/adidas ultra 4dfwd detail 2.png">
+                                    <img
+                                        src="./assets/img/adidas ultra 4dfwd detail 2.png"
+                                        alt="<%=product.getName()%>"
+                                        class="small_image-img" />
+                                </a>
+                            </div>
+                            <div class="small_image-link">
+                                <a href="./assets/img/adidas ultra 4dfwd detail 3.png">
+                                    <img
+                                        src="./assets/img/adidas ultra 4dfwd detail 3.png"
+                                        alt="<%=product.getName()%>"
+                                        class="small_image-img" />
+                                </a>
+                            </div>
+                        </div>
+                    <%} else if(product.getName().equals("JORDAN 1 MID TURF ORANGE")) {%>
+                        <div class="small_image">
+                            <div class="small_image-link">
+                                <a href="./assets/img/jordan 1 mid turf orange detail 1.jpg">
+                                    <img
+                                        src="./assets/img/jordan 1 mid turf orange detail 1.jpg"
+                                        alt="<%=product.getName()%>"
+                                        class="small_image-img" />
+                                </a>
+                            </div>
+                            <div class="small_image-link">
+                                <a href="./assets/img/jordan 1 mid turf orange detail 2.jpg">
+                                    <img
+                                        src="./assets/img/jordan 1 mid turf orange detail 2.jpg"
+                                        alt="<%=product.getName()%>"
+                                        class="small_image-img" />
+                                </a>
+                            </div>
+                            <div class="small_image-link">
+                                <a href="./assets/img/jordan 1 mid turf orange detail 3.jpg">
+                                    <img
+                                        src="./assets/img/jordan 1 mid turf orange detail 3.jpg"
+                                        alt="<%=product.getName()%>"
+                                        class="small_image-img" />
+                                </a>
+                            </div>
+                        </div>
+                    <%} else if(product.getName().equals("NIKE AIR JORDAN 1 LOW ELEVATE")) {%>
                     <div class="small_image">
                         <div class="small_image-link">
                             <a href="./assets/img/jordan 1 low elevate detail 1.png">
@@ -611,7 +692,7 @@ pageEncoding="UTF-8"
                     <img src="./assets/img/superstar desc 4.jpg" alt="superstar" />
                 </div>
             </div>
-            <%} else if(product.getName().equals("LOWELEVATE")) {%>
+            <%} else if(product.getName().equals("ULTRABOOST 21")) {%>
             <div class="desc_detail">
                 <!-- Sửa: phần được viết ở class="reason" sẽ được in đậm
                 Đây là phần mô tả sản phẩm chi tiết, đi copy trang kingshoes
@@ -621,7 +702,301 @@ pageEncoding="UTF-8"
                 có ý nghĩa bằng cách gõ lorem10 + phím tab để tạo ra 10 từ
                 không có ý nghĩa nội dung, thay đổi số 10 để tạo số lượng từ
                 như mong muốn -->
-                <div class="reason">4 LÝ DO BẠN KHÔNG NÊN BỎ LỠ LOWELEVATE</div>
+                <div class="reason">4 LÝ DO BẠN KHÔNG NÊN BỎ LỠ ADIDAS</div>
+                <!-- Sửa: phần được viết ở class="paragraph" là viết thường -->
+                <div class="paragraph">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Non ipsum excepturi quas dolores tempore aut soluta, repellat labore omnis? Ad.
+                </div>
+                <div class="reason">1. Mẫu giày không bao giờ lỗi thời</div>
+                <div class="paragraph">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, aspernatur.
+                </div>
+                <div class="img-desc">
+                    <!-- Sửa: src với alt -->
+                    <img src="./assets/img/ultraboost 21 desc 1.png" alt="ultraboost21" />
+                </div>
+                <div class="reason">2. Khả năng mix đồ không giới hạn</div>
+                <div class="paragraph">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, illum.
+                </div>
+                <div class="img-desc">
+                    <!-- Sửa: src với alt -->
+                    <img src="./assets/img/ultraboost 21 desc 2.png" alt="ultraboost21" />
+                </div>
+                <div class="reason">3. Mức giá dễ chịu</div>
+                <div class="paragraph">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, blanditiis.
+                </div>
+                <div class="img-desc">
+                    <!-- Sửa: src với alt -->
+                    <img src="./assets/img/ultraboost 21 desc 3.png" alt="ultraboost21" />
+                </div>
+
+                <div class="reason">4. Bảo quản dễ dàng</div>
+                <div class="paragraph">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint, ipsam.
+                </div>
+                <div class="img-desc">
+                    <!-- Sửa: src với alt -->
+                    <img src="./assets/img/ultraboost 21 desc 4.png" alt="ultraboost21" />
+                </div>
+            </div>
+            <%} else if(product.getName().equals("ULTRABOOST 20 CLOUD WHITE")) {%>
+                <div class="desc_detail">
+                    <!-- Sửa: phần được viết ở class="reason" sẽ được in đậm
+                    Đây là phần mô tả sản phẩm chi tiết, đi copy trang kingshoes
+                    rồi dán vào đây -->
+                    <!-- Sửa: với các sản phẩm không được viết mô tả chi tiết
+                    trên trang kingshoes, có thể tạo một nội dung văn bản không
+                    có ý nghĩa bằng cách gõ lorem10 + phím tab để tạo ra 10 từ
+                    không có ý nghĩa nội dung, thay đổi số 10 để tạo số lượng từ
+                    như mong muốn -->
+                    <div class="reason">4 LÝ DO BẠN KHÔNG NÊN BỎ LỠ ADIDAS</div>
+                    <!-- Sửa: phần được viết ở class="paragraph" là viết thường -->
+                    <div class="paragraph">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error, magni repellendus quam aliquid esse recusandae natus fugiat repudiandae molestias eius?
+                    </div>
+                    <div class="reason">1. Mẫu giày không bao giờ lỗi thời</div>
+                    <div class="paragraph">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, aspernatur.
+                    </div>
+                    <div class="img-desc">
+                        <!-- Sửa: src với alt -->
+                        <img src="./assets/img/ultraboost 20 cloud white desc 1.png" alt="ultraboostcloud" />
+                    </div>
+                    <div class="reason">2. Khả năng mix đồ không giới hạn</div>
+                    <div class="paragraph">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, illum.
+                    </div>
+                    <div class="img-desc">
+                        <!-- Sửa: src với alt -->
+                        <img src="./assets/img/ultraboost 20 cloud white desc 2.png" alt="ultraboostcloud" />
+                    </div>
+                    <div class="reason">3. Mức giá dễ chịu</div>
+                    <div class="paragraph">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, blanditiis.
+                    </div>
+                    <div class="img-desc">
+                        <!-- Sửa: src với alt -->
+                        <img src="./assets/img/ultraboost 20 cloud white desc 3.png" alt="ultraboostcloud" />
+                    </div>
+    
+                    <div class="reason">4. Bảo quản dễ dàng</div>
+                    <div class="paragraph">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint, ipsam.
+                    </div>
+                    <div class="img-desc">
+                        <!-- Sửa: src với alt -->
+                        <img src="./assets/img/ultraboost 20 cloud white desc 4.png" alt="ultraboostcloud" />
+                    </div>
+                </div>
+            <%} else if(product.getName().equals("NIKE AIR FORCE 1 SUMMIT WHITE COMMAND FORCE")) {%>
+                <div class="desc_detail">
+                    <!-- Sửa: phần được viết ở class="reason" sẽ được in đậm
+                    Đây là phần mô tả sản phẩm chi tiết, đi copy trang kingshoes
+                    rồi dán vào đây -->
+                    <!-- Sửa: với các sản phẩm không được viết mô tả chi tiết
+                    trên trang kingshoes, có thể tạo một nội dung văn bản không
+                    có ý nghĩa bằng cách gõ lorem10 + phím tab để tạo ra 10 từ
+                    không có ý nghĩa nội dung, thay đổi số 10 để tạo số lượng từ
+                    như mong muốn -->
+                    <div class="reason">4 LÝ DO BẠN KHÔNG NÊN BỎ LỠ ADIDAS</div>
+                    <!-- Sửa: phần được viết ở class="paragraph" là viết thường -->
+                    <div class="paragraph">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, natus nostrum maiores soluta tenetur culpa ullam explicabo aliquam. Ullam, dolorum.
+                    </div>
+                    <div class="reason">1. Mẫu giày không bao giờ lỗi thời</div>
+                    <div class="paragraph">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, aspernatur.
+                    </div>
+                    <div class="img-desc">
+                        <!-- Sửa: src với alt -->
+                        <img src="./assets/img/nike summit white command force desc 1.png" alt="commandforce" />
+                    </div>
+                    <div class="reason">2. Khả năng mix đồ không giới hạn</div>
+                    <div class="paragraph">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, illum.
+                    </div>
+                    <div class="img-desc">
+                        <!-- Sửa: src với alt -->
+                        <img src="./assets/img/nike summit white command force desc 2.png" alt="commandforce" />
+                    </div>
+                    <div class="reason">3. Mức giá dễ chịu</div>
+                    <div class="paragraph">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, blanditiis.
+                    </div>
+                    <div class="img-desc">
+                        <!-- Sửa: src với alt -->
+                        <img src="./assets/img/nike summit white command force desc 3.png" alt="commandforce" />
+                    </div>
+    
+                    <div class="reason">4. Bảo quản dễ dàng</div>
+                    <div class="paragraph">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint, ipsam.
+                    </div>
+                    <div class="img-desc">
+                        <!-- Sửa: src với alt -->
+                        <img src="./assets/img/nike summit white command force desc 4.png" alt="commandforce" />
+                    </div>
+                </div>
+            <%} else if(product.getName().equals("AIR MAX BLISS")) {%>
+                <div class="desc_detail">
+                    <!-- Sửa: phần được viết ở class="reason" sẽ được in đậm
+                    Đây là phần mô tả sản phẩm chi tiết, đi copy trang kingshoes
+                    rồi dán vào đây -->
+                    <!-- Sửa: với các sản phẩm không được viết mô tả chi tiết
+                    trên trang kingshoes, có thể tạo một nội dung văn bản không
+                    có ý nghĩa bằng cách gõ lorem10 + phím tab để tạo ra 10 từ
+                    không có ý nghĩa nội dung, thay đổi số 10 để tạo số lượng từ
+                    như mong muốn -->
+                    <div class="reason">4 LÝ DO BẠN KHÔNG NÊN BỎ LỠ ADIDAS</div>
+                    <!-- Sửa: phần được viết ở class="paragraph" là viết thường -->
+                    <div class="paragraph">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, ab nemo beatae sequi inventore tenetur ullam magnam doloribus maxime nam!
+                    </div>
+                    <div class="reason">1. Mẫu giày không bao giờ lỗi thời</div>
+                    <div class="paragraph">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, aspernatur.
+                    </div>
+                    <div class="img-desc">
+                        <!-- Sửa: src với alt -->
+                        <img src="./assets/img/nike air max bliss desc 1.png" alt="airmaxbliss" />
+                    </div>
+                    <div class="reason">2. Khả năng mix đồ không giới hạn</div>
+                    <div class="paragraph">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, illum.
+                    </div>
+                    <div class="img-desc">
+                        <!-- Sửa: src với alt -->
+                        <img src="./assets/img/nike air max bliss desc 2.png" alt="airmaxbliss" />
+                    </div>
+                    <div class="reason">3. Mức giá dễ chịu</div>
+                    <div class="paragraph">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, blanditiis.
+                    </div>
+                    <div class="img-desc">
+                        <!-- Sửa: src với alt -->
+                        <img src="./assets/img/nike air max bliss desc 3.png" alt="airmaxbliss" />
+                    </div>
+    
+                    <div class="reason">4. Bảo quản dễ dàng</div>
+                    <div class="paragraph">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint, ipsam.
+                    </div>
+                    <div class="img-desc">
+                        <!-- Sửa: src với alt -->
+                        <img src="./assets/img/nike air max bliss desc 4.png" alt="airmaxbliss" />
+                    </div>
+                </div>
+            <%} else if(product.getName().equals("JORDAN 1 MID TURF ORANGE")) {%>
+                <div class="desc_detail">
+                <!-- Sửa: phần được viết ở class="reason" sẽ được in đậm
+                Đây là phần mô tả sản phẩm chi tiết, đi copy trang kingshoes
+                rồi dán vào đây -->
+                <!-- Sửa: với các sản phẩm không được viết mô tả chi tiết
+                trên trang kingshoes, có thể tạo một nội dung văn bản không
+                có ý nghĩa bằng cách gõ lorem10 + phím tab để tạo ra 10 từ
+                không có ý nghĩa nội dung, thay đổi số 10 để tạo số lượng từ
+                như mong muốn -->
+                <div class="reason">4 LÝ DO BẠN KHÔNG NÊN BỎ LỠ ADIDAS</div>
+                <!-- Sửa: phần được viết ở class="paragraph" là viết thường -->
+                <div class="paragraph">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit similique voluptatibus repellat illum! Modi eaque laudantium, cumque reprehenderit labore officia!
+                </div>
+                <div class="reason">1. Mẫu giày không bao giờ lỗi thời</div>
+                <div class="paragraph">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, aspernatur.
+                </div>
+                <div class="img-desc">
+                    <!-- Sửa: src với alt -->
+                    <img src="./assets/img/jordan 1 mid turf orange desc 1.jpg" alt="turforange" />
+                </div>
+                <div class="reason">2. Khả năng mix đồ không giới hạn</div>
+                <div class="paragraph">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, illum.
+                </div>
+                <div class="img-desc">
+                    <!-- Sửa: src với alt -->
+                    <img src="./assets/img/jordan 1 mid turf orange desc 2.jpg" alt="turforange" />
+                </div>
+                <div class="reason">3. Mức giá dễ chịu</div>
+                <div class="paragraph">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, blanditiis.
+                </div>
+                <div class="img-desc">
+                    <!-- Sửa: src với alt -->
+                    <img src="./assets/img/jordan 1 mid turf orange desc 3.jpg" alt="turforange" />
+                </div>
+
+                <div class="reason">4. Bảo quản dễ dàng</div>
+                <div class="paragraph">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint, ipsam.
+                </div>
+                <div class="img-desc">
+                    <!-- Sửa: src với alt -->
+                    <img src="./assets/img/jordan 1 mid turf orange desc 4.jpg" alt="turforange" />
+                </div>
+            </div>
+            <%} else if(product.getName().equals("ADIDAS ULTRA 4DFWD")) {%>
+                <div class="desc_detail">
+                    <!-- Sửa: phần được viết ở class="reason" sẽ được in đậm
+                    Đây là phần mô tả sản phẩm chi tiết, đi copy trang kingshoes
+                    rồi dán vào đây -->
+                    <!-- Sửa: với các sản phẩm không được viết mô tả chi tiết
+                    trên trang kingshoes, có thể tạo một nội dung văn bản không
+                    có ý nghĩa bằng cách gõ lorem10 + phím tab để tạo ra 10 từ
+                    không có ý nghĩa nội dung, thay đổi số 10 để tạo số lượng từ
+                    như mong muốn -->
+                    <div class="reason">4 LÝ DO BẠN KHÔNG NÊN BỎ LỠ ADIDAS</div>
+                    <!-- Sửa: phần được viết ở class="paragraph" là viết thường -->
+                    <div class="paragraph">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi, dolore. Eum consequuntur, temporibus magni earum soluta ut dolorem illum accusamus.
+                    </div>
+                    <div class="reason">1. Mẫu giày không bao giờ lỗi thời</div>
+                    <div class="paragraph">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, aspernatur.
+                    </div>
+                    <div class="img-desc">
+                        <!-- Sửa: src với alt -->
+                        <img src="./assets/img/adidas ultra 4dfwd desc 1.png" alt="ultra4dfwd" />
+                    </div>
+                    <div class="reason">2. Khả năng mix đồ không giới hạn</div>
+                    <div class="paragraph">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, illum.
+                    </div>
+                    <div class="img-desc">
+                        <!-- Sửa: src với alt -->
+                        <img src="./assets/img/adidas ultra 4dfwd desc 2.png" alt="ultra4dfwd" />
+                    </div>
+                    <div class="reason">3. Mức giá dễ chịu</div>
+                    <div class="paragraph">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, blanditiis.
+                    </div>
+                    <div class="img-desc">
+                        <!-- Sửa: src với alt -->
+                        <img src="./assets/img/adidas ultra 4dfwd desc 3.png" alt="ultra4dfwd" />
+                    </div>
+    
+                    <div class="reason">4. Bảo quản dễ dàng</div>
+                    <div class="paragraph">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint, ipsam.
+                    </div>
+                    <div class="img-desc">
+                        <!-- Sửa: src với alt -->
+                        <img src="./assets/img/adidas ultra 4dfwd desc 4.png" alt="ultra4dfwd" />
+                    </div>
+                </div>
+            <%} else if(product.getName().equals("NIKE AIR JORDAN 1 LOW ELEVATE")) {%>
+            <div class="desc_detail">
+                <!-- Sửa: phần được viết ở class="reason" sẽ được in đậm
+                Đây là phần mô tả sản phẩm chi tiết, đi copy trang kingshoes
+                rồi dán vào đây -->
+                <!-- Sửa: với các sản phẩm không được viết mô tả chi tiết
+                trên trang kingshoes, có thể tạo một nội dung văn bản không
+                có ý nghĩa bằng cách gõ lorem10 + phím tab để tạo ra 10 từ
+                không có ý nghĩa nội dung, thay đổi số 10 để tạo số lượng từ
+                như mong muốn -->
+                <div class="reason">4 LÝ DO BẠN KHÔNG NÊN BỎ LỠ NIKE AIR JORDAN 1 LOW ELEVATE</div>
                 <!-- Sửa: phần được viết ở class="paragraph" là viết thường -->
                 <div class="paragraph">
                     Nike Air Jordan 1 với lịch sử hơn 30 năm luôn được nhìn nhận như một trong những dòng sản phẩm 
