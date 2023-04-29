@@ -154,7 +154,7 @@ pageEncoding="UTF-8"
                         <div class="display_ui_own">
                             <div class="ui_own">
                                 <div class="price_own">Giá Bán: <%=formatter.format(unitPrice)%>đ</div>
-                                <div class="price_own">Giá vốn: <%=formatter.format(initPrice)%>đ</div>
+                                <div class="price_own">Giá Vốn: <%=formatter.format(initPrice)%>đ</div>
                                 <div class="option-size">
                                     <div class="desc-size">Tồn Kho: <%=quantity%></div>
                                     <ul class="size-list">
