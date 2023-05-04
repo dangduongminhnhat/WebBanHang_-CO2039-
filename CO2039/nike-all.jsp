@@ -54,7 +54,7 @@ pageEncoding="UTF-8"
         <script src="components/nike.js" type="text/javascript" defer></script>
         <script src="components/select-input.js" type="text/javascript" defer></script>
 
-        <title>Adidas</title>
+        <title>Nike</title>
     </head>
     <body>
         <%
