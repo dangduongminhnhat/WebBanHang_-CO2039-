@@ -81,7 +81,7 @@ body {
 /*-------- Modal ----------- */
 .modal {
     display: flex;
-    display: none;
+    /* display: none; */
     position: fixed;
     z-index: 1;
     inset: 0;
